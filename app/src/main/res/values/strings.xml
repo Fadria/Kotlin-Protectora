@@ -1,3 +1,5 @@
 <resources>
-    <string name="app_name">Protectora</string>
+    <string name="app_name">Nuevo Lazo</string>
+    <string name="tituloSplashScreen">Nuevo Lazo</string>
+    <string name="descripcionSplashScreen">Creando lazos entre personas y animales desde 1999</string>
 </resources>
