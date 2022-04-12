@@ -2,4 +2,7 @@
     <string name="app_name">Nuevo Lazo</string>
     <string name="tituloSplashScreen">Nuevo Lazo</string>
     <string name="descripcionSplashScreen">Creando lazos entre personas y animales desde 1999</string>
+    <string name="registrarse">¡Registrate ya!</string>
+    <string name="login">Login</string>
+    <string name="email">Email</string>
 </resources>

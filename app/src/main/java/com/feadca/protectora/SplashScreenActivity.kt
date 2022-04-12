@@ -50,7 +50,7 @@ class SplashScreenActivity : AppCompatActivity() {
 
         // Pasado el tiempo del SPLASH_SCREEN_TIME realizaremos un Intent al MainActivity
         Handler().postDelayed({
-            val intent = Intent(this, MainActivity::class.java)
+            val intent = Intent(this, LoginActivity::class.java)
             startActivity(intent)
             finish()
         }, SPLASH_SCREEN_TIME.toLong())
