@@ -1,4 +1,4 @@
-package com.feadca.protectora
+package com.feadca.protectora.ui
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -9,6 +9,7 @@ import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import android.widget.ImageView
 import android.widget.TextView
+import com.feadca.protectora.R
 
 class SplashScreenActivity : AppCompatActivity() {
 

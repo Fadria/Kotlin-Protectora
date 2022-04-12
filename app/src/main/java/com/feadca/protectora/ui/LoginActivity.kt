@@ -1,4 +1,4 @@
-package com.feadca.protectora
+package com.feadca.protectora.ui
 
 import android.app.Activity
 import android.content.Context
