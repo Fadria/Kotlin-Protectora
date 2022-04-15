@@ -103,22 +103,23 @@
                 android:src="@drawable/password" />
         </RelativeLayout>
 
-        <TextView
-            android:id="@+id/tvLogin"
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnLogin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
             android:layout_marginLeft="62dp"
             android:layout_marginTop="18.7dp"
             android:layout_marginRight="62dp"
-            android:background="@drawable/blue_fill__rounded"
             android:fontFamily="@font/poppins_medium"
             android:gravity="center"
             android:paddingTop="14dp"
             android:paddingBottom="14dp"
             android:text="@string/login"
+            android:textAllCaps="false"
             android:textColor="@color/white"
-            android:textSize="12sp" />
+            android:textSize="12sp"
+            app:cornerRadius="24dp"
+            />
 
         <TextView
             android:layout_width="wrap_content"
