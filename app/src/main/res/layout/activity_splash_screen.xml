@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="8dp"
-    android:background="@color/fondoSplash"
+    android:background="@color/fondoGeneral"
     tools:context=".ui.SplashScreenActivity">
 
     <ImageView
