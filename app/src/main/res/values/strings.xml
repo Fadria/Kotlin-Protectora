@@ -6,4 +6,6 @@
     <string name="login">Login</string>
     <string name="email">Email</string>
     <string name="shared_file">com.feadca.protectora.SHARED_KEY_FILE</string>
+    <string name="recoverPassword">Recuperar contraseña</string>
+    <string name="goToLogin">Iniciar sesión</string>
 </resources>

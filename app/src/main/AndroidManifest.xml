@@ -11,8 +11,11 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:usesCleartextTraffic="true"
-        android:theme="@style/Theme.Protectora">
+        android:theme="@style/Theme.Protectora"
+        android:usesCleartextTraffic="true">
+        <activity
+            android:name=".ui.RecoverPasswordActivity"
+            android:exported="false" />
         <activity
             android:name=".ui.LoginActivity"
             android:exported="false" />
@@ -27,7 +30,7 @@
         </activity>
         <activity
             android:name=".ui.MainActivity"
-            android:exported="false"></activity>
+            android:exported="false" />
     </application>
 
 </manifest>

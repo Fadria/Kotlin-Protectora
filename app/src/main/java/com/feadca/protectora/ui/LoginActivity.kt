@@ -79,10 +79,16 @@ class LoginActivity : AppCompatActivity() {
                 login(email, pass) // Llamamos a la función que contactará con el ViewModel
 
                 hideKeyboard() // Ocultamos el teclado
-                clearFocus()
+                clearFocus() // Vaciamos los campos del formulario
             } else {
                 showSnackbar("Introduzca su email y contraseña")
             }
+        }
+
+        // Navegamos a la actividad de recuperación de contraseña
+        binding.tvRecoverPassword.setOnClickListener {
+            val recoverPasswordIntent = Intent(this, RecoverPasswordActivity::class.java)
+            startActivity(recoverPasswordIntent)
         }
     }
 
@@ -96,8 +102,10 @@ class LoginActivity : AppCompatActivity() {
         }
 
         startActivity(drawerIntent)
+        finish()
     }
 
+    // Función encargada de mostrar avisos
     private fun showSnackbar(message: String) {
         Snackbar.make(binding.layout, message, Snackbar.LENGTH_SHORT)
             .show()
@@ -111,10 +119,13 @@ class LoginActivity : AppCompatActivity() {
         authViewModel.login(email, pass)
     }
 
+    // Función encargada de realizar el login con un token
     private fun loginWithToken() {
+        // Obtenemos el token guardado en el dispositivo o el valor null
         val prefs = getSharedPreferences(getString(R.string.shared_file), Context.MODE_PRIVATE)
         val token = prefs.getString("TOKEN", null)
 
+        // Si tenemos un valor guardado, realizaremos el login
         if (token != null) {
             authViewModel.loginToken(token)
         }
