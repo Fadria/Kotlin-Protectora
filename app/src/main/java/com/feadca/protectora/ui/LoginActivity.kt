@@ -2,12 +2,15 @@ package com.feadca.protectora.ui
 
 import android.app.Activity
 import android.content.Context
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.view.inputmethod.InputMethodManager
 import androidx.lifecycle.ViewModelProvider
+import com.feadca.protectora.R
 import com.feadca.protectora.databinding.ActivityLoginBinding
+import com.feadca.protectora.model.User
 import com.feadca.protectora.viewmodel.AuthViewModel
 import com.google.android.material.snackbar.Snackbar
 
@@ -15,8 +18,8 @@ class LoginActivity : AppCompatActivity() {
     lateinit var binding: ActivityLoginBinding
 
     // Datos usados en el Login
-    lateinit var email:String
-    lateinit var pass:String
+    lateinit var email: String
+    lateinit var pass: String
 
     // Variable que contiene la referencia al ViewModel
     private lateinit var authViewModel: AuthViewModel
@@ -29,14 +32,20 @@ class LoginActivity : AppCompatActivity() {
         // Indicamos el fichero que contiene el ViewModel
         authViewModel = ViewModelProvider(this)[AuthViewModel::class.java]
 
+        loginWithToken() // Al cargar la aplicación intentaremos loguearnos con el token
+
         // Acciones ejecutadas al detectar una actualización en el LiveData userDataLD
-        authViewModel.userDataLD.observe(this){
-            // TODO: Guardamos los datos del usuario en un Shared Preferences
-            showSnackbar("Login completado")
+        authViewModel.userDataLD.observe(this) {
+            val prefs =
+                getSharedPreferences(getString(R.string.shared_file), Context.MODE_PRIVATE).edit()
+            prefs.putString("TOKEN", it!!.token)
+            prefs.apply()
+
+            showDrawer(it)
         }
 
         // Acciones ejecutadas al detectar una actualización en el LiveData errorLD
-        authViewModel.errorLD.observe(this){
+        authViewModel.errorLD.observe(this) {
             showSnackbar(it!!)
 
             // Cambiamos la opacidad de la pantalla para que el usuario sepa que puede continuar usando la app
@@ -56,8 +65,7 @@ class LoginActivity : AppCompatActivity() {
             email = binding.etEmail.text.toString()
             pass = binding.etPassword.text.toString()
 
-            if( email != "" && pass != "" )
-            {
+            if (email != "" && pass != "") {
                 // Cambiamos la opacidad de la pantalla para que el usuario vea mejor que debe esperar
                 binding.layout.alpha = 0.5f
 
@@ -68,14 +76,26 @@ class LoginActivity : AppCompatActivity() {
                 binding.etEmail.isEnabled = false;
                 binding.etPassword.isEnabled = false;
 
-                login( email, pass ) // Llamamos a la función que contactará con el ViewModel
+                login(email, pass) // Llamamos a la función que contactará con el ViewModel
 
                 hideKeyboard() // Ocultamos el teclado
                 clearFocus()
-            }else{
+            } else {
                 showSnackbar("Introduzca su email y contraseña")
             }
         }
+    }
+
+    private fun showDrawer(it: User?) {
+        // TODO: dependiendo del rol nos situaremos en un drawer u otro
+
+        val drawerIntent = Intent(this, MainActivity::class.java).apply {
+            putExtra("USER", it!!.usuario)
+            putExtra("USER", it!!.rol)
+            putExtra("USER", it!!.foto)
+        }
+
+        startActivity(drawerIntent)
     }
 
     private fun showSnackbar(message: String) {
@@ -91,15 +111,25 @@ class LoginActivity : AppCompatActivity() {
         authViewModel.login(email, pass)
     }
 
+    private fun loginWithToken() {
+        val prefs = getSharedPreferences(getString(R.string.shared_file), Context.MODE_PRIVATE)
+        val token = prefs.getString("TOKEN", null)
+
+        if (token != null) {
+            authViewModel.loginToken(token)
+        }
+    }
+
     // Función para dejar los campos del formulario vacíos
-    private fun clearFocus(){
+    private fun clearFocus() {
         binding.etEmail.setText("")
         binding.etPassword.setText("")
     }
 
     // Función encargada de ocultar el teclado
     private fun Context.hideKeyboard() {
-        val inputMethodManager = getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager
+        val inputMethodManager =
+            getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager
         inputMethodManager.hideSoftInputFromWindow(currentFocus?.windowToken, 0)
     }
 }

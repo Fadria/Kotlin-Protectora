@@ -5,4 +5,5 @@
     <string name="registrarse">¡Registrate ya!</string>
     <string name="login">Login</string>
     <string name="email">Email</string>
+    <string name="shared_file">com.feadca.protectora.SHARED_KEY_FILE</string>
 </resources>
