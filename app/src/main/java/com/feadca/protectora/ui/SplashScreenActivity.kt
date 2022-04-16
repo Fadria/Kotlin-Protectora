@@ -10,6 +10,7 @@ import android.view.animation.AnimationUtils
 import android.widget.ImageView
 import android.widget.TextView
 import com.feadca.protectora.R
+import com.feadca.protectora.ui.auth.LoginActivity
 
 class SplashScreenActivity : AppCompatActivity() {
 

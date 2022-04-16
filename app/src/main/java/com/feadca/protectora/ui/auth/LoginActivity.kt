@@ -1,4 +1,4 @@
-package com.feadca.protectora.ui
+package com.feadca.protectora.ui.auth
 
 import android.app.Activity
 import android.content.Context
@@ -11,6 +11,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.feadca.protectora.R
 import com.feadca.protectora.databinding.ActivityLoginBinding
 import com.feadca.protectora.model.User
+import com.feadca.protectora.ui.MainActivity
 import com.feadca.protectora.viewmodel.AuthViewModel
 import com.google.android.material.snackbar.Snackbar
 
@@ -89,6 +90,12 @@ class LoginActivity : AppCompatActivity() {
         binding.tvRecoverPassword.setOnClickListener {
             val recoverPasswordIntent = Intent(this, RecoverPasswordActivity::class.java)
             startActivity(recoverPasswordIntent)
+        }
+
+        // Navegamos a la actividad de recuperación de contraseña
+        binding.tvRegister.setOnClickListener {
+            val registerIntent = Intent(this, RegisterActivity::class.java)
+            startActivity(registerIntent)
         }
     }
 

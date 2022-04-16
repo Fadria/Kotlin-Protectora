@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:id="@+id/layout"
     android:background="@color/fondoGeneral"
-    tools:context=".ui.LoginActivity">
+    tools:context=".ui.auth.LoginActivity">
 
     <ProgressBar
         android:id="@+id/progressBar"
@@ -97,7 +97,7 @@
             <ImageView
                 android:id="@+id/iconPass"
                 android:layout_width="14dp"
-                android:layout_height="10dp"
+                android:layout_height="30dp"
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="17dp"
                 android:src="@drawable/password" />
@@ -122,6 +122,7 @@
             />
 
         <TextView
+            android:id="@+id/tvRegister"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"

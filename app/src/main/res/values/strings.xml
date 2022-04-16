@@ -8,4 +8,27 @@
     <string name="shared_file">com.feadca.protectora.SHARED_KEY_FILE</string>
     <string name="recoverPassword">Recuperar contraseña</string>
     <string name="goToLogin">Iniciar sesión</string>
+    <string name="register">Registrarse</string>
+    <string name="user">Usuario</string>
+    <string name="fullName">Nombre completo</string>
+    <string name="phone">Teléfono</string>
+    <string name="address">Dirección</string>
+    <string name="city">Ciudad</string>
+    <string name="zipcode">Código postal</string>
+    <string name="dangerousDog">Carnet PPP</string>
+    <string name="authData">Datos de autenticación</string>
+    <string name="personalData">Datos personales</string>
+    <string name="anotherData">Otros datos</string>
+    <string name="locationData">Datos de localización</string>
+    <string name="birthDate">Fecha de nacimiento</string>
+    <string name="image">Imagen</string>
+    <string name="emailRequired">Email *</string>
+    <string name="userRequired">Usuario *</string>
+    <string name="passwordRequired">Contraseña *</string>
+    <string name="fullNameRequired">Nombre completo *</string>
+    <string name="phoneRequired">Teléfono *</string>
+    <string name="birthDateRequired">Fecha de nacimiento *</string>
+    <string name="addressRequired">Dirección *</string>
+    <string name="cityRequired">Ciudad *</string>
+    <string name="zipcodeRequired">Código postal *</string>
 </resources>

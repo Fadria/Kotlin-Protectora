@@ -1,4 +1,4 @@
-package com.feadca.protectora.ui
+package com.feadca.protectora.ui.auth
 
 import android.app.Activity
 import android.content.Context
@@ -8,8 +8,6 @@ import android.os.Bundle
 import android.view.View
 import android.view.inputmethod.InputMethodManager
 import androidx.lifecycle.ViewModelProvider
-import com.feadca.protectora.R
-import com.feadca.protectora.databinding.ActivityLoginBinding
 import com.feadca.protectora.databinding.ActivityRecoverPasswordBinding
 import com.feadca.protectora.viewmodel.AuthViewModel
 import com.google.android.material.snackbar.Snackbar
