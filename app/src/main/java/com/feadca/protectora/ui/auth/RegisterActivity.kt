@@ -5,6 +5,7 @@ import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.view.inputmethod.InputMethodManager
 import androidx.lifecycle.ViewModelProvider
 import com.feadca.protectora.databinding.ActivityRegisterBinding
@@ -23,7 +24,7 @@ class RegisterActivity : AppCompatActivity() {
     lateinit var pass: String
     lateinit var fullName: String
     lateinit var phone: String
-    lateinit var birthDate: String
+    var birthDate = ""
     lateinit var direction: String
     lateinit var city: String
     lateinit var zipCode: String
@@ -42,6 +43,12 @@ class RegisterActivity : AppCompatActivity() {
 
         // Observamos el LD del registro para informar del resultado de la operación
         authViewModel.registerLD.observe(this) {
+            // Cambiamos la opacidad de la pantalla para que el usuario sepa que puede continuar usando la app
+            binding.layout.alpha = 1.0f
+
+            // Ocultamos la progress bar
+            binding.progressBar.visibility = View.INVISIBLE;
+
             when(it) {
                 "error" -> showSnackbar("Se ha producido un error. Inténtelo de nuevo más tarde.")
                 "emailUsado" -> showSnackbar("El email indicado ya está en uso")
@@ -91,6 +98,12 @@ class RegisterActivity : AppCompatActivity() {
 
     // Función usada para registrar un usuario mediante el viewModel
     private fun registerUser() {
+        // Cambiamos la opacidad de la pantalla para que el usuario vea mejor que debe esperar
+        binding.layout.alpha = 0.5f
+
+        // Mostramos la progress bar
+        binding.progressBar.visibility = View.VISIBLE;
+
         authViewModel.register(
             email,
             user,
@@ -103,6 +116,8 @@ class RegisterActivity : AppCompatActivity() {
             dangerousDogPermission,
             birthDate
         )
+
+        hideKeyboard() // Ocultamos el teclado
     }
 
     // Función que nos permitirá elegir la fecha de nacimiento
