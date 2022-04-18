@@ -72,8 +72,6 @@ class RecoverPasswordActivity : AppCompatActivity() {
 
         // Navegamos a la actividad del Login
         binding.tvGoToLogin.setOnClickListener {
-            val loginIntent = Intent(this, LoginActivity::class.java)
-            startActivity(loginIntent)
             finish()
         }
     }
