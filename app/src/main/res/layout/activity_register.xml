@@ -208,7 +208,7 @@
                     android:background="@android:color/transparent"
                     android:fontFamily="@font/poppins_regular"
                     android:hint="@string/phoneRequired"
-                    android:inputType="text"
+                    android:inputType="phone"
                     android:maxLines="1"
                     android:paddingLeft="17dp"
                     android:paddingTop="15dp"
@@ -240,6 +240,7 @@
                     android:layout_toRightOf="@+id/ivBirthDate"
                     android:background="@android:color/transparent"
                     android:editable="false"
+                    android:focusable="false"
                     android:fontFamily="@font/poppins_regular"
                     android:hint="@string/birthDateRequired"
                     android:maxLines="1"
@@ -386,7 +387,7 @@
                 android:background="@drawable/border_rounded">
 
                 <com.google.android.material.switchmaterial.SwitchMaterial
-                    android:id="@+id/etDangerousDog"
+                    android:id="@+id/swDangerousDog"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_toRightOf="@+id/ivDangerousDog"
@@ -411,41 +412,8 @@
                     android:src="@drawable/dogppp" />
             </RelativeLayout>
 
-            <RelativeLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="62dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginRight="62dp"
-                android:background="@drawable/border_rounded">
-
-                <EditText
-                    android:id="@+id/etImage"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_toRightOf="@+id/ivImage"
-                    android:background="@android:color/transparent"
-                    android:editable="false"
-                    android:fontFamily="@font/poppins_regular"
-                    android:hint="@string/image"
-                    android:maxLines="1"
-                    android:paddingLeft="17dp"
-                    android:paddingTop="15dp"
-                    android:paddingBottom="15dp"
-                    android:textCursorDrawable="@drawable/cursor_color"
-                    android:textSize="12sp" />
-
-                <ImageView
-                    android:id="@+id/ivImage"
-                    android:layout_width="14dp"
-                    android:layout_height="30dp"
-                    android:layout_centerVertical="true"
-                    android:layout_marginLeft="17dp"
-                    android:src="@drawable/image" />
-            </RelativeLayout>
-
             <com.google.android.material.button.MaterialButton
-                android:id="@+id/btnRecoverPassword"
+                android:id="@+id/btnRegister"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="62dp"

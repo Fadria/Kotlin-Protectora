@@ -13,6 +13,7 @@ import com.feadca.protectora.model.User
 import com.feadca.protectora.utils.LOGIN_TOKEN_URL
 import com.feadca.protectora.utils.LOGIN_URL
 import com.feadca.protectora.utils.RECOVER_PASSWORD_URL
+import com.feadca.protectora.utils.REGISTER_URL
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import kotlinx.coroutines.CoroutineScope
@@ -26,12 +27,12 @@ class AuthViewModel(application: Application) : AndroidViewModel(application) {
     // Variables LiveData que usaremos para las diferentes operaciones relacionadas con la autenticación
     val userDataLD: MutableLiveData<User?> = MutableLiveData()
     val recoverLD: MutableLiveData<String?> = MutableLiveData()
+    val registerLD: MutableLiveData<String?> = MutableLiveData()
     val errorLD: MutableLiveData<String?> = MutableLiveData()
 
     // Función para realizar la operación de Login
     fun login(email: String, pass: String) {
         CoroutineScope(Dispatchers.IO).launch {
-
             val url = LOGIN_URL // Login donde realizaremos la petición
             val data = prepareLoginParams(email, pass) // Datos a enviar en la petición
 
@@ -256,6 +257,106 @@ class AuthViewModel(application: Application) : AndroidViewModel(application) {
         }
 
         queue.add(getRequest) // Añadimos la petición y la realizamos
+    }
+
+    fun register(
+        email: String,
+        user: String,
+        pass: String,
+        fullName: String,
+        phone: String,
+        direction: String,
+        city: String,
+        zipCode: String,
+        dangerousDogPermission: Boolean,
+        birthDate: String
+    ) {
+        CoroutineScope(Dispatchers.IO).launch {
+            val url = REGISTER_URL // URL donde realizaremos la petición
+            val data = prepareRegisterParams(email, user, pass, fullName, phone, direction, city, zipCode, dangerousDogPermission,  birthDate)
+
+            // Convertimos nuestro mapa en un json que enviaremos en la petición
+            val jsonObject = JSONObject(data as Map<*, *>?)
+
+            Log.i("aaaaaaaaaaaaaaaaaaaaaaa", jsonObject.toString())
+            makeRegisterRequest(url, jsonObject) // Realizamos la petición
+        }
+    }
+
+    private fun makeRegisterRequest(url: String, data: JSONObject) {
+        // Cola con la que realizaremos la petición de Login
+        val queue = Volley.newRequestQueue(context)
+
+        // Variable que contendrá nuestra petición
+        val getRequest: JsonObjectRequest = object : JsonObjectRequest(
+            Request.Method.POST,
+            url,
+            data,
+            Response.Listener {
+                val gson = Gson() // Inicializamos nuestra variable para trabajar con JSON
+                val mapType =
+                    object : TypeToken<Map<String, Any>>() {}.type // Mapa que recibiremos de la API
+
+                // En primer lugar, obtenemos el mapa que nos devuelve ese response
+                var responseMap: Map<String, Any> =
+                    gson.fromJson(it.toString(), object : TypeToken<Map<String, Any>>() {}.type)
+
+                // En segundo lugar, el mapa de donde obtendremos los datos del usuario logueado y el estado
+                var resultData: Map<String, Any> = gson.fromJson(
+                    responseMap.get("result").toString(),
+                    object : TypeToken<Map<String, Any>>() {}.type
+                )
+
+                registerLD.postValue(resultData["status"].toString())
+            },
+            Response.ErrorListener { error ->
+                Log.i("Error Register", error.toString())
+            }
+        ) {
+            @Throws(AuthFailureError::class)
+            override fun getHeaders(): Map<String, String> {
+                val params: MutableMap<String, String> = HashMap()
+                params["User-Agent"] = "Mozilla/5.0"
+                return params
+            }
+        }
+
+        queue.add(getRequest) // Añadimos la petición y la realizamos
+    }
+
+    private fun prepareRegisterParams(
+        email: String,
+        user: String,
+        pass: String,
+        fullName: String,
+        phone: String,
+        direction: String,
+        city: String,
+        zipCode: String,
+        dangerousDogPermission: Boolean,
+        birthDate: String
+    ): Any {
+        val data =
+            HashMap<String, HashMap<String, Any>>() // Mapa que contendrá el cuerpo de la petición
+        val params = HashMap<String, Any>() // Mapa con los parámetros a enviar
+
+        // Añadimos los parámetros a enviar
+        params.put("email", email)
+        params.put("usuario", user)
+        params.put("contrasenya", pass)
+        params.put("nombreCompleto", fullName)
+        params.put("telefono", phone)
+        params.put("direccion", direction)
+        params.put("ciudad", city)
+        params.put("codigoPostal", zipCode)
+        params.put("permisoPPP", dangerousDogPermission)
+        params.put("fechaNacimiento", birthDate)
+
+        // Añadimos esos parámetros al cuerpo
+        data.put("data", params)
+
+        // Devolvemos los datos
+        return data
     }
 
 }
