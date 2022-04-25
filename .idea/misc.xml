@@ -3,10 +3,20 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Fede/AndroidStudioProjects/Protectora/app/src/main/res/drawable/about_icon.xml" value="0.1405" />
         <entry key="..\:/Users/Fede/AndroidStudioProjects/Protectora/app/src/main/res/drawable/blue_border_rounded_cornwe.xml" value="0.1405" />
         <entry key="..\:/Users/Fede/AndroidStudioProjects/Protectora/app/src/main/res/drawable/blue_fill__rounded_color.xml" value="0.1405" />
         <entry key="..\:/Users/Fede/AndroidStudioProjects/Protectora/app/src/main/res/drawable/border_rounded.xml" value="0.1405" />
         <entry key="..\:/Users/Fede/AndroidStudioProjects/Protectora/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1405" />
+        <entry key="..\:/Users/Fede/AndroidStudioProjects/Protectora/app/src/main/res/drawable/icon_about.xml" value="0.1405" />
+        <entry key="..\:/Users/Fede/AndroidStudioProjects/Protectora/app/src/main/res/drawable/icon_animals.xml" value="0.1405" />
+        <entry key="..\:/Users/Fede/AndroidStudioProjects/Protectora/app/src/main/res/drawable/icon_blog.xml" value="0.1405" />
+        <entry key="..\:/Users/Fede/AndroidStudioProjects/Protectora/app/src/main/res/drawable/icon_contact.xml" value="0.1405" />
+        <entry key="..\:/Users/Fede/AndroidStudioProjects/Protectora/app/src/main/res/drawable/icon_donation.xml" value="0.1405" />
+        <entry key="..\:/Users/Fede/AndroidStudioProjects/Protectora/app/src/main/res/drawable/icon_graphs.xml" value="0.1405" />
+        <entry key="..\:/Users/Fede/AndroidStudioProjects/Protectora/app/src/main/res/drawable/icon_logout.xml" value="0.1405" />
+        <entry key="..\:/Users/Fede/AndroidStudioProjects/Protectora/app/src/main/res/drawable/icon_profile.xml" value="0.1405" />
+        <entry key="..\:/Users/Fede/AndroidStudioProjects/Protectora/app/src/main/res/drawable/icon_revision.xml" value="0.1405" />
         <entry key="..\:/Users/Fede/AndroidStudioProjects/Protectora/app/src/main/res/layout/activity_login.xml" value="0.264" />
         <entry key="..\:/Users/Fede/AndroidStudioProjects/Protectora/app/src/main/res/layout/activity_main.xml" value="0.22826086956521738" />
         <entry key="..\:/Users/Fede/AndroidStudioProjects/Protectora/app/src/main/res/layout/activity_recover_password.xml" value="0.22826086956521738" />
