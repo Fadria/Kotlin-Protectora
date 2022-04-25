@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:title="@string/nuevo_lazo">
+        <menu>
+            <group android:checkableBehavior="single">
+                <item
+                    android:id="@+id/nav_home"
+                    android:title="@string/menu_about"
+                    android:icon="@drawable/icon_about"/>
+                <item
+                    android:id="@+id/nav_contact"
+                    android:title="@string/menu_contact"
+                    android:icon="@drawable/icon_contact"/>
+                <item
+                    android:id="@+id/nav_donations"
+                    android:title="@string/menu_donations"
+                    android:icon="@drawable/icon_donation"/>
+            </group>
+        </menu>
+    </item>
+
+    <group>
+        android:id="@+id/divider1"
+    </group>
+
+    <item android:title="@string/animals">
+        <menu>
+            <group android:checkableBehavior="single">
+                <item
+                    android:id="@+id/nav_animals"
+                    android:title="@string/menu_animals"
+                    android:icon="@drawable/icon_animals"/>
+                <item
+                    android:id="@+id/nav_revision"
+                    android:title="@string/menu_revisions"
+                    android:icon="@drawable/icon_revision"/>
+                <item
+                    android:id="@+id/nav_graph"
+                    android:title="@string/menu_graphs"
+                    android:icon="@drawable/icon_graphs"/>
+            </group>
+        </menu>
+    </item>
+
+    <group>
+        android:id="@+id/divider2"
+    </group>
+
+    <item android:title="@string/operacionesUsuario">
+        <menu>
+            <group android:checkableBehavior="single">
+                <item
+                    android:id="@+id/nav_profile"
+                    android:title="@string/menu_profile"
+                    android:icon="@drawable/icon_profile"/>
+                <item
+                    android:id="@+id/nav_login"
+                    android:title="@string/menu_login"
+                    android:icon="@drawable/icon_login"/>
+                <item
+                    android:id="@+id/nav_logout"
+                    android:title="@string/menu_logout"
+                    android:icon="@drawable/icon_logout"/>
+            </group>
+        </menu>
+    </item>
+</menu>

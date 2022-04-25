@@ -31,4 +31,20 @@
     <string name="addressRequired">Dirección *</string>
     <string name="cityRequired">Ciudad *</string>
     <string name="zipcodeRequired">Código postal *</string>
+    <string name="menu_about">Quiénes somos</string>
+    <string name="menu_contact">Contacto</string>
+    <string name="usuario_invitado">Usuario Invitado</string>
+    <string name="gracias">Gracias por usar nuestra aplicación</string>
+    <string name="nuevo_lazo">Nuevo Lazo</string>
+    <string name="menu_donations">Donaciones</string>
+    <string name="animals">Animales</string>
+    <string name="menu_animals">Ver animales</string>
+    <string name="menu_revisions">Revisiones</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="menu_graphs">Gráficos</string>
+    <string name="operacionesUsuario">Operaciones Usuario</string>
+    <string name="menu_profile">Mi perfil</string>
+    <string name="menu_logout">Logout</string>
+    <string name="menu_login">Login</string>
 </resources>

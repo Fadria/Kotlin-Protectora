@@ -34,8 +34,8 @@ class SplashScreenActivity : AppCompatActivity() {
             WindowManager.LayoutParams.FLAG_FULLSCREEN,
             WindowManager.LayoutParams.FLAG_FULLSCREEN
         )
-        val actionBar = supportActionBar
-        actionBar!!.hide()
+        /*val actionBar = supportActionBar
+        actionBar!!.hide()*/
 
         setContentView(R.layout.activity_splash_screen)
 
