@@ -1,69 +1,83 @@
 package com.feadca.protectora.ui
 
 import android.os.Bundle
+import android.util.Log
 import android.view.MenuItem
+import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
+import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.ui.AppBarConfiguration
+import androidx.navigation.ui.NavigationUI
 import com.feadca.protectora.R
 import com.feadca.protectora.databinding.ActivityMainBinding
 import com.google.android.material.navigation.NavigationView
 
 
-class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
-    lateinit var binding: ActivityMainBinding
-
-    // Variables que contendrán las referencias al layout
-    lateinit var drawerLayout: DrawerLayout
-    lateinit var navigationView: NavigationView
-    lateinit var toolbar: Toolbar;
+class MainActivity : AppCompatActivity() {
+    private lateinit var binding: ActivityMainBinding
+    private lateinit var appBarConfiguration: AppBarConfiguration
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        overridePendingTransition(R.anim.fadein, R.anim.fadeout);
-
         super.onCreate(savedInstanceState)
-        binding = ActivityMainBinding.inflate(layoutInflater)
-        setContentView(binding.root)
-
-        // Inicializamos las variables
-        drawerLayout = binding.drawerLayout
-        navigationView = binding.mainNavView
-        toolbar = binding.toolbar
+        setContentView(ActivityMainBinding.inflate(layoutInflater).also { binding = it }
+            .root)
 
         // Activamos la toolbar
-        setSupportActionBar(toolbar)
+        setSupportActionBar(binding.toolbar)
 
-        // Preparamos la action bar
-        var toogle:ActionBarDrawerToggle = ActionBarDrawerToggle(this, drawerLayout, toolbar,
-            R.string.navigation_drawer_open, R.string.navigation_drawer_close)
+        // Actualización de las variables del layout
+        val drawerLayout: DrawerLayout = binding.drawerLayout
+        val navView: NavigationView = binding.navView
 
-        drawerLayout.addDrawerListener(toogle)
-        toogle.syncState()
+        // Preparamos el controller de navegación
+        val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
+        val navController = navHostFragment.navController
 
-        // Indicamos las funciones que usaremos al pulsar cada opción
-        navigationView.setNavigationItemSelectedListener(this)
+        // Señalamos los niveles superiores que tendremos en el menú
+        appBarConfiguration = AppBarConfiguration(setOf(
+                R.id.aboutFragment,
+                R.id.contactFragment,
+                R.id.donationsFragment,
+                R.id.animalsFragment,
+                R.id.graphicsFragment,
+                R.id.profileFragment,
+            ),
+            drawerLayout
+        )
 
-        // La opción seleccionada por defecto será nav_home
-        navigationView.setCheckedItem(R.id.nav_home)
+        // Inicialmente nuestra primera ventana será about
+        navView.setCheckedItem(R.id.aboutFragment);
+
+        // Activamos el navController
+        NavigationUI.setupWithNavController(navView, navController)
+        NavigationUI.setupWithNavController(binding.toolbar, navController, appBarConfiguration)
+
+        // Listeners usados para las acciones que no están relacionadas con la navegación, como el login y el logout
+        navView.setNavigationItemSelectedListener(NavigationView.OnNavigationItemSelectedListener {
+            when(it.itemId){
+                // TODO: Ir a la pantalla de Login
+                R.id.nav_login-> {
+                    Toast.makeText(this, "Login pulsado", Toast.LENGTH_SHORT).show()
+                }
+                // TODO: Borrar el token y ir al login
+                R.id.nav_logout-> {
+                    Toast.makeText(this, "Logout pulsado", Toast.LENGTH_SHORT).show()
+                }
+            }
+            false
+        })
     }
 
     // Evitamos que al pulsar el botón de retroceso se cierre la aplicación
     override fun onBackPressed() {
-        if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
-            drawerLayout.closeDrawer(GravityCompat.START) // Cerramos el drawer
+        if (binding.drawerLayout.isDrawerOpen(GravityCompat.START)) {
+            binding.drawerLayout.closeDrawer(GravityCompat.START) // Cerramos el drawer
         } else {
             super.onBackPressed() // Cerramos la aplicación
         }
-    }
-
-
-    // Función usada para indicar las funciones que ejecutará cada opción del menú
-    override fun onNavigationItemSelected(item: MenuItem): Boolean {
-
-        // Cerramos el drawer
-        drawerLayout.closeDrawer(GravityCompat.START)
-        return true
     }
 }

@@ -49,7 +49,7 @@ class AuthViewModel(application: Application) : AndroidViewModel(application) {
         val queue = Volley.newRequestQueue(context)
 
         // Variable que contendrá nuestra petición
-        val getRequest: JsonObjectRequest = object : JsonObjectRequest(
+        val loginRequest: JsonObjectRequest = object : JsonObjectRequest(
             Request.Method.POST,
             url,
             data,
@@ -93,7 +93,7 @@ class AuthViewModel(application: Application) : AndroidViewModel(application) {
             }
         }
 
-        queue.add(getRequest) // Añadimos la petición y la realizamos
+        queue.add(loginRequest) // Añadimos la petición y la realizamos
     }
 
     // Función con la que prepararemos los parámetros que enviaremos al Login
@@ -145,7 +145,7 @@ class AuthViewModel(application: Application) : AndroidViewModel(application) {
         val queue = Volley.newRequestQueue(context)
 
         // Variable que contendrá nuestra petición
-        val getRequest: JsonObjectRequest = object : JsonObjectRequest(
+        val loginTokenRequest: JsonObjectRequest = object : JsonObjectRequest(
             Request.Method.POST,
             url,
             data,
@@ -189,7 +189,7 @@ class AuthViewModel(application: Application) : AndroidViewModel(application) {
             }
         }
 
-        queue.add(getRequest) // Añadimos la petición y la realizamos
+        queue.add(loginTokenRequest) // Añadimos la petición y la realizamos
     }
 
     fun recoverPassword(email: String) {
@@ -223,7 +223,7 @@ class AuthViewModel(application: Application) : AndroidViewModel(application) {
         val queue = Volley.newRequestQueue(context)
 
         // Variable que contendrá nuestra petición
-        val getRequest: JsonObjectRequest = object : JsonObjectRequest(
+        val recoverPasswordRequest: JsonObjectRequest = object : JsonObjectRequest(
             Request.Method.POST,
             url,
             data,
@@ -256,7 +256,7 @@ class AuthViewModel(application: Application) : AndroidViewModel(application) {
             }
         }
 
-        queue.add(getRequest) // Añadimos la petición y la realizamos
+        queue.add(recoverPasswordRequest) // Añadimos la petición y la realizamos
     }
 
     fun register(
@@ -288,7 +288,7 @@ class AuthViewModel(application: Application) : AndroidViewModel(application) {
         val queue = Volley.newRequestQueue(context)
 
         // Variable que contendrá nuestra petición
-        val getRequest: JsonObjectRequest = object : JsonObjectRequest(
+        val registerRequest: JsonObjectRequest = object : JsonObjectRequest(
             Request.Method.POST,
             url,
             data,
@@ -321,7 +321,7 @@ class AuthViewModel(application: Application) : AndroidViewModel(application) {
             }
         }
 
-        queue.add(getRequest) // Añadimos la petición y la realizamos
+        queue.add(registerRequest) // Añadimos la petición y la realizamos
     }
 
     private fun prepareRegisterParams(

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawer_graph"
+    app:startDestination="@id/aboutFragment">
+
+    <fragment
+        android:id="@+id/aboutFragment"
+        android:name="com.feadca.protectora.AboutFragment"
+        android:label="fragment_about"
+        tools:layout="@layout/fragment_about" />
+    <fragment
+        android:id="@+id/contactFragment"
+        android:name="com.feadca.protectora.ContactFragment"
+        android:label="fragment_contact"
+        tools:layout="@layout/fragment_contact" />
+    <fragment
+        android:id="@+id/donationsFragment"
+        android:name="com.feadca.protectora.DonationsFragment"
+        android:label="fragment_donations"
+        tools:layout="@layout/fragment_donations" />
+    <fragment
+        android:id="@+id/animalsFragment"
+        android:name="com.feadca.protectora.AnimalsFragment"
+        android:label="fragment_animals"
+        tools:layout="@layout/fragment_animals" />
+    <fragment
+        android:id="@+id/graphicsFragment"
+        android:name="com.feadca.protectora.GraphicsFragment"
+        android:label="fragment_graphics"
+        tools:layout="@layout/fragment_graphics" />
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.feadca.protectora.ProfileFragment"
+        android:label="fragment_profile"
+        tools:layout="@layout/fragment_profile" />
+</navigation>
