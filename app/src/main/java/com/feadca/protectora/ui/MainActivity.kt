@@ -52,6 +52,9 @@ class MainActivity : AppCompatActivity() {
         // Inicialmente nuestra primera ventana será about
         navView.setCheckedItem(R.id.aboutFragment);
 
+        // Actualización del título del appbar
+        (this as MainActivity?)!!.title = "Quiénes somos"
+
         // Icono usado para hacer logout
         binding.iwLogout.setOnClickListener {
             Toast.makeText(this, "WIP: logout", Toast.LENGTH_SHORT).show()

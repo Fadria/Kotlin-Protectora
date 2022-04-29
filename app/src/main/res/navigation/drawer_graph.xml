@@ -8,31 +8,31 @@
     <fragment
         android:id="@+id/aboutFragment"
         android:name="com.feadca.protectora.ui.content.AboutFragment"
-        android:label="fragment_about"
+        android:label="Quiénes somos"
         tools:layout="@layout/fragment_about" />
     <fragment
         android:id="@+id/contactFragment"
         android:name="com.feadca.protectora.ui.content.ContactFragment"
-        android:label="fragment_contact"
+        android:label="Contacto"
         tools:layout="@layout/fragment_contact" />
     <fragment
         android:id="@+id/donationsFragment"
         android:name="com.feadca.protectora.ui.content.DonationsFragment"
-        android:label="fragment_donations"
+        android:label="Donaciones"
         tools:layout="@layout/fragment_donations" />
     <fragment
         android:id="@+id/animalsFragment"
         android:name="com.feadca.protectora.ui.content.AnimalsFragment"
-        android:label="fragment_animals"
+        android:label="Animales"
         tools:layout="@layout/fragment_animals" />
     <fragment
         android:id="@+id/graphicsFragment"
         android:name="com.feadca.protectora.ui.content.GraphicsFragment"
-        android:label="fragment_graphics"
+        android:label="Gráficos"
         tools:layout="@layout/fragment_graphics" />
     <fragment
         android:id="@+id/profileFragment"
         android:name="com.feadca.protectora.ui.content.ProfileFragment"
-        android:label="fragment_profile"
+        android:label="Mi Perfil"
         tools:layout="@layout/fragment_profile" />
 </navigation>
