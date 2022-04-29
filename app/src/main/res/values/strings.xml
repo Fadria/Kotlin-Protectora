@@ -49,4 +49,11 @@
     <string name="menu_login">Login</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="about_text1">
+        La Protectora Nuevo Lazo surgió en 1999 con el objetivo de ayudar a los animales más desfavorecidos a encontrar una nueva familia, un nuevo lazo.\n\n
+        Esto incluye tanto perros, gatos y hurones como a diferentes animales exóticos tales como fénecs, ajolotes o guacamayos.\n\n
+        Desde entonces hemos logrado encontrar un nuevo hogar a más de 1000 animales, y seguimos sumando
+    </string>
+    <string name="about_text2">¿Nos ayudarás a encontrar un hogar a estos animales?</string>
+    <string name="ver_animales">Ver animales</string>
 </resources>
