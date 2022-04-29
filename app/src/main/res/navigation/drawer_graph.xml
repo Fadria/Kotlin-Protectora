@@ -7,32 +7,32 @@
 
     <fragment
         android:id="@+id/aboutFragment"
-        android:name="com.feadca.protectora.AboutFragment"
+        android:name="com.feadca.protectora.ui.content.AboutFragment"
         android:label="fragment_about"
         tools:layout="@layout/fragment_about" />
     <fragment
         android:id="@+id/contactFragment"
-        android:name="com.feadca.protectora.ContactFragment"
+        android:name="com.feadca.protectora.ui.content.ContactFragment"
         android:label="fragment_contact"
         tools:layout="@layout/fragment_contact" />
     <fragment
         android:id="@+id/donationsFragment"
-        android:name="com.feadca.protectora.DonationsFragment"
+        android:name="com.feadca.protectora.ui.content.DonationsFragment"
         android:label="fragment_donations"
         tools:layout="@layout/fragment_donations" />
     <fragment
         android:id="@+id/animalsFragment"
-        android:name="com.feadca.protectora.AnimalsFragment"
+        android:name="com.feadca.protectora.ui.content.AnimalsFragment"
         android:label="fragment_animals"
         tools:layout="@layout/fragment_animals" />
     <fragment
         android:id="@+id/graphicsFragment"
-        android:name="com.feadca.protectora.GraphicsFragment"
+        android:name="com.feadca.protectora.ui.content.GraphicsFragment"
         android:label="fragment_graphics"
         tools:layout="@layout/fragment_graphics" />
     <fragment
         android:id="@+id/profileFragment"
-        android:name="com.feadca.protectora.ProfileFragment"
+        android:name="com.feadca.protectora.ui.content.ProfileFragment"
         android:label="fragment_profile"
         tools:layout="@layout/fragment_profile" />
 </navigation>
