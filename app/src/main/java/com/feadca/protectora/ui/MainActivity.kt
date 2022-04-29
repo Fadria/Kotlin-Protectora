@@ -52,24 +52,15 @@ class MainActivity : AppCompatActivity() {
         // Inicialmente nuestra primera ventana será about
         navView.setCheckedItem(R.id.aboutFragment);
 
+        // Icono usado para hacer logout
+        binding.iwLogout.setOnClickListener {
+            Toast.makeText(this, "WIP: logout", Toast.LENGTH_SHORT).show()
+        }
+
         // Activamos el navController
         NavigationUI.setupWithNavController(navView, navController)
         NavigationUI.setupWithNavController(binding.toolbar, navController, appBarConfiguration)
 
-        // Listeners usados para las acciones que no están relacionadas con la navegación, como el login y el logout
-        navView.setNavigationItemSelectedListener(NavigationView.OnNavigationItemSelectedListener {
-            when(it.itemId){
-                // TODO: Ir a la pantalla de Login
-                R.id.nav_login-> {
-                    Toast.makeText(this, "Login pulsado", Toast.LENGTH_SHORT).show()
-                }
-                // TODO: Borrar el token y ir al login
-                R.id.nav_logout-> {
-                    Toast.makeText(this, "Logout pulsado", Toast.LENGTH_SHORT).show()
-                }
-            }
-            false
-        })
     }
 
     // Evitamos que al pulsar el botón de retroceso se cierre la aplicación
