@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
+import androidx.navigation.Navigation
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.NavigationUI
@@ -73,5 +74,10 @@ class MainActivity : AppCompatActivity() {
         } else {
             super.onBackPressed() // Cerramos la aplicación
         }
+    }
+
+    fun loadAnimalsFragment() {
+        /*Navigation.findNavController(binding.navView).navigate(R.id.animalsFragment)*/
+        Log.i("holaaaaaaaaaaaaaaaaaa", "holaaaaaaaaaaaaaaa")
     }
 }

@@ -4,12 +4,11 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.navigation.Navigation
 import com.feadca.protectora.R
 import com.feadca.protectora.databinding.FragmentAboutBinding
+import com.feadca.protectora.ui.MainActivity
+
 
 class AboutFragment : Fragment(R.layout.fragment_about) {
     // Enlace con las vistas
@@ -37,7 +36,12 @@ class AboutFragment : Fragment(R.layout.fragment_about) {
 
         // Cuando pulsemos el botón ver animales cambiaremos el fragmento
         binding.btnWatchAnimals.setOnClickListener {
-            Toast.makeText(requireContext(), "hola", Toast.LENGTH_SHORT).show()
+            
+            //(activity as MainActivity?)!!.loadAnimalsFragment()
+            // Navegamos al fragmento de animales
+            /*val navHostFragment = activity?.supportFragmentManager?.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
+            val navController = navHostFragment.navController
+            navController.navigate(R.id.animalsFragment)*/
         }
     }
 
