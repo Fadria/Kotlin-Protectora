@@ -56,4 +56,6 @@
     </string>
     <string name="about_text2">¿Nos ayudarás a encontrar un hogar a estos animales?</string>
     <string name="ver_animales">Ver animales</string>
+    <string name="nombre">Nombre</string>
+    <string name="enviar_mensaje">Enviar mensaje</string>
 </resources>

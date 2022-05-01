@@ -36,7 +36,7 @@ class AboutFragment : Fragment(R.layout.fragment_about) {
 
         // Cuando pulsemos el botón ver animales cambiaremos el fragmento
         binding.btnWatchAnimals.setOnClickListener {
-            
+
             //(activity as MainActivity?)!!.loadAnimalsFragment()
             // Navegamos al fragmento de animales
             /*val navHostFragment = activity?.supportFragmentManager?.findFragmentById(R.id.nav_host_fragment) as NavHostFragment

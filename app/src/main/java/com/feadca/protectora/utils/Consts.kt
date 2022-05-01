@@ -8,3 +8,6 @@ const val LOGIN_URL = IP + "/apirest/login"
 const val LOGIN_TOKEN_URL = IP + "/apirest/loginToken"
 const val RECOVER_PASSWORD_URL = IP + "/apirest/recuperarContrasenya"
 const val REGISTER_URL = IP + "/apirest/registro"
+
+// URL usadas para el mailing ( contacto )
+const val CONTACT_URL = IP + "/apirest/contacto"

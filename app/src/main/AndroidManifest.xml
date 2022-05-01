@@ -13,6 +13,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Protectora"
         android:usesCleartextTraffic="true">
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyCRxN23vwLBljF50sOJqWKnyKr7_iemLZ8" />
+
         <activity
             android:name=".ui.auth.RegisterActivity"
             android:exported="false" />
