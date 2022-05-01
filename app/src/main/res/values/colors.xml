@@ -11,4 +11,7 @@
     <color name="fondoGeneral">#c3fcf1</color>
     <color name="blue">#0000FF</color>
     <color name="lightblue">#00c2f4</color>
+    <color name="bizum">#05C6CD</color>
+    <color name="paypal">#012F87</color>
+    <color name="redsys">#FFB612</color>
 </resources>

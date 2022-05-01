@@ -47,7 +47,6 @@
     <string name="menu_profile">Mi perfil</string>
     <string name="menu_logout">Logout</string>
     <string name="menu_login">Login</string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="about_text1">
         La Protectora Nuevo Lazo surgió en 1999 con el objetivo de ayudar a los animales más desfavorecidos a encontrar una nueva familia, un nuevo lazo.\n\n
@@ -58,4 +57,14 @@
     <string name="ver_animales">Ver animales</string>
     <string name="nombre">Nombre</string>
     <string name="enviar_mensaje">Enviar mensaje</string>
+    <string name="donationsTitle">Realizar una donación</string>
+    <string name="donationsText">
+        Los animales de Nuevo Lazo necesitan tu ayuda, es por ello que ponemos a su disposición las diferentes opciones con las que puede realizar una donación.\n\nCon tan sólo 1€, podrás donar un cuenco de comida a uno de nuestros animales. Un gasto tan pequeño significa una gran diferencia para ellos.
+    </string>
+    <string name="bizum">Bizum</string>
+    <string name="transfer">Transferencia bancaria</string>
+    <string name="paypal">PayPal</string>
+    <string name="redsys">Pago con tarjeta</string>
+    <string name="donation_bizum">Donación por Bizum</string>
+    <string name="cerrar">Cerrar</string>
 </resources>

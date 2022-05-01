@@ -22,7 +22,7 @@ import com.google.android.gms.maps.model.MarkerOptions
 import com.google.android.material.snackbar.Snackbar
 
 class ContactFragment : Fragment() {
-    private var fragmentWithContactBinding: FragmentContactBinding? = null
+    private var fragmentContactBinding: FragmentContactBinding? = null
 
     // Variable que contiene la referencia al ViewModel
     private lateinit var mailingViewModel: MailingViewModel
@@ -49,7 +49,7 @@ class ContactFragment : Fragment() {
         mapFragment?.getMapAsync(callback)
 
         val binding = FragmentContactBinding.bind(view)
-        fragmentWithContactBinding = binding
+        fragmentContactBinding = binding
 
         // Indicamos el fichero que contiene el ViewModel
         mailingViewModel = ViewModelProvider(this)[MailingViewModel::class.java]
@@ -107,7 +107,7 @@ class ContactFragment : Fragment() {
 
     // Función encargada de mostrar avisos
     private fun showSnackbar(message: String) {
-        Snackbar.make(fragmentWithContactBinding!!.layout, message, Snackbar.LENGTH_SHORT)
+        Snackbar.make(fragmentContactBinding!!.layout, message, Snackbar.LENGTH_SHORT)
             .show()
     }
 }
