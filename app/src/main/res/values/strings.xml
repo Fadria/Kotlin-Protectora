@@ -66,5 +66,9 @@
     <string name="paypal">PayPal</string>
     <string name="redsys">Pago con tarjeta</string>
     <string name="donation_bizum">Donación por Bizum</string>
+    <string name="donation_bank">Donación por transferencia bancaria</string>
     <string name="cerrar">Cerrar</string>
+    <string name="transferencias">Realizar una transferencia:</string>
+    <string name="realizar_un_pago">Realizar un pago:</string>
+    <string name="introduzca_la_cantidad_a_donar">Introduzca la cantidad a donar...</string>
 </resources>
