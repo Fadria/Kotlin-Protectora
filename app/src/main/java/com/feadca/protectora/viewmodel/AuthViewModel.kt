@@ -26,6 +26,7 @@ class AuthViewModel(application: Application) : AndroidViewModel(application) {
 
     // Variables LiveData que usaremos para las diferentes operaciones relacionadas con la autenticación
     val userDataLD: MutableLiveData<User?> = MutableLiveData()
+    val userDataTokenLD: MutableLiveData<User?> = MutableLiveData()
     val recoverLD: MutableLiveData<String?> = MutableLiveData()
     val registerLD: MutableLiveData<String?> = MutableLiveData()
     val errorLD: MutableLiveData<String?> = MutableLiveData()
@@ -172,7 +173,7 @@ class AuthViewModel(application: Application) : AndroidViewModel(application) {
                     )
 
                     // Actualizamos el valor del live data
-                    userDataLD.postValue(loggedUser)
+                    userDataTokenLD.postValue(loggedUser)
                 } else {
                     errorLD.postValue("Token caducado, inicie sesión")
                 }

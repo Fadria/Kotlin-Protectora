@@ -45,6 +45,11 @@ class LoginActivity : AppCompatActivity() {
             showDrawer(it)
         }
 
+        // Acciones ejecutadas al detectar una actualización en el LiveData userDataTokenLD
+        authViewModel.userDataTokenLD.observe(this) {
+            showDrawer(it)
+        }
+
         // Acciones ejecutadas al detectar una actualización en el LiveData errorLD
         authViewModel.errorLD.observe(this) {
             showSnackbar(it!!)
