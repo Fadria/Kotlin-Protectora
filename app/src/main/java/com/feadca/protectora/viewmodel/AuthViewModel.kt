@@ -10,10 +10,7 @@ import com.android.volley.Response
 import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.Volley
 import com.feadca.protectora.model.User
-import com.feadca.protectora.utils.LOGIN_TOKEN_URL
-import com.feadca.protectora.utils.LOGIN_URL
-import com.feadca.protectora.utils.RECOVER_PASSWORD_URL
-import com.feadca.protectora.utils.REGISTER_URL
+import com.feadca.protectora.utils.*
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import kotlinx.coroutines.CoroutineScope
@@ -360,4 +357,61 @@ class AuthViewModel(application: Application) : AndroidViewModel(application) {
         return data
     }
 
+    // Función usada para realizar logout
+    fun logout(token: String?) {
+        CoroutineScope(Dispatchers.IO).launch {
+            val url = LOGOUT_URL // Ruta donde realizaremos la petición
+            val data = prepareLogoutParams(token!!) // Datos a enviar en la petición
+
+            // Convertimos nuestro mapa en un json que enviaremos en la petición
+            val jsonObject = JSONObject(data as Map<*, *>?)
+
+            makeLogoutRequest(url, jsonObject) // Realizamos la petición
+        }
+    }
+
+    // Función usada para preparar los params del logout
+    private fun prepareLogoutParams(token: String): Any {
+        val data =
+            HashMap<String, HashMap<String, String>>() // Mapa que contendrá el cuerpo de la petición
+        val params = HashMap<String, String>() // Mapa con los parámetros a enviar
+
+        // Añadimos los parámetros a enviar
+        params.put("token", token)
+
+        // Añadimos esos parámetros al cuerpo
+        data.put("data", params)
+
+        // Devolvemos los datos
+        return data
+    }
+
+    private fun makeLogoutRequest(url: String, data: JSONObject) {
+        // Cola con la que realizaremos la petición de Login
+        val queue = Volley.newRequestQueue(context)
+
+        // Variable que contendrá nuestra petición
+        val logoutRequest: JsonObjectRequest = object : JsonObjectRequest(
+            Request.Method.POST,
+            url,
+            data,
+            Response.Listener {
+                val gson = Gson() // Inicializamos nuestra variable para trabajar con JSON
+                val mapType =
+                    object : TypeToken<Map<String, Any>>() {}.type // Mapa que recibiremos de la API
+            },
+            Response.ErrorListener { error ->
+                Log.i("Error Logout", error.toString())
+            }
+        ) {
+            @Throws(AuthFailureError::class)
+            override fun getHeaders(): Map<String, String> {
+                val params: MutableMap<String, String> = HashMap()
+                params["User-Agent"] = "Mozilla/5.0"
+                return params
+            }
+        }
+
+        queue.add(logoutRequest) // Añadimos la petición y la realizamos
+    }
 }

@@ -3,30 +3,36 @@ package com.feadca.protectora.ui
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
-import android.widget.Toast
 import androidx.annotation.Nullable
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.NavigationUI
 import com.feadca.protectora.R
 import com.feadca.protectora.databinding.ActivityMainBinding
+import com.feadca.protectora.ui.auth.LoginActivity
+import com.feadca.protectora.viewmodel.AuthViewModel
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.navigation.NavigationView
-import com.google.android.material.snackbar.Snackbar
 import com.paypal.android.sdk.payments.*
 import org.json.JSONException
 import org.json.JSONObject
 import java.math.BigDecimal
 
+
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private lateinit var appBarConfiguration: AppBarConfiguration
 
+    // Variable que contiene la referencia al ViewModel
+    private lateinit var authViewModel: AuthViewModel
+
     // Datos usados por PayPal
-    val clientKey = "AUeP9egNuRSoRdgmVivf0HXdZ-me2C98WeTtoHuswGi7ZA4l9oFMac1K-zaM-0aUJEarwXWPJXzJENtS"
+    val clientKey =
+        "AUeP9egNuRSoRdgmVivf0HXdZ-me2C98WeTtoHuswGi7ZA4l9oFMac1K-zaM-0aUJEarwXWPJXzJENtS"
     val PAYPAL_REQUEST_CODE = 123
 
     // Variable que contendrá la configuración de PayPal
@@ -48,12 +54,17 @@ class MainActivity : AppCompatActivity() {
         val drawerLayout: DrawerLayout = binding.drawerLayout
         val navView: NavigationView = binding.navView
 
+        // Indicamos el fichero que contiene el ViewModel
+        authViewModel = ViewModelProvider(this)[AuthViewModel::class.java]
+
         // Preparamos el controller de navegación
-        val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
+        val navHostFragment =
+            supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
         val navController = navHostFragment.navController
 
         // Señalamos los niveles superiores que tendremos en el menú
-        appBarConfiguration = AppBarConfiguration(setOf(
+        appBarConfiguration = AppBarConfiguration(
+            setOf(
                 R.id.aboutFragment,
                 R.id.contactFragment,
                 R.id.donationsFragment,
@@ -72,7 +83,17 @@ class MainActivity : AppCompatActivity() {
 
         // Icono usado para hacer logout
         binding.iwLogout.setOnClickListener {
-            Toast.makeText(this, "WIP: logout", Toast.LENGTH_SHORT).show()
+            // Eliminamos el token del almacenamiento del dispositivo
+            val prefs = getSharedPreferences(getString(R.string.shared_file), 0)
+            val token = prefs.getString("TOKEN", null) // Obtenemos el valor para eliminarlo de la base de datos
+            prefs.edit().remove("TOKEN").commit()
+
+            // Llamamos a la función logout del viewmodel
+            authViewModel.logout(token)
+
+            // Realizamos un intent a la pantalla de Login
+            val intent = Intent(this, LoginActivity::class.java)
+            startActivity(intent)
         }
 
         // Activamos el navController
