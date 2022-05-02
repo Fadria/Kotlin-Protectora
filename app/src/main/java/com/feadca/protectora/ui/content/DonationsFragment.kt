@@ -1,16 +1,16 @@
 package com.feadca.protectora.ui.content
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
+import androidx.fragment.app.Fragment
 import com.feadca.protectora.R
 import com.feadca.protectora.databinding.FragmentDonationsBinding
 import com.feadca.protectora.ui.MainActivity
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.snackbar.Snackbar
+
 
 class DonationsFragment : Fragment() {
     private var fragmentDonationsBinding: FragmentDonationsBinding? = null
@@ -51,17 +51,25 @@ class DonationsFragment : Fragment() {
         }
 
         binding.btnPayPal.setOnClickListener {
-            var donationAmountText = binding.etDonation.text.toString()
-            if (donationAmountText != "") {
-                val donationAmount = donationAmountText.toDouble()
-                if (donationAmount > 0) {
-                    showSnackbar("WIP: PayPal")
-                } else {
-                    showSnackbar("Por favor, introduzca una cantidad superior a 0")
-                }
-            }else{
-                showSnackbar("Por favor, introduzca la cantidad a donar")
+            prepareDonationCall(binding)
+        }
+
+        binding.btnCreditCard.setOnClickListener {
+            prepareDonationCall(binding)
+        }
+    }
+
+    private fun prepareDonationCall(binding: FragmentDonationsBinding) {
+        var donationAmountText = binding.etDonation.text.toString()
+        if (donationAmountText != "") {
+            val donationAmount = donationAmountText.toDouble()
+            if (donationAmount > 0) {
+                (activity as MainActivity?)!!.getPayment(donationAmount)
+            } else {
+                showSnackbar("Por favor, introduzca una cantidad superior a 0")
             }
+        }else{
+            showSnackbar("Por favor, introduzca la cantidad a donar")
         }
     }
 

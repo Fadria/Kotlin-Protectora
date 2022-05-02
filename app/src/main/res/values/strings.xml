@@ -71,4 +71,8 @@
     <string name="transferencias">Realizar una transferencia:</string>
     <string name="realizar_un_pago">Realizar un pago:</string>
     <string name="introduzca_la_cantidad_a_donar">Introduzca la cantidad a donar...</string>
+    <string name="payment_completed">Pago completado</string>
+    <string name="paymentError">Error en el pago</string>
+    <string name="paymentCancelled">Se ha cancelado el pago</string>
+    <string name="error">Se ha producido un error</string>
 </resources>

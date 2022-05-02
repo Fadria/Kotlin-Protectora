@@ -59,4 +59,7 @@ dependencies {
     // Navegación
     implementation 'androidx.navigation:navigation-fragment-ktx:2.4.2'
     implementation 'androidx.navigation:navigation-ui-ktx:2.4.2'
+
+    // Pagos con PayPal
+    implementation 'com.paypal.sdk:paypal-android-sdk:2.14.2'
 }
