@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/layout"
+    android:padding="20dp"
+    android:background="@color/fondoGeneral"
+    tools:context=".ui.content.GraphicsFragment">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvGraphics"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+</FrameLayout>

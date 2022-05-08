@@ -48,4 +48,9 @@
             android:name="articleId"
             app:argType="integer" />
     </fragment>
+    <fragment
+        android:id="@+id/graphicsFragment"
+        android:name="com.feadca.protectora.ui.content.GraphicsFragment"
+        android:label="Gráficos"
+        tools:layout="@layout/fragment_graphics" />
 </navigation>

@@ -33,7 +33,7 @@ class BlogViewModel(application: Application) : AndroidViewModel(application) {
 
     // Petición para obtener los artículos del Blog
     private fun makeArticlesRequest(url: String) {
-        // Cola con la que realizaremos la petición de Login
+        // Cola con la que realizaremos la petición de gráficos
         val queue = Volley.newRequestQueue(context)
 
         // Variable que contendrá nuestra petición

@@ -33,11 +33,6 @@ class AboutFragment : Fragment(R.layout.fragment_about) {
         // Actualizamos la vinculación a la vista
         val binding = FragmentAboutBinding.bind(view)
         fragmentAboutBinding = binding
-
-        // Cuando pulsemos el botón ver animales cambiaremos el fragmento
-        binding.btnWatchAnimals.setOnClickListener {
-            (activity as MainActivity?)!!.loadAnimalsFragment()
-        }
     }
 
     // Operaciones realizadas al finalizar la vista

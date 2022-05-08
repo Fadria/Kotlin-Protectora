@@ -81,6 +81,7 @@ class MainActivity : AppCompatActivity() {
                 R.id.animalsFragment,
                 R.id.blogFragment,
                 R.id.profileFragment,
+                R.id.graphicsFragment,
             ),
             drawerLayout
         )

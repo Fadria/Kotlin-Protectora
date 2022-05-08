@@ -15,3 +15,6 @@ const val CONTACT_URL = IP + "/apirest/contacto"
 
 // URL usadas para el blog
 const val BLOG_ENTRIES = IP + "/apirest/publicaciones"
+
+// URL usadas para los gráficos
+const val GRAPHICS = IP + "/apirest/graficos"

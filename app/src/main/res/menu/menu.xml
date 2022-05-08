@@ -20,6 +20,10 @@
                     android:id="@+id/blogFragment"
                     android:title="@string/menu_blog"
                     android:icon="@drawable/icon_blog"/>
+                <item
+                    android:id="@+id/graphicsFragment"
+                    android:title="@string/menu_graphs"
+                    android:icon="@drawable/icon_graphs"/>
             </group>
         </menu>
     </item>
