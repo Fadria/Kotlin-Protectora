@@ -16,6 +16,10 @@
                     android:id="@+id/donationsFragment"
                     android:title="@string/menu_donations"
                     android:icon="@drawable/icon_donation"/>
+                <item
+                    android:id="@+id/blogFragment"
+                    android:title="@string/menu_blog"
+                    android:icon="@drawable/icon_blog"/>
             </group>
         </menu>
     </item>
@@ -31,10 +35,6 @@
                     android:id="@+id/animalsFragment"
                     android:title="@string/menu_animals"
                     android:icon="@drawable/icon_animals"/>
-                <item
-                    android:id="@+id/graphicsFragment"
-                    android:title="@string/menu_graphs"
-                    android:icon="@drawable/icon_graphs"/>
             </group>
         </menu>
     </item>

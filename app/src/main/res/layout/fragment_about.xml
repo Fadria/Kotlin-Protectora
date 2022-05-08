@@ -41,22 +41,5 @@
             android:textSize="14dp"
             android:text="@string/about_text2"/>
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnWatchAnimals"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="62dp"
-            android:layout_marginTop="18.7dp"
-            android:layout_marginRight="62dp"
-            android:fontFamily="@font/poppins_medium"
-            android:gravity="center"
-            android:paddingTop="14dp"
-            android:paddingBottom="14dp"
-            android:text="@string/ver_animales"
-            android:textAllCaps="false"
-            android:textColor="@color/white"
-            android:textSize="12sp"
-            tools:cornerRadius="24dp"
-            />
     </LinearLayout>
 </ScrollView>

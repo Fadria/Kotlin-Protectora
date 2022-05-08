@@ -22,6 +22,7 @@ import com.google.android.gms.maps.model.MarkerOptions
 import com.google.android.material.snackbar.Snackbar
 
 class ContactFragment : Fragment() {
+    // Enlace con las vistas
     private var fragmentContactBinding: FragmentContactBinding? = null
 
     // Variable que contiene la referencia al ViewModel
@@ -48,6 +49,7 @@ class ContactFragment : Fragment() {
         val mapFragment = childFragmentManager.findFragmentById(R.id.map) as SupportMapFragment?
         mapFragment?.getMapAsync(callback)
 
+        // Actualizamos el valor del binding
         val binding = FragmentContactBinding.bind(view)
         fragmentContactBinding = binding
 

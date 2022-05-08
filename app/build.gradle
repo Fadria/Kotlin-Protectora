@@ -62,4 +62,7 @@ dependencies {
 
     // Pagos con PayPal
     implementation 'com.paypal.sdk:paypal-android-sdk:2.14.2'
+
+    // Glide -> Imágenes
+    implementation 'com.github.bumptech.glide:glide:4.12.0'
 }

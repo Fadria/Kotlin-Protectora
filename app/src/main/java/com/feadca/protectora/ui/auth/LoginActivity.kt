@@ -42,7 +42,7 @@ class LoginActivity : AppCompatActivity() {
             prefs.putString("TOKEN", it!!.token)
             prefs.apply()
 
-            showDrawer(it)
+            showDrawer(it) // Iniciamos la actividad principal
         }
 
         // Acciones ejecutadas al detectar una actualización en el LiveData userDataTokenLD
@@ -87,7 +87,7 @@ class LoginActivity : AppCompatActivity() {
                 hideKeyboard() // Ocultamos el teclado
                 clearFocus() // Vaciamos los campos del formulario
             } else {
-                showSnackbar("Introduzca su email y contraseña")
+                showSnackbar("Introduzca su email y contraseña") // Mostramos un mensaje informando al usuario
             }
         }
 
@@ -105,8 +105,7 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun showDrawer(it: User?) {
-        // TODO: dependiendo del rol nos situaremos en un drawer u otro
-
+        // Realizamos un intent con los datos necesarios en la actividad
         val drawerIntent = Intent(this, MainActivity::class.java).apply {
             putExtra("USER", it!!.usuario)
             putExtra("USER", it!!.rol)

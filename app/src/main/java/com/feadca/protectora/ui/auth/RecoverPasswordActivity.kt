@@ -13,6 +13,7 @@ import com.feadca.protectora.viewmodel.AuthViewModel
 import com.google.android.material.snackbar.Snackbar
 
 class RecoverPasswordActivity : AppCompatActivity() {
+    // Binding con el que poder acceder al layout
     lateinit var binding: ActivityRecoverPasswordBinding
 
     // Datos usados para recuperar la contraseña
@@ -40,6 +41,7 @@ class RecoverPasswordActivity : AppCompatActivity() {
             // Permitimos que se puedan usar los inputs de nuevo
             binding.etEmail.isEnabled = true;
 
+            // Informamos al usuario sobre el resultado de la operación
             if (it == "error") {
                 showSnackbar("No se ha encontrado el email indicado")
             } else {
@@ -51,6 +53,7 @@ class RecoverPasswordActivity : AppCompatActivity() {
         binding.btnRecoverPassword.setOnClickListener {
             email = binding.etEmail.text.toString()
 
+            // Si se ha introducido un email continuaremos con el proceso
             if (email != "") {
                 // Cambiamos la opacidad de la pantalla para que el usuario vea mejor que debe esperar
                 binding.layout.alpha = 0.5f
@@ -66,6 +69,7 @@ class RecoverPasswordActivity : AppCompatActivity() {
                 hideKeyboard() // Ocultamos el teclado
                 clearFocus() // Vaciamos los campos del formulario
             }else{
+                // Si no ha introducido el email, informaremos al usuario
                 showSnackbar("Por favor, introduzca un email")
             }
         }

@@ -80,7 +80,7 @@ class AuthViewModel(application: Application) : AndroidViewModel(application) {
                 }
             },
             Response.ErrorListener { error ->
-                Log.i("Error Login", error.toString())
+                Log.i("Error: ", error.toString())
             }
         ) {
             @Throws(AuthFailureError::class)
@@ -111,6 +111,7 @@ class AuthViewModel(application: Application) : AndroidViewModel(application) {
         return data
     }
 
+    // Función encargada de realizar un login empleando el token del usuario
     fun loginToken(token: String) {
         CoroutineScope(Dispatchers.IO).launch {
             val url = LOGIN_TOKEN_URL // Login donde realizaremos la petición
@@ -190,6 +191,7 @@ class AuthViewModel(application: Application) : AndroidViewModel(application) {
         queue.add(loginTokenRequest) // Añadimos la petición y la realizamos
     }
 
+    // Función encargada de reiniciar la contraseña del usuario
     fun recoverPassword(email: String) {
         val url = RECOVER_PASSWORD_URL
 
@@ -216,6 +218,7 @@ class AuthViewModel(application: Application) : AndroidViewModel(application) {
         return data
     }
 
+    // Función encargada de realizar la petición de recuperación de contraseña
     private fun makeRecoverPasswordRequest(url: String, data: JSONObject) {
         // Cola con la que realizaremos la petición de Login
         val queue = Volley.newRequestQueue(context)
@@ -257,6 +260,7 @@ class AuthViewModel(application: Application) : AndroidViewModel(application) {
         queue.add(recoverPasswordRequest) // Añadimos la petición y la realizamos
     }
 
+    // Función encargada de realizar la operación de registro de usuario
     fun register(
         email: String,
         user: String,
@@ -271,16 +275,18 @@ class AuthViewModel(application: Application) : AndroidViewModel(application) {
     ) {
         CoroutineScope(Dispatchers.IO).launch {
             val url = REGISTER_URL // URL donde realizaremos la petición
+
+            // Preparamos los datos a enviar en el request
             val data = prepareRegisterParams(email, user, pass, fullName, phone, direction, city, zipCode, dangerousDogPermission,  birthDate)
 
             // Convertimos nuestro mapa en un json que enviaremos en la petición
             val jsonObject = JSONObject(data as Map<*, *>?)
 
-            Log.i("aaaaaaaaaaaaaaaaaaaaaaa", jsonObject.toString())
             makeRegisterRequest(url, jsonObject) // Realizamos la petición
         }
     }
 
+    // Función encargada de realizar la petición de registro
     private fun makeRegisterRequest(url: String, data: JSONObject) {
         // Cola con la que realizaremos la petición de Login
         val queue = Volley.newRequestQueue(context)
@@ -322,6 +328,7 @@ class AuthViewModel(application: Application) : AndroidViewModel(application) {
         queue.add(registerRequest) // Añadimos la petición y la realizamos
     }
 
+    // Función encargada de preparar los datos con los que realizar la petición de registro
     private fun prepareRegisterParams(
         email: String,
         user: String,
@@ -386,6 +393,7 @@ class AuthViewModel(application: Application) : AndroidViewModel(application) {
         return data
     }
 
+    // Función encargada de realizar la petición de logout
     private fun makeLogoutRequest(url: String, data: JSONObject) {
         // Cola con la que realizaremos la petición de Login
         val queue = Volley.newRequestQueue(context)

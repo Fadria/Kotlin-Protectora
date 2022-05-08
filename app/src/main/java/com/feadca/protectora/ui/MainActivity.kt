@@ -2,12 +2,12 @@ package com.feadca.protectora.ui
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import androidx.annotation.Nullable
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.NavigationUI
@@ -24,11 +24,22 @@ import java.math.BigDecimal
 
 
 class MainActivity : AppCompatActivity() {
+    // Enlace con las vistas
     private lateinit var binding: ActivityMainBinding
+
+    // Variable con la que poder acceder al valor del appBar
     private lateinit var appBarConfiguration: AppBarConfiguration
 
     // Variable que contiene la referencia al ViewModel
     private lateinit var authViewModel: AuthViewModel
+
+    // Variables que usaremos para diferentes elementos de la vista
+    private lateinit var drawerLayout: DrawerLayout
+    private lateinit var navView: NavigationView
+    private lateinit var navHostFragment: NavHostFragment
+
+    // Variable con la que usaremos el controlador de navegacion
+    private  lateinit var navController: NavController
 
     // Datos usados por PayPal
     val clientKey =
@@ -51,16 +62,15 @@ class MainActivity : AppCompatActivity() {
         setSupportActionBar(binding.toolbar)
 
         // Actualización de las variables del layout
-        val drawerLayout: DrawerLayout = binding.drawerLayout
-        val navView: NavigationView = binding.navView
+        drawerLayout = binding.drawerLayout
+        navView = binding.navView
 
         // Indicamos el fichero que contiene el ViewModel
         authViewModel = ViewModelProvider(this)[AuthViewModel::class.java]
 
         // Preparamos el controller de navegación
-        val navHostFragment =
-            supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
-        val navController = navHostFragment.navController
+        navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
+        navController = navHostFragment.navController
 
         // Señalamos los niveles superiores que tendremos en el menú
         appBarConfiguration = AppBarConfiguration(
@@ -69,7 +79,7 @@ class MainActivity : AppCompatActivity() {
                 R.id.contactFragment,
                 R.id.donationsFragment,
                 R.id.animalsFragment,
-                R.id.graphicsFragment,
+                R.id.blogFragment,
                 R.id.profileFragment,
             ),
             drawerLayout
@@ -111,13 +121,8 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-
-    fun loadAnimalsFragment() {
-        /*Navigation.findNavController(binding.navView).navigate(R.id.animalsFragment)*/
-        Log.i("holaaaaaaaaaaaaaaaaaa", "holaaaaaaaaaaaaaaa")
-    }
-
-    fun getPayment(amount: Double) {
+    // Función encargada de obtener realizar la donación
+    fun makePayment(amount: Double) {
         // Creamos el pago de PayPal
         val payment = PayPalPayment(
             BigDecimal(0.01), "EUR", "Donación Protectora Nuevo Lazo",
@@ -171,7 +176,7 @@ class MainActivity : AppCompatActivity() {
                         MaterialAlertDialogBuilder(this)
                             .setTitle(getString(R.string.paymentError))
                             .setMessage(
-                                "Se ha producido un error en el pago."
+                                getString(R.string.errorPago)
                             )
                             .setNeutralButton(getString(R.string.cerrar)) { _, _ -> }
                             .show()
@@ -182,7 +187,7 @@ class MainActivity : AppCompatActivity() {
                 MaterialAlertDialogBuilder(this)
                     .setTitle(getString(R.string.paymentCancelled))
                     .setMessage(
-                        "Donación cancelada."
+                        getString(R.string.donacion_cancelada)
                     )
                     .setNeutralButton(getString(R.string.cerrar)) { _, _ -> }
                     .show()
@@ -191,11 +196,19 @@ class MainActivity : AppCompatActivity() {
                 MaterialAlertDialogBuilder(this)
                     .setTitle(getString(R.string.error))
                     .setMessage(
-                        "Se ha producido un error. Inténtelo de nuevo más tarde"
+                        getString(R.string.errorIntenteMasTarde)
                     )
                     .setNeutralButton(getString(R.string.cerrar)) { _, _ -> }
                     .show()
             }
         }
+    }
+
+    // Función encargada de cargar un artículo del blog
+    fun loadArticle(articleId: Int) {
+        var bundle: Bundle? = Bundle()
+        bundle!!.putInt("articleId", articleId)
+
+        navController.navigate(R.id.action_blogFragment_to_articleFragment, bundle)
     }
 }

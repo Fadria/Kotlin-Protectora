@@ -75,4 +75,10 @@
     <string name="paymentError">Error en el pago</string>
     <string name="paymentCancelled">Se ha cancelado el pago</string>
     <string name="error">Se ha producido un error</string>
+    <string name="menu_blog">Blog</string>
+    <string name="exampleArticle"><![CDATA[El ajolote es el único animal capaz de regenerar cualquier parte de su cuerpo en días o semanas.\n\nEl 1 de febrero de cada año se celebra el Día Nacional del Ajolote Mexicano, que es una especie de anfibio de la familia Ambystomatidae, que se encuentra en peligro de extinción. \n\nEl ajolote es una larva no metamorfoseada de la salamandra mexicana.\nEl ajolote o axolote es un animal endémico muy peculiar, ya que posee características que ninguna otra especie posee.\n\nEl nombre del ajolote proviene del náhuatl “Axolotl”, que significa “monstruo de agua”.>El ajolote se relaciona con el Dios Xólotl, hermano gemelo de Quetzalcóatl, quien se rehusaba al sacrificio, según relatos de Fray Bernardino se Sahagún, misionero franciscano.\n\nLos ajolotes habitan en cuerpos de agua dulce de México; se pueden encontrar en el lago de Pátzcuaro, Michoacán y el lago de Xochimilco, en la Ciudad de México. El ajolote es el único animal capaz de regenerar cualquier parte de su cuerpo en días o semanas sin dejar cicatrices. Puede regenerar extremidades, incluyendo huesos, mandíbula, piel, órganos, espina dorsal, retina, cerebro y hasta el corazón.\n\nEn las patas delanteras los ajolotes tienen cuatro dedos, mientras que en las traseras tienen cinco dedos.]]></string>
+    <string name="cargando">Cargando...</string>
+    <string name="errorPago">Se ha producido un error en el pago.</string>
+    <string name="donacion_cancelada">Donación cancelada.</string>
+    <string name="errorIntenteMasTarde">Se ha producido un error. Inténtelo de nuevo más tarde</string>
 </resources>

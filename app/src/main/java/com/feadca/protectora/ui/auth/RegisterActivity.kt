@@ -16,6 +16,7 @@ import java.text.SimpleDateFormat
 import java.util.*
 
 class RegisterActivity : AppCompatActivity() {
+    // Binding con el que acceder a los datos de la vista
     lateinit var binding: ActivityRegisterBinding
 
     // Datos del usuario a registrar
@@ -49,6 +50,7 @@ class RegisterActivity : AppCompatActivity() {
             // Ocultamos la progress bar
             binding.progressBar.visibility = View.INVISIBLE;
 
+            // Dependiendo del resultado de la operación mostraremos un mensaje u otro
             when(it) {
                 "error" -> showSnackbar("Se ha producido un error. Inténtelo de nuevo más tarde.")
                 "emailUsado" -> showSnackbar("El email indicado ya está en uso")
@@ -104,6 +106,7 @@ class RegisterActivity : AppCompatActivity() {
         // Mostramos la progress bar
         binding.progressBar.visibility = View.VISIBLE;
 
+        // Llamada a la función encargada de registrar a un usuario
         authViewModel.register(
             email,
             user,

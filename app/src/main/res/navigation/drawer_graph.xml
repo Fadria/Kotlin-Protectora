@@ -26,13 +26,26 @@
         android:label="Animales"
         tools:layout="@layout/fragment_animals" />
     <fragment
-        android:id="@+id/graphicsFragment"
-        android:name="com.feadca.protectora.ui.content.GraphicsFragment"
-        android:label="Gráficos"
-        tools:layout="@layout/fragment_graphics" />
-    <fragment
         android:id="@+id/profileFragment"
         android:name="com.feadca.protectora.ui.content.ProfileFragment"
         android:label="Mi Perfil"
         tools:layout="@layout/fragment_profile" />
+    <fragment
+        android:id="@+id/blogFragment"
+        android:name="com.feadca.protectora.ui.content.BlogFragment"
+        android:label="Blog"
+        tools:layout="@layout/fragment_blog" >
+        <action
+            android:id="@+id/action_blogFragment_to_articleFragment"
+            app:destination="@id/articleFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/articleFragment"
+        android:name="com.feadca.protectora.ui.content.ArticleFragment"
+        android:label="Blog"
+        tools:layout="@layout/fragment_article" >
+        <argument
+            android:name="articleId"
+            app:argType="integer" />
+    </fragment>
 </navigation>
