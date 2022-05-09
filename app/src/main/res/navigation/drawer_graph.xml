@@ -53,4 +53,22 @@
         android:name="com.feadca.protectora.ui.content.GraphicsFragment"
         android:label="Gráficos"
         tools:layout="@layout/fragment_graphics" />
+    <fragment
+        android:id="@+id/revisionsFragment"
+        android:name="com.feadca.protectora.ui.content.RevisionsFragment"
+        android:label="Revisiones"
+        tools:layout="@layout/fragment_revisions" >
+        <action
+            android:id="@+id/action_revisionsFragment_to_revisionListFragment"
+            app:destination="@id/revisionListFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/revisionListFragment"
+        android:name="com.feadca.protectora.ui.content.RevisionListFragment"
+        android:label="Revisiones"
+        tools:layout="@layout/fragment_revision_list" >
+        <argument
+            android:name="revisionList"
+            app:argType="com.feadca.protectora.model.Revision" />
+    </fragment>
 </navigation>

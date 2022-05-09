@@ -13,6 +13,7 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.NavigationUI
 import com.feadca.protectora.R
 import com.feadca.protectora.databinding.ActivityMainBinding
+import com.feadca.protectora.model.Revision
 import com.feadca.protectora.ui.auth.LoginActivity
 import com.feadca.protectora.viewmodel.AuthViewModel
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
@@ -82,6 +83,7 @@ class MainActivity : AppCompatActivity() {
                 R.id.blogFragment,
                 R.id.profileFragment,
                 R.id.graphicsFragment,
+                R.id.revisionsFragment,
             ),
             drawerLayout
         )
@@ -211,5 +213,12 @@ class MainActivity : AppCompatActivity() {
         bundle!!.putInt("articleId", articleId)
 
         navController.navigate(R.id.action_blogFragment_to_articleFragment, bundle)
+    }
+
+    fun navigateToRevisionList(revisionList: List<Revision>?) {
+        var bundle: Bundle? = Bundle()
+        bundle!!.putParcelableArray("revisionList", revisionList!!.toTypedArray())
+
+        navController.navigate(R.id.action_revisionsFragment_to_revisionListFragment, bundle)
     }
 }

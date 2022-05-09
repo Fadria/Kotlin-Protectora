@@ -39,6 +39,10 @@
                     android:id="@+id/animalsFragment"
                     android:title="@string/menu_animals"
                     android:icon="@drawable/icon_animals"/>
+                <item
+                    android:id="@+id/revisionsFragment"
+                    android:title="@string/menu_revisions"
+                    android:icon="@drawable/icon_revisions"/>
             </group>
         </menu>
     </item>

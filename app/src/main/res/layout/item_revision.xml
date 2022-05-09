@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_marginTop="20dp"
+    android:background="@color/fondoGeneral"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:padding="8dp"
+        android:background="@drawable/white_fill__rounded"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAppearance="?attr/textAppearanceHeadline6"
+            android:fontFamily="@font/poppins_medium"
+            android:gravity="center"
+            tools:text="04/08/22 - Federico Adria" />
+
+        <TextView
+            android:id="@id/tvContent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:textAppearance="?attr/textAppearanceSubtitle1"
+            android:fontFamily="@font/poppins_medium"
+            android:justificationMode="inter_word"
+            tools:text="El animal no está comiendo, vigilar su comportamiento durante las próximas 24 horas." />
+
+    </LinearLayout>
+
+</com.google.android.material.card.MaterialCardView>

@@ -81,4 +81,6 @@
     <string name="errorPago">Se ha producido un error en el pago.</string>
     <string name="donacion_cancelada">Donación cancelada.</string>
     <string name="errorIntenteMasTarde">Se ha producido un error. Inténtelo de nuevo más tarde</string>
+    <string name="animalId">ID del animal</string>
+    <string name="cargarRevisiones">Cargar revisiones</string>
 </resources>

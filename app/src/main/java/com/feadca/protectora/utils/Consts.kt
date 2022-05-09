@@ -18,3 +18,6 @@ const val BLOG_ENTRIES = IP + "/apirest/publicaciones"
 
 // URL usadas para los gráficos
 const val GRAPHICS = IP + "/apirest/graficos"
+
+// URL usadas para las revisiones
+const val REVISION_LIST = IP + "/apirest/revisiones/"
