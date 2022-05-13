@@ -84,6 +84,7 @@ class MainActivity : AppCompatActivity() {
                 R.id.profileFragment,
                 R.id.graphicsFragment,
                 R.id.revisionsFragment,
+                R.id.createRevisionFragment,
             ),
             drawerLayout
         )

@@ -1,7 +1,7 @@
 package com.feadca.protectora.utils
 
 // Valor que contiene la IP del servidor
-const val IP = "http://192.168.1.135:8069"
+const val IP = "http://192.168.1.134:8069"
 
 // URL usadas para las autenticaciones ( login, logout, registro, recordarContraseña, loginToken )
 const val LOGIN_URL = IP + "/apirest/login"
@@ -21,3 +21,4 @@ const val GRAPHICS = IP + "/apirest/graficos"
 
 // URL usadas para las revisiones
 const val REVISION_LIST = IP + "/apirest/revisiones/"
+const val REVISION_CREATE = IP + "/apirest/nuevaRevision"

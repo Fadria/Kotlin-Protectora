@@ -86,7 +86,7 @@ class ContactFragment : Fragment() {
             binding.etReason.isEnabled = true;
         }
 
-        // Acciones ejecutadas al detectar una actualización en el LiveData errorLD
+        // Acciones ejecutadas al detectar una actualización en el LiveData contactLD
         mailingViewModel.contactLD.observe(viewLifecycleOwner) {
             showSnackbar(it!!)
 

@@ -83,4 +83,7 @@
     <string name="errorIntenteMasTarde">Se ha producido un error. Inténtelo de nuevo más tarde</string>
     <string name="animalId">ID del animal</string>
     <string name="cargarRevisiones">Cargar revisiones</string>
+    <string name="revisiones">Revisiones</string>
+    <string name="menu_create_revision">Nueva revisión</string>
+    <string name="fecha_revision">Fecha de la revisión</string>
 </resources>

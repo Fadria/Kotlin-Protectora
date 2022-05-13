@@ -39,16 +39,31 @@
                     android:id="@+id/animalsFragment"
                     android:title="@string/menu_animals"
                     android:icon="@drawable/icon_animals"/>
-                <item
-                    android:id="@+id/revisionsFragment"
-                    android:title="@string/menu_revisions"
-                    android:icon="@drawable/icon_revisions"/>
             </group>
         </menu>
     </item>
 
     <group>
-        android:id="@+id/divider2"
+        android:id="@+id/divider3"
+    </group>
+
+    <item android:title="@string/revisiones">
+        <menu>
+            <group android:checkableBehavior="single">
+                <item
+                    android:id="@+id/revisionsFragment"
+                    android:title="@string/menu_revisions"
+                    android:icon="@drawable/icon_revisions"/>
+                <item
+                    android:id="@+id/createRevisionFragment"
+                    android:title="@string/menu_create_revision"
+                    android:icon="@drawable/icon_newrevision"/>
+            </group>
+        </menu>
+    </item>
+
+    <group>
+        android:id="@+id/divider3"
     </group>
 
     <item android:title="@string/operacionesUsuario">

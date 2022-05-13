@@ -1,15 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/fondoGeneral"
     android:id="@+id/layout"
     android:padding="20dp"
     tools:context=".ui.content.RevisionListFragment">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvRevision"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-</FrameLayout>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:textSize="24dp"
+            android:fontFamily="@font/poppins_medium"
+            android:text="Revisiones realizadas:"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvRevision"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+    </LinearLayout>
+</ScrollView>

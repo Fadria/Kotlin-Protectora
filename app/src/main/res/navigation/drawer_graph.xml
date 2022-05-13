@@ -71,4 +71,9 @@
             android:name="revisionList"
             app:argType="com.feadca.protectora.model.Revision" />
     </fragment>
+    <fragment
+        android:id="@+id/createRevisionFragment"
+        android:name="com.feadca.protectora.ui.content.CreateRevisionFragment"
+        android:label="Nueva revisión"
+        tools:layout="@layout/fragment_create_revision" />
 </navigation>

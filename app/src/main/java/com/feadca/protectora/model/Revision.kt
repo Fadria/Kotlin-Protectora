@@ -8,5 +8,6 @@ import kotlinx.parcelize.Parcelize
 data class Revision(
     val volunteerName: String?,
     val date: String,
-    val observations: String
+    val observations: String,
+    val idAnimal: Int
 ) : Parcelable
