@@ -16,9 +16,11 @@
         <entry key="..\:/Users/Fede/AndroidStudioProjects/Protectora/app/src/main/res/drawable/icon_contact.xml" value="0.1405" />
         <entry key="..\:/Users/Fede/AndroidStudioProjects/Protectora/app/src/main/res/drawable/icon_donation.xml" value="0.1405" />
         <entry key="..\:/Users/Fede/AndroidStudioProjects/Protectora/app/src/main/res/drawable/icon_email.xml" value="0.1405" />
+        <entry key="..\:/Users/Fede/AndroidStudioProjects/Protectora/app/src/main/res/drawable/icon_female.xml" value="0.1405" />
         <entry key="..\:/Users/Fede/AndroidStudioProjects/Protectora/app/src/main/res/drawable/icon_graphs.xml" value="0.1405" />
         <entry key="..\:/Users/Fede/AndroidStudioProjects/Protectora/app/src/main/res/drawable/icon_login.xml" value="0.124" />
         <entry key="..\:/Users/Fede/AndroidStudioProjects/Protectora/app/src/main/res/drawable/icon_logout.xml" value="0.1405" />
+        <entry key="..\:/Users/Fede/AndroidStudioProjects/Protectora/app/src/main/res/drawable/icon_male.xml" value="0.1405" />
         <entry key="..\:/Users/Fede/AndroidStudioProjects/Protectora/app/src/main/res/drawable/icon_newrevision.xml" value="0.1405" />
         <entry key="..\:/Users/Fede/AndroidStudioProjects/Protectora/app/src/main/res/drawable/icon_profile.xml" value="0.1405" />
         <entry key="..\:/Users/Fede/AndroidStudioProjects/Protectora/app/src/main/res/drawable/icon_revision.xml" value="0.1405" />
@@ -30,7 +32,7 @@
         <entry key="..\:/Users/Fede/AndroidStudioProjects/Protectora/app/src/main/res/layout/activity_splash.xml" value="0.11302083333333333" />
         <entry key="..\:/Users/Fede/AndroidStudioProjects/Protectora/app/src/main/res/layout/activity_splash_screen.xml" value="0.264" />
         <entry key="..\:/Users/Fede/AndroidStudioProjects/Protectora/app/src/main/res/layout/fragment_about.xml" value="0.264" />
-        <entry key="..\:/Users/Fede/AndroidStudioProjects/Protectora/app/src/main/res/layout/fragment_animals.xml" value="0.11302083333333333" />
+        <entry key="..\:/Users/Fede/AndroidStudioProjects/Protectora/app/src/main/res/layout/fragment_animals.xml" value="0.264" />
         <entry key="..\:/Users/Fede/AndroidStudioProjects/Protectora/app/src/main/res/layout/fragment_article.xml" value="0.264" />
         <entry key="..\:/Users/Fede/AndroidStudioProjects/Protectora/app/src/main/res/layout/fragment_blog.xml" value="0.22826086956521738" />
         <entry key="..\:/Users/Fede/AndroidStudioProjects/Protectora/app/src/main/res/layout/fragment_contact.xml" value="0.264" />
@@ -42,6 +44,7 @@
         <entry key="..\:/Users/Fede/AndroidStudioProjects/Protectora/app/src/main/res/layout/fragment_revision_list.xml" value="0.264" />
         <entry key="..\:/Users/Fede/AndroidStudioProjects/Protectora/app/src/main/res/layout/fragment_revisions.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/Fede/AndroidStudioProjects/Protectora/app/src/main/res/layout/header.xml" value="0.264" />
+        <entry key="..\:/Users/Fede/AndroidStudioProjects/Protectora/app/src/main/res/layout/item_animal.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/Fede/AndroidStudioProjects/Protectora/app/src/main/res/layout/item_blog.xml" value="0.264" />
         <entry key="..\:/Users/Fede/AndroidStudioProjects/Protectora/app/src/main/res/layout/item_graphic.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/Fede/AndroidStudioProjects/Protectora/app/src/main/res/layout/item_revision.xml" value="0.264" />

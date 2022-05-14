@@ -5,30 +5,33 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.feadca.protectora.R
+import com.feadca.protectora.adapters.AnimalAdapter
+import com.feadca.protectora.adapters.BlogEntryAdapter
+import com.feadca.protectora.databinding.FragmentAnimalsBinding
+import com.feadca.protectora.databinding.FragmentBlogBinding
+import com.feadca.protectora.model.Animal
 import com.feadca.protectora.ui.MainActivity
+import com.feadca.protectora.viewmodel.AnimalsViewModel
+import com.feadca.protectora.viewmodel.BlogViewModel
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
+class AnimalsFragment : Fragment(R.layout.fragment_animals) {
+    // Enlace con las vistas
+    private var fragmentBinding: FragmentAnimalsBinding? = null
 
-/**
- * A simple [Fragment] subclass.
- * Use the [AnimalsFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
-class AnimalsFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
+    // Adaptador que usaremos en el RecyclerView y la lista de animales
+    private lateinit var adapter:AnimalAdapter
+
+    // Variable que contiene la referencia al ViewModel
+    private lateinit var animalViewModel: AnimalsViewModel
+
+    // Variable que contendrá nuestra lista de animales
+    private val animalList = mutableListOf<Animal>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
     }
 
     override fun onCreateView(
@@ -39,23 +42,33 @@ class AnimalsFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_animals, container, false)
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment AnimalsFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            AnimalsFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        // Indicamos el fichero que contiene el ViewModel
+        animalViewModel = ViewModelProvider(this)[AnimalsViewModel::class.java]
+
+        // Actualizamos la vinculación a la vista
+        val binding = FragmentAnimalsBinding.bind(view)
+        fragmentBinding = binding
+
+        // Llamamos a la función que prepara nuestro RecyclerView
+        initRecyclerView()
+
+        // Llamamos a la función del viewmodel encargada de obtener los animales
+        animalViewModel.getAnimals()
+
+        animalViewModel.animalListLD.observe(viewLifecycleOwner) {
+            animalList.clear() // Vaciamos la lista
+            animalList.addAll(it) // Añadimos todos los elementos del live data
+            adapter?.notifyDataSetChanged() // Notificamos de cambios para cargar de nuevo el RecyclerView
+        }
+    }
+
+    // Función encargada de inicializar nuestro RecyclerView
+    private fun initRecyclerView() {
+        adapter = AnimalAdapter(animalList)
+        fragmentBinding!!.rvAnimals.layoutManager = LinearLayoutManager(requireActivity().applicationContext)
+        fragmentBinding!!.rvAnimals.adapter = adapter
     }
 }

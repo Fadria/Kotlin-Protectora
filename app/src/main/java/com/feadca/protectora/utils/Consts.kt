@@ -22,3 +22,6 @@ const val GRAPHICS = IP + "/apirest/graficos"
 // URL usadas para las revisiones
 const val REVISION_LIST = IP + "/apirest/revisiones/"
 const val REVISION_CREATE = IP + "/apirest/nuevaRevision"
+
+// URL usadas para los animales
+const val ANIMAL_LIST = IP + "/apirest/animales"
