@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="species_array">
+        <item>perro</item>
+        <item>gato</item>
+        <item>huron</item>
+        <item>fenec</item>
+        <item>ajolote</item>
+        <item>guacamayo</item>
+    </string-array>
+</resources>

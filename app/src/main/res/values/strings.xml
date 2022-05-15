@@ -86,4 +86,6 @@
     <string name="revisiones">Revisiones</string>
     <string name="menu_create_revision">Nueva revisión</string>
     <string name="fecha_revision">Fecha de la revisión</string>
+    <string name="filtrar">Filtar</string>
+    <string name="reiniciar">Reiniciar</string>
 </resources>

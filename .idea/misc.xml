@@ -31,6 +31,7 @@
         <entry key="..\:/Users/Fede/AndroidStudioProjects/Protectora/app/src/main/res/layout/activity_register.xml" value="0.22826086956521738" />
         <entry key="..\:/Users/Fede/AndroidStudioProjects/Protectora/app/src/main/res/layout/activity_splash.xml" value="0.11302083333333333" />
         <entry key="..\:/Users/Fede/AndroidStudioProjects/Protectora/app/src/main/res/layout/activity_splash_screen.xml" value="0.264" />
+        <entry key="..\:/Users/Fede/AndroidStudioProjects/Protectora/app/src/main/res/layout/dialog_filter_animal.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/Fede/AndroidStudioProjects/Protectora/app/src/main/res/layout/fragment_about.xml" value="0.264" />
         <entry key="..\:/Users/Fede/AndroidStudioProjects/Protectora/app/src/main/res/layout/fragment_animals.xml" value="0.264" />
         <entry key="..\:/Users/Fede/AndroidStudioProjects/Protectora/app/src/main/res/layout/fragment_article.xml" value="0.264" />
@@ -50,6 +51,7 @@
         <entry key="..\:/Users/Fede/AndroidStudioProjects/Protectora/app/src/main/res/layout/item_revision.xml" value="0.264" />
         <entry key="..\:/Users/Fede/AndroidStudioProjects/Protectora/app/src/main/res/menu/menu.xml" value="0.264" />
         <entry key="..\:/Users/Fede/AndroidStudioProjects/Protectora/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.1405" />
+        <entry key="..\:/Users/Fede/AppData/Local/Android/Sdk/platforms/android-32/data/res/layout/simple_spinner_item.xml" value="0.11302083333333333" />
       </map>
     </option>
   </component>
