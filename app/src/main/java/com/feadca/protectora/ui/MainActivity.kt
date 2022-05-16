@@ -129,7 +129,7 @@ class MainActivity : AppCompatActivity() {
     fun makePayment(amount: Double) {
         // Creamos el pago de PayPal
         val payment = PayPalPayment(
-            BigDecimal(0.01), "EUR", "Donación Protectora Nuevo Lazo",
+            BigDecimal(amount), "EUR", "Donación Protectora Nuevo Lazo",
             PayPalPayment.PAYMENT_INTENT_SALE
         )
 
