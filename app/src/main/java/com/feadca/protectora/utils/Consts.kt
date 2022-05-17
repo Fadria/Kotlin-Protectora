@@ -26,3 +26,4 @@ const val REVISION_CREATE = IP + "/apirest/nuevaRevision"
 // URL usadas para los animales
 const val ANIMAL_LIST = IP + "/apirest/animales"
 const val FILTER_ANIMALS = IP + "/apirest/filtrarAnimales"
+const val ANIMAL_PAGE = IP + "/apirest/animales/"

@@ -216,10 +216,19 @@ class MainActivity : AppCompatActivity() {
         navController.navigate(R.id.action_blogFragment_to_articleFragment, bundle)
     }
 
+    // Función usada para navegar a la lista de revisiones
     fun navigateToRevisionList(revisionList: List<Revision>?) {
         var bundle: Bundle? = Bundle()
         bundle!!.putParcelableArray("revisionList", revisionList!!.toTypedArray())
 
         navController.navigate(R.id.action_revisionsFragment_to_revisionListFragment, bundle)
+    }
+
+    // Función usada para navegar a los datos de un animal
+    fun loadAnimal(id: Int) {
+        var bundle: Bundle? = Bundle()
+        bundle!!.putInt("idAnimal", id)
+
+        navController.navigate(R.id.action_animalsFragment_to_animalFragment, bundle)
     }
 }

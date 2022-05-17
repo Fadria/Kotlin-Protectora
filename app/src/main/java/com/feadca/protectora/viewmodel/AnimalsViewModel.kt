@@ -10,7 +10,9 @@ import com.android.volley.Response
 import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.Volley
 import com.feadca.protectora.model.Animal
+import com.feadca.protectora.model.Image
 import com.feadca.protectora.utils.ANIMAL_LIST
+import com.feadca.protectora.utils.ANIMAL_PAGE
 import com.feadca.protectora.utils.FILTER_ANIMALS
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
@@ -25,6 +27,7 @@ class AnimalsViewModel(application: Application) : AndroidViewModel(application)
     // Variables LiveData que usaremos para las diferentes operaciones relacionadas con los animales
     val animalListLD: MutableLiveData<List<Animal>> = MutableLiveData()
     val animalFilteredListLD: MutableLiveData<List<Animal>> = MutableLiveData()
+    val animalDataLD: MutableLiveData<Animal> = MutableLiveData()
     val errorLD: MutableLiveData<String> = MutableLiveData()
 
     // Función para obtener los animales de la protectora
@@ -200,4 +203,65 @@ class AnimalsViewModel(application: Application) : AndroidViewModel(application)
         queue.add(filterRequest) // Añadimos la petición y la realizamos
     }
 
+    fun loadAnimal(idAnimal: Int) {
+        val url = ANIMAL_PAGE + idAnimal // URL donde realizaremos la petición
+
+        makeAnimalRequest(url) // Realizamos la petición
+    }
+
+    private fun makeAnimalRequest(url: String) {
+        // Cola con la que realizaremos la petición para obtener los datos del animal
+        val queue = Volley.newRequestQueue(context)
+
+        // Variable que contendrá nuestra petición
+        val animalRequest: JsonObjectRequest = object : JsonObjectRequest(
+            Request.Method.GET,
+            url,
+            null,
+            Response.Listener {
+                // Obtenemos el objeto animal
+                val data = it.getJSONObject("data")
+
+                // Obtenemos el listado de imágenes del animal
+                var listadoImagenes: MutableList<Image> = mutableListOf()
+
+                // Variable que contendrá el listado de imágenes del animal
+                var imagenes = data.getJSONArray("imagenes")
+
+                // Actualizamos el valor de la variable
+                if (imagenes.length() > 0) {
+                    for (i in 0 until imagenes.length()) {
+                        val imagen = imagenes.getJSONObject(i)
+                        listadoImagenes.add(Image(imagen.getInt("id"), imagen.getString("fecha"),
+                            imagen.getString("imagen")))
+                    }
+                }else{
+                    imagenes = null
+                }
+
+                // Creamos el objeto animal
+                val animal:Animal = Animal(data.getInt("id"), data.getString("nombre"), data.getString("imagen"),
+                data.getString("chip"), data.getString("especie"), data.getString("raza"), data.getString("nacimiento"),
+                data.getInt("edad"), data.getString("sexo"), data.getString("tamanyo"), data.getString("urgente"),
+                data.getDouble("peso"), data.getString("esterilizado"), data.getString("exotico"),
+                data.getString("observaciones"), data.getString("pelo"), data.getString("historia"),
+                data.getString("perroPeligroso"), listadoImagenes)
+
+                // Actualizamos el LiveData
+                animalDataLD.postValue(animal)
+            },
+            Response.ErrorListener { error ->
+                Log.i("Error: ", error.toString())
+            }
+        ) {
+            @Throws(AuthFailureError::class)
+            override fun getHeaders(): Map<String, String> {
+                val params: MutableMap<String, String> = HashMap()
+                params["User-Agent"] = "Mozilla/5.0"
+                return params
+            }
+        }
+
+        queue.add(animalRequest) // Añadimos la petición y la realizamos
+    }
 }

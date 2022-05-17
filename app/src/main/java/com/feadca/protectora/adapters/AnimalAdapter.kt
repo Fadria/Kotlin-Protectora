@@ -5,6 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.feadca.protectora.R
 import com.feadca.protectora.model.Animal
+import com.feadca.protectora.ui.MainActivity
 import com.feadca.protectora.ui.content.ProfileFragment
 
 
@@ -24,8 +25,8 @@ class AnimalAdapter(private val animalList: List<Animal>): RecyclerView.Adapter<
         val item = animalList[position]
         holder.bind(item)
 
-        /*holder.itemView.setOnClickListener {
+        holder.itemView.setOnClickListener {
             (it.context as MainActivity).loadAnimal(item.id)
-        }*/
+        }
     }
 }

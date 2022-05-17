@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/layout"
+    android:background="@color/fondoGeneral"
+    tools:context=".ui.content.AnimalFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:padding="20dp"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:id="@+id/tvLoading"
+            android:text="@string/cargando"
+            android:fontFamily="@font/poppins_medium"
+            android:textSize="22dp"
+            />
+
+        <TextView
+            android:id="@+id/tvName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            tools:text="Azulito"
+            android:fontFamily="@font/poppins_medium"
+            android:textSize="30dp"
+            />
+
+        <TextView
+            android:id="@+id/tvData1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:text="Ajolote macho pequeño"
+            android:fontFamily="@font/poppins_medium"
+            android:textSize="20dp"
+            android:gravity="center"/>
+
+        <ImageView
+            android:id="@+id/iwImage"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:layout_marginVertical="10dp"/>
+
+        <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/table"
+            android:stretchColumns="1">
+
+            <TableRow>
+                <TextView
+                    android:text="Edad: "
+                    android:gravity="center"
+                    android:width="100dp"
+                    android:textStyle="bold"
+                    android:fontFamily="@font/poppins_medium"
+                    android:background="@drawable/black_border"
+                    android:padding="3dp" />
+
+                <TextView
+                    android:id="@+id/tvAge"
+                    android:layout_column="1"
+                    android:background="@drawable/black_border"
+                    android:fontFamily="@font/poppins_medium"
+                    android:hint="12 años"
+                    android:paddingStart="7dp"
+                    android:padding="3dp" />
+            </TableRow>
+
+            <TableRow>
+                <TextView
+                    android:text="Chip: "
+                    android:gravity="center"
+                    android:width="100dp"
+                    android:textStyle="bold"
+                    android:fontFamily="@font/poppins_medium"
+                    android:background="@drawable/black_border"
+                    android:padding="3dp" />
+
+                <TextView
+                    android:id="@+id/tvChip"
+                    android:layout_column="1"
+                    android:background="@drawable/black_border"
+                    android:fontFamily="@font/poppins_medium"
+                    android:hint="Chipeado"
+                    android:paddingStart="7dp"
+                    android:padding="3dp" />
+            </TableRow>
+
+            <TableRow>
+                <TextView
+                    android:text="Urgente: "
+                    android:gravity="center"
+                    android:width="100dp"
+                    android:textStyle="bold"
+                    android:fontFamily="@font/poppins_medium"
+                    android:background="@drawable/black_border"
+                    android:padding="3dp" />
+
+                <TextView
+                    android:id="@+id/tvUrgent"
+                    android:layout_column="1"
+                    android:background="@drawable/black_border"
+                    android:fontFamily="@font/poppins_medium"
+                    android:hint="No"
+                    android:paddingStart="7dp"
+                    android:padding="3dp" />
+            </TableRow>
+
+            <TableRow>
+                <TextView
+                    android:text="Esterilizado: "
+                    android:gravity="center"
+                    android:width="100dp"
+                    android:textStyle="bold"
+                    android:fontFamily="@font/poppins_medium"
+                    android:background="@drawable/black_border"
+                    android:padding="3dp" />
+
+                <TextView
+                    android:id="@+id/tvSterilized"
+                    android:layout_column="1"
+                    android:background="@drawable/black_border"
+                    android:fontFamily="@font/poppins_medium"
+                    android:hint="No"
+                    android:paddingStart="7dp"
+                    android:padding="3dp" />
+            </TableRow>
+
+            <TableRow>
+                <TextView
+                    android:text="Exótico: "
+                    android:gravity="center"
+                    android:width="100dp"
+                    android:textStyle="bold"
+                    android:fontFamily="@font/poppins_medium"
+                    android:background="@drawable/black_border"
+                    android:padding="3dp" />
+
+                <TextView
+                    android:id="@+id/tvExotic"
+                    android:layout_column="1"
+                    android:background="@drawable/black_border"
+                    android:fontFamily="@font/poppins_medium"
+                    android:hint="No"
+                    android:paddingStart="7dp"
+                    android:padding="3dp" />
+            </TableRow>
+
+            <TableRow>
+                <TextView
+                    android:text="Pelo: "
+                    android:gravity="center"
+                    android:width="100dp"
+                    android:textStyle="bold"
+                    android:fontFamily="@font/poppins_medium"
+                    android:background="@drawable/black_border"
+                    android:padding="3dp" />
+
+                <TextView
+                    android:id="@+id/tvHair"
+                    android:layout_column="1"
+                    android:background="@drawable/black_border"
+                    android:fontFamily="@font/poppins_medium"
+                    android:hint="Si"
+                    android:paddingStart="7dp"
+                    android:padding="3dp" />
+            </TableRow>
+
+            <TableRow>
+                <TextView
+                    android:text="PPP:"
+                    android:gravity="center"
+                    android:width="100dp"
+                    android:textStyle="bold"
+                    android:fontFamily="@font/poppins_medium"
+                    android:background="@drawable/black_border"
+                    android:padding="3dp" />
+
+                <TextView
+                    android:id="@+id/tvPPP"
+                    android:layout_column="1"
+                    android:background="@drawable/black_border"
+                    android:fontFamily="@font/poppins_medium"
+                    android:hint="No"
+                    android:paddingStart="7dp"
+                    android:padding="3dp" />
+            </TableRow>
+        </TableLayout>
+
+        <TextView
+            android:id="@+id/tvHistory"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_medium"
+            android:justificationMode="inter_word"
+            android:layout_marginTop="20dp"
+            android:textSize="14dp"/>
+
+    </LinearLayout>
+</ScrollView>

@@ -24,7 +24,11 @@
         android:id="@+id/animalsFragment"
         android:name="com.feadca.protectora.ui.content.AnimalsFragment"
         android:label="Animales"
-        tools:layout="@layout/fragment_animals" />
+        tools:layout="@layout/fragment_animals" >
+        <action
+            android:id="@+id/action_animalsFragment_to_animalFragment"
+            app:destination="@id/animalFragment" />
+    </fragment>
     <fragment
         android:id="@+id/profileFragment"
         android:name="com.feadca.protectora.ui.content.ProfileFragment"
@@ -76,4 +80,13 @@
         android:name="com.feadca.protectora.ui.content.CreateRevisionFragment"
         android:label="Nueva revisión"
         tools:layout="@layout/fragment_create_revision" />
+    <fragment
+        android:id="@+id/animalFragment"
+        android:name="com.feadca.protectora.ui.content.AnimalFragment"
+        android:label="Información del animal"
+        tools:layout="@layout/fragment_animal" >
+        <argument
+            android:name="idAnimal"
+            app:argType="integer" />
+    </fragment>
 </navigation>
