@@ -8,6 +8,8 @@ import android.view.ViewGroup
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
+import com.denzcoskun.imageslider.constants.ScaleTypes
+import com.denzcoskun.imageslider.models.SlideModel
 import com.feadca.protectora.R
 import com.feadca.protectora.databinding.FragmentAnimalBinding
 import com.feadca.protectora.viewmodel.AnimalsViewModel
@@ -76,6 +78,18 @@ class AnimalFragment : Fragment(R.layout.fragment_animal) {
                 .placeholder(AppCompatResources.getDrawable(requireContext(), R.drawable.loading)) // Imagen mostrada durante la carga
                 .error(AppCompatResources.getDrawable(requireContext(), R.drawable.logo)) // Imagen mostrada en el caso de no poder cargarla
                 .into(binding.iwImage) // Indicamos donde serán colocadas las imágenes en la vista
+
+            // Añadimos el listado de imágenes al slider
+            val imageList = ArrayList<SlideModel>()
+
+            // Añadimos las imágenes a mostrar en el array
+            it.images!!.forEach {
+                imageList.add(SlideModel(it.image, it.date))
+            }
+
+            // Mostramos el slider con las imágenes del animal
+            binding.imageSlider.visibility = View.VISIBLE
+            binding.imageSlider.setImageList(imageList, ScaleTypes.FIT)
         }
     }
 
