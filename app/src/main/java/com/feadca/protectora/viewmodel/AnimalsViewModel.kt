@@ -11,6 +11,7 @@ import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.Volley
 import com.feadca.protectora.model.Animal
 import com.feadca.protectora.model.Image
+import com.feadca.protectora.utils.ANIMAL_INFO
 import com.feadca.protectora.utils.ANIMAL_LIST
 import com.feadca.protectora.utils.ANIMAL_PAGE
 import com.feadca.protectora.utils.FILTER_ANIMALS
@@ -28,6 +29,7 @@ class AnimalsViewModel(application: Application) : AndroidViewModel(application)
     val animalListLD: MutableLiveData<List<Animal>> = MutableLiveData()
     val animalFilteredListLD: MutableLiveData<List<Animal>> = MutableLiveData()
     val animalDataLD: MutableLiveData<Animal> = MutableLiveData()
+    val infoLD: MutableLiveData<String> = MutableLiveData()
     val errorLD: MutableLiveData<String> = MutableLiveData()
 
     // Función para obtener los animales de la protectora
@@ -264,4 +266,83 @@ class AnimalsViewModel(application: Application) : AndroidViewModel(application)
 
         queue.add(animalRequest) // Añadimos la petición y la realizamos
     }
+
+    // Función usada para pedir más información sobre un animal
+    fun requestInfo(email: String, idAnimal: Int, animalName: String) {
+        CoroutineScope(Dispatchers.IO).launch {
+            val url = ANIMAL_INFO // Url donde realizaremos la petición
+            val data = prepareInfoParams(email, idAnimal, animalName) // Datos a enviar en la petición
+
+            // Convertimos nuestro mapa en un json que enviaremos en la petición
+            val jsonObject = JSONObject(data as Map<*, *>?)
+
+            makeInfoRequest(url, jsonObject) // Realizamos la petición
+        }
+    }
+
+    // Función usada para preparar los parámetros de solicitud de información
+    private fun prepareInfoParams(email: String, idAnimal: Int, animalName: String): Any {
+        val data =
+            HashMap<String, HashMap<String, String>>() // Mapa que contendrá el cuerpo de la petición
+        val params = HashMap<String, String>() // Mapa con los parámetros a enviar
+
+        // Añadimos los parámetros a enviar
+        params.put("idAnimal", idAnimal.toString())
+        params.put("email", email)
+        params.put("nombre", animalName)
+
+        // Añadimos esos parámetros al cuerpo
+        data.put("data", params)
+
+        // Devolvemos los datos
+        return data
+    }
+
+    // Función usada para el request de solicitud de información sobre un animal
+    private fun makeInfoRequest(url: String, data: JSONObject) {
+        // Cola con la que realizaremos la petición
+        val queue = Volley.newRequestQueue(context)
+
+        // Variable que contendrá nuestra petición
+        val infoRequest: JsonObjectRequest = object : JsonObjectRequest(
+            Request.Method.POST,
+            url,
+            data,
+            Response.Listener {
+                val gson = Gson() // Inicializamos nuestra variable para trabajar con JSON
+                val mapType =
+                    object : TypeToken<Map<String, Any>>() {}.type // Mapa que recibiremos de la API
+
+                // En primer lugar, obtenemos el mapa que nos devuelve ese response
+                var responseMap: Map<String, Any> =
+                    gson.fromJson(it.toString(), object : TypeToken<Map<String, Any>>() {}.type)
+
+                // En segundo lugar, el mapa de donde obtendremos los datos del usuario logueado y el estado
+                var resultData: Map<String, Any> = gson.fromJson(
+                    responseMap.get("result").toString(),
+                    object : TypeToken<Map<String, Any>>() {}.type
+                )
+
+                if (resultData["status"].toString() == "ok") {
+                    // Actualizamos el valor del live data
+                    infoLD.postValue("Solicitud enviada correctamente")
+                } else {
+                    errorLD.postValue("Solicitud incorrecta")
+                }
+            },
+            Response.ErrorListener { error ->
+                Log.i("Error Login", error.toString())
+            }
+        ) {
+            @Throws(AuthFailureError::class)
+            override fun getHeaders(): Map<String, String> {
+                val params: MutableMap<String, String> = HashMap()
+                params["User-Agent"] = "Mozilla/5.0"
+                return params
+            }
+        }
+
+        queue.add(infoRequest) // Añadimos la petición y la realizamos
+    }
+
 }

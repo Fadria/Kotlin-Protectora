@@ -88,4 +88,6 @@
     <string name="fecha_revision">Fecha de la revisión</string>
     <string name="filtrar">Filtar</string>
     <string name="reiniciar">Reiniciar</string>
+    <string name="solicitar">Solicitar</string>
+    <string name="cancelar">Cancelar</string>
 </resources>

@@ -1,21 +1,23 @@
 package com.feadca.protectora.ui.content
 
+import android.app.AlertDialog
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.EditText
 import androidx.appcompat.content.res.AppCompatResources
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
 import com.denzcoskun.imageslider.constants.ScaleTypes
 import com.denzcoskun.imageslider.models.SlideModel
-import com.feadca.protectora.R
 import com.feadca.protectora.databinding.FragmentAnimalBinding
 import com.feadca.protectora.viewmodel.AnimalsViewModel
 import com.google.android.material.snackbar.Snackbar
 
-class AnimalFragment : Fragment(R.layout.fragment_animal) {
+
+class AnimalFragment : Fragment(com.feadca.protectora.R.layout.fragment_animal) {
     // Variable que contendrá la id del animal
     var idAnimal: Int = 0
 
@@ -34,7 +36,7 @@ class AnimalFragment : Fragment(R.layout.fragment_animal) {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_animal, container, false)
+        return inflater.inflate(com.feadca.protectora.R.layout.fragment_animal, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -54,7 +56,62 @@ class AnimalFragment : Fragment(R.layout.fragment_animal) {
         // Llamamos a la función del viewmodel encargada de cargar el animal
         animalViewModel.loadAnimal(idAnimal)
 
-        // Una vez se reciba la respuesta de la API actualizamos los valores
+        // Cuando se pulse el botón se solicitará información
+        binding.btnInfo.setOnClickListener {
+            // Builder con el que crearemos el diálogo
+            val builder: AlertDialog.Builder = AlertDialog.Builder(context)
+
+            // Obtenemos el enlace a la vista
+            val viewInflated: View = LayoutInflater.from(context)
+                .inflate(
+                    com.feadca.protectora.R.layout.dialog_animal_contact,
+                    getView() as ViewGroup?,
+                    false
+                )
+
+            val input =
+                viewInflated.findViewById<View>(com.feadca.protectora.R.id.etInfoEmail) as EditText
+
+            // Indicamos el botón de confirmación del diálogo
+            builder.setPositiveButton(
+                getString(com.feadca.protectora.R.string.solicitar)
+            ) { dialog, which ->
+
+                if (input.text.toString() != "") {
+                    // Llamamos a la función encargada de solicitar información sobre el animal
+                    animalViewModel.requestInfo(
+                        input.text.toString(),
+                        idAnimal,
+                        binding.tvName.text.toString()
+                    )
+                    dialog.dismiss()
+                } else {
+                    showSnackbar("Por favor, indique un email")
+                }
+            }
+
+            // Indicamos el botón de cancelación del diálogo
+            builder.setNegativeButton(
+                getString(com.feadca.protectora.R.string.cancelar)
+            ) { dialog, which ->
+                // Cerramos el diálogo
+                dialog.cancel()
+            }
+
+            // Mostramos el modal
+            builder.setView(viewInflated)
+            builder.show()
+        }
+
+        // Observadores usados para mostrar el resultado de la solicitud de información
+        animalViewModel.infoLD.observe(viewLifecycleOwner) {
+            showSnackbar(it.toString())
+        }
+        animalViewModel.errorLD.observe(viewLifecycleOwner) {
+            showSnackbar(it.toString())
+        }
+
+        // Actualización de los valores de la vista tras recibir los datos del animal
         animalViewModel.animalDataLD.observe(viewLifecycleOwner) {
             // Ocultamos el texto que marcaba que se estaba cargando el animal
             binding.tvLoading.visibility = View.GONE
@@ -75,8 +132,18 @@ class AnimalFragment : Fragment(R.layout.fragment_animal) {
             // Añadimos el valor de la imagen
             Glide.with(requireContext())
                 .load(it.image) // Imagen a mostrar
-                .placeholder(AppCompatResources.getDrawable(requireContext(), R.drawable.loading)) // Imagen mostrada durante la carga
-                .error(AppCompatResources.getDrawable(requireContext(), R.drawable.logo)) // Imagen mostrada en el caso de no poder cargarla
+                .placeholder(
+                    AppCompatResources.getDrawable(
+                        requireContext(),
+                        com.feadca.protectora.R.drawable.loading
+                    )
+                ) // Imagen mostrada durante la carga
+                .error(
+                    AppCompatResources.getDrawable(
+                        requireContext(),
+                        com.feadca.protectora.R.drawable.logo
+                    )
+                ) // Imagen mostrada en el caso de no poder cargarla
                 .into(binding.iwImage) // Indicamos donde serán colocadas las imágenes en la vista
 
             // Añadimos el listado de imágenes al slider
@@ -87,9 +154,11 @@ class AnimalFragment : Fragment(R.layout.fragment_animal) {
                 imageList.add(SlideModel(it.image, it.date))
             }
 
-            // Mostramos el slider con las imágenes del animal
-            binding.imageSlider.visibility = View.VISIBLE
-            binding.imageSlider.setImageList(imageList, ScaleTypes.FIT)
+            if (imageList.size > 0) {
+                // Mostramos el slider con las imágenes del animal
+                binding.imageSlider.visibility = View.VISIBLE
+                binding.imageSlider.setImageList(imageList, ScaleTypes.FIT)
+            }
         }
     }
 
