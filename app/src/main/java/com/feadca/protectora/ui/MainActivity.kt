@@ -2,6 +2,7 @@ package com.feadca.protectora.ui
 
 import android.content.Intent
 import android.os.Bundle
+import android.widget.TextView
 import androidx.annotation.Nullable
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
@@ -21,6 +22,7 @@ import com.google.android.material.navigation.NavigationView
 import com.paypal.android.sdk.payments.*
 import org.json.JSONException
 import org.json.JSONObject
+import org.w3c.dom.Text
 import java.math.BigDecimal
 
 
@@ -73,6 +75,16 @@ class MainActivity : AppCompatActivity() {
         navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
         navController = navHostFragment.navController
 
+        // Actualizamos el drawer con los valores del usuario;
+        navView.getHeaderView(0).findViewById<TextView>(R.id.userName).text = intent.getStringExtra("USER")
+
+        // Si no es un voluntario ocultaremos las secciones que no puedan ser usadas
+        if ( intent.getStringExtra("ROLE") != "voluntario") {
+            val menu = navView.menu
+            menu.findItem(R.id.revisionsFragment).isVisible = false
+            menu.findItem(R.id.createRevisionFragment).isVisible = false
+        }
+
         // Señalamos los niveles superiores que tendremos en el menú
         appBarConfiguration = AppBarConfiguration(
             setOf(
@@ -113,7 +125,6 @@ class MainActivity : AppCompatActivity() {
         // Activamos el navController
         NavigationUI.setupWithNavController(navView, navController)
         NavigationUI.setupWithNavController(binding.toolbar, navController, appBarConfiguration)
-
     }
 
     // Evitamos que al pulsar el botón de retroceso se cierre la aplicación
