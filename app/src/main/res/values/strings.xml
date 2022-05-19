@@ -90,4 +90,5 @@
     <string name="reiniciar">Reiniciar</string>
     <string name="solicitar">Solicitar</string>
     <string name="cancelar">Cancelar</string>
+    <string name="modo_invitado">Modo invitado</string>
 </resources>

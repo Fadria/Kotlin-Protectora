@@ -277,7 +277,18 @@ class AuthViewModel(application: Application) : AndroidViewModel(application) {
             val url = REGISTER_URL // URL donde realizaremos la petición
 
             // Preparamos los datos a enviar en el request
-            val data = prepareRegisterParams(email, user, pass, fullName, phone, direction, city, zipCode, dangerousDogPermission,  birthDate)
+            val data = prepareRegisterParams(
+                email,
+                user,
+                pass,
+                fullName,
+                phone,
+                direction,
+                city,
+                zipCode,
+                dangerousDogPermission,
+                birthDate
+            )
 
             // Convertimos nuestro mapa en un json que enviaremos en la petición
             val jsonObject = JSONObject(data as Map<*, *>?)
@@ -367,13 +378,15 @@ class AuthViewModel(application: Application) : AndroidViewModel(application) {
     // Función usada para realizar logout
     fun logout(token: String?) {
         CoroutineScope(Dispatchers.IO).launch {
-            val url = LOGOUT_URL // Ruta donde realizaremos la petición
-            val data = prepareLogoutParams(token!!) // Datos a enviar en la petición
+            if (token != null) {
+                val url = LOGOUT_URL // Ruta donde realizaremos la petición
+                val data = prepareLogoutParams(token!!) // Datos a enviar en la petición
 
-            // Convertimos nuestro mapa en un json que enviaremos en la petición
-            val jsonObject = JSONObject(data as Map<*, *>?)
+                // Convertimos nuestro mapa en un json que enviaremos en la petición
+                val jsonObject = JSONObject(data as Map<*, *>?)
 
-            makeLogoutRequest(url, jsonObject) // Realizamos la petición
+                makeLogoutRequest(url, jsonObject) // Realizamos la petición
+            }
         }
     }
 

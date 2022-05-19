@@ -102,6 +102,18 @@ class LoginActivity : AppCompatActivity() {
             val registerIntent = Intent(this, RegisterActivity::class.java)
             startActivity(registerIntent)
         }
+
+        // Navegamos a la actividad principal como invitado
+        binding.tvGuestAccess.setOnClickListener {
+            // Realizamos un intent con los datos necesarios en la actividad
+            val drawerIntent = Intent(this, MainActivity::class.java).apply {
+                putExtra("USER", "Usuario invitado")
+                putExtra("ROLE", "invitado")
+            }
+
+            startActivity(drawerIntent)
+            finish()
+        }
     }
 
     private fun showDrawer(it: User?) {

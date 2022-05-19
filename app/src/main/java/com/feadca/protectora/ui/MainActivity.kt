@@ -85,6 +85,11 @@ class MainActivity : AppCompatActivity() {
             menu.findItem(R.id.createRevisionFragment).isVisible = false
         }
 
+        if( intent.getStringExtra("ROLE") == "invitado") {
+            val menu = navView.menu
+            menu.findItem(R.id.profileFragment).isVisible = false
+        }
+
         // Señalamos los niveles superiores que tendremos en el menú
         appBarConfiguration = AppBarConfiguration(
             setOf(
