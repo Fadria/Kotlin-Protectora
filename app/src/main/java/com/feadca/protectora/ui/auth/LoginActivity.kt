@@ -119,8 +119,8 @@ class LoginActivity : AppCompatActivity() {
     private fun showDrawer(it: User?) {
         // Realizamos un intent con los datos necesarios en la actividad
         val drawerIntent = Intent(this, MainActivity::class.java).apply {
-            putExtra("USER", it!!.usuario)
-            putExtra("ROLE", it!!.rol)
+            putExtra("USER", it!!.user)
+            putExtra("ROLE", it!!.role)
         }
 
         startActivity(drawerIntent)
