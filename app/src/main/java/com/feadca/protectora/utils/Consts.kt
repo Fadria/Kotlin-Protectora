@@ -28,3 +28,6 @@ const val ANIMAL_LIST = IP + "/apirest/animales"
 const val FILTER_ANIMALS = IP + "/apirest/filtrarAnimales"
 const val ANIMAL_PAGE = IP + "/apirest/animales/"
 const val ANIMAL_INFO = IP + "/apirest/informacionAnimal"
+
+// URL usadas para los usuarios
+const val USER_DATA = IP + "/apirest/userData"

@@ -70,7 +70,8 @@ class AuthViewModel(application: Application) : AndroidViewModel(application) {
                     // Creamos una variable de tipo usuario con los datos recibidos
                     val loggedUser: User = User(
                         resultData["token"].toString(), resultData["usuario"].toString(),
-                        resultData["rol"].toString(), resultData["foto"].toString()
+                        resultData["rol"].toString(), resultData["foto"].toString(), null, null, null,
+                        null, null, null, null, null
                     )
 
                     // Actualizamos el valor del live data
@@ -167,7 +168,8 @@ class AuthViewModel(application: Application) : AndroidViewModel(application) {
                     // Creamos una variable de tipo usuario con los datos recibidos
                     val loggedUser: User = User(
                         null, resultData["usuario"].toString(),
-                        resultData["rol"].toString(), resultData["foto"].toString()
+                        resultData["rol"].toString(), resultData["foto"].toString(), null, null, null,
+                        null, null, null, null, null
                     )
 
                     // Actualizamos el valor del live data
