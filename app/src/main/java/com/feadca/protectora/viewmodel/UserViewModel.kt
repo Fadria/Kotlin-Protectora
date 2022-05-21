@@ -60,7 +60,7 @@ class UserViewModel (application: Application) : AndroidViewModel(application) {
 
         // Variable que contendrá nuestra petición
         val request: JsonObjectRequest = object : JsonObjectRequest(
-            Request.Method.GET,
+            Request.Method.POST,
             url,
             data,
             Response.Listener {
@@ -82,8 +82,10 @@ class UserViewModel (application: Application) : AndroidViewModel(application) {
                     // Creamos una variable de tipo usuario con los datos recibidos
                     val userData: User = User(
                         null, resultData["usuario"].toString(),
-                        resultData["rol"].toString(), resultData["foto"].toString(), null, null, null,
-                        null, null, null, null, null
+                        resultData["rol"].toString(), resultData["foto"].toString(), resultData["nombreCompleto"].toString(),
+                        resultData["email"].toString(), resultData["telefono"].toString(), resultData["direccion"].toString()
+                        ,resultData["ciudad"].toString(), resultData["codigoPostal"].toString(),
+                        resultData["permisoPPP"].toString(), resultData["fechaNacimiento"].toString()
                     )
 
                     // Actualizamos el valor del live data
