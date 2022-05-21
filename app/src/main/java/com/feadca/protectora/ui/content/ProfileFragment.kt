@@ -10,6 +10,8 @@ import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
 import com.feadca.protectora.R
 import com.feadca.protectora.databinding.FragmentProfileBinding
+import com.feadca.protectora.model.User
+import com.feadca.protectora.ui.MainActivity
 import com.feadca.protectora.viewmodel.UserViewModel
 import com.google.android.material.snackbar.Snackbar
 
@@ -17,6 +19,8 @@ class ProfileFragment : Fragment() {
 
     // Variable que contiene la referencia al ViewModel
     private lateinit var viewModel: UserViewModel
+
+    private lateinit var userData: User
 
     // Enlace con las vistas
     private var fragmentBinding: FragmentProfileBinding? = null
@@ -51,8 +55,10 @@ class ProfileFragment : Fragment() {
 
         // Acciones ejecutadas al detectar una actualización en el LiveData errorLD
         viewModel.userLD.observe(viewLifecycleOwner) {
-            fragmentBinding!!.tvName.text = it.fullName
-            fragmentBinding!!.tvRole.text = it.role
+            userData = it
+
+            fragmentBinding!!.tvName.text = userData.fullName
+            fragmentBinding!!.tvRole.text = userData.role
         }
 
         // Acciones ejecutadas al detectar una actualización en el LiveData errorLD
@@ -61,7 +67,7 @@ class ProfileFragment : Fragment() {
         }
 
         fragmentBinding!!.btnEdit.setOnClickListener {
-            //(activity as MainActivity?)!!.navigateToEditUser(userData)
+            (activity as MainActivity?)!!.navigateToEditUser(userData)
         }
     }
 

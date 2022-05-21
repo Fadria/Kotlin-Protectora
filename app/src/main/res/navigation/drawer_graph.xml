@@ -33,7 +33,11 @@
         android:id="@+id/profileFragment"
         android:name="com.feadca.protectora.ui.content.ProfileFragment"
         android:label="Mi Perfil"
-        tools:layout="@layout/fragment_profile" />
+        tools:layout="@layout/fragment_profile" >
+        <action
+            android:id="@+id/action_profileFragment_to_userEditFragment"
+            app:destination="@id/userEditFragment" />
+    </fragment>
     <fragment
         android:id="@+id/blogFragment"
         android:name="com.feadca.protectora.ui.content.BlogFragment"
@@ -88,5 +92,14 @@
         <argument
             android:name="idAnimal"
             app:argType="integer" />
+    </fragment>
+    <fragment
+        android:id="@+id/userEditFragment"
+        android:name="com.feadca.protectora.ui.content.UserEditFragment"
+        android:label="Edición de datos"
+        tools:layout="@layout/fragment_user_edit" >
+        <argument
+            android:name="userData"
+            app:argType="com.feadca.protectora.model.User" />
     </fragment>
 </navigation>

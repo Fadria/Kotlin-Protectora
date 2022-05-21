@@ -15,6 +15,7 @@ import androidx.navigation.ui.NavigationUI
 import com.feadca.protectora.R
 import com.feadca.protectora.databinding.ActivityMainBinding
 import com.feadca.protectora.model.Revision
+import com.feadca.protectora.model.User
 import com.feadca.protectora.ui.auth.LoginActivity
 import com.feadca.protectora.viewmodel.AuthViewModel
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
@@ -246,5 +247,12 @@ class MainActivity : AppCompatActivity() {
         bundle!!.putInt("idAnimal", id)
 
         navController.navigate(R.id.action_animalsFragment_to_animalFragment, bundle)
+    }
+
+    fun navigateToEditUser(userData: User) {
+        var bundle: Bundle? = Bundle()
+        bundle!!.putParcelable("userData", userData)
+
+        navController.navigate(R.id.action_profileFragment_to_userEditFragment, bundle)
     }
 }

@@ -1,6 +1,10 @@
 package com.feadca.protectora.model
 
+import android.os.Parcelable
+import kotlinx.parcelize.Parcelize
+
 // Data class que usaremos para almacenar los datos del usuario
+@Parcelize
 data class User(
     val token: String?,
     val user: String?,
@@ -14,4 +18,4 @@ data class User(
     val zipCode: String?,
     val licensePPP: String?,
     val birthDay: String?
-)
+) : Parcelable

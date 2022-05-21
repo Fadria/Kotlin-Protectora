@@ -91,4 +91,7 @@
     <string name="solicitar">Solicitar</string>
     <string name="cancelar">Cancelar</string>
     <string name="modo_invitado">Modo invitado</string>
+    <string name="volver_a_mi_perfil">Volver a Mi Perfil</string>
+    <string name="actualizacion_datos">Actualización de datos</string>
+    <string name="update_data">Actualizar datos</string>
 </resources>

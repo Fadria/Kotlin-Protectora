@@ -31,3 +31,4 @@ const val ANIMAL_INFO = IP + "/apirest/informacionAnimal"
 
 // URL usadas para los usuarios
 const val USER_DATA = IP + "/apirest/userData"
+const val USER_UPDATE = IP + "/apirest/actualizarUsuario"
