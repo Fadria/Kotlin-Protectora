@@ -34,7 +34,7 @@ class DonationsFragment : Fragment() {
                 .setTitle(getString(R.string.donation_bizum))
                 .setMessage(
                     "Puede donar enviando un Bizum al teléfono 666 999 333 con su donación.\n\n" +
-                            "Recuerde que cada cuenco de comida cuesta 1€. Muchas gracias."
+                            "Cada 1€, un animal puede disfrutar de una comida. Muchas gracias."
                 )
                 .setNeutralButton(getString(R.string.cerrar)) { _, _ -> }
                 .show()
@@ -47,7 +47,7 @@ class DonationsFragment : Fragment() {
                 .setMessage(
                     "Puede donar enviando una transferencia al siguiente IBAN con su donación.\n\n" +
                             "IBAN: ES6500493732237968060296\n\n" +
-                            "Recuerde que cada cuenco de comida cuesta 1€. Muchas gracias."
+                            "Cada 1€, un animal puede disfrutar de una comida. Muchas gracias."
                 )
                 .setNeutralButton(getString(R.string.cerrar)) { _, _ -> }
                 .show()

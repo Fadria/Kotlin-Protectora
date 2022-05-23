@@ -188,7 +188,7 @@ class MainActivity : AppCompatActivity() {
                         MaterialAlertDialogBuilder(this)
                             .setTitle(getString(R.string.payment_completed))
                             .setMessage(
-                                "Pago $state\n con la id $payID"
+                                "Muchas gracias por su pago. ID de la transacción: $payID"
                             )
                             .setNeutralButton(getString(R.string.cerrar)) { _, _ -> }
                             .show()
