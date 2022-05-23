@@ -7,7 +7,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.content.res.AppCompatResources
 import androidx.lifecycle.ViewModelProvider
+import com.bumptech.glide.Glide
 import com.feadca.protectora.R
 import com.feadca.protectora.databinding.FragmentProfileBinding
 import com.feadca.protectora.model.User
@@ -59,6 +61,27 @@ class ProfileFragment : Fragment() {
 
             fragmentBinding!!.tvName.text = userData.fullName
             fragmentBinding!!.tvRole.text = userData.role
+
+            // Mostramos la imagen correspondiente según el tipo de rol
+            when (userData.role) {
+                "voluntario" -> {
+                    // Añadimos la imagen del rol
+                    Glide.with(requireContext())
+                        .load(R.drawable.default_user_icon) // Imagen a mostrar
+                        .placeholder(AppCompatResources.getDrawable(requireContext(), R.drawable.loading)) // Imagen mostrada durante la carga
+                        .error(AppCompatResources.getDrawable(requireContext(), R.drawable.logo)) // Imagen mostrada en el caso de no poder cargarla
+                        .into(fragmentBinding!!.imgUser) // Indicamos donde serán colocadas las imágenes en la vista
+
+                }
+                "adoptante" -> {
+                    // Añadimos la imagen del rol
+                    Glide.with(requireContext())
+                        .load(R.drawable.default_user_icon3) // Imagen a mostrar
+                        .placeholder(AppCompatResources.getDrawable(requireContext(), R.drawable.loading)) // Imagen mostrada durante la carga
+                        .error(AppCompatResources.getDrawable(requireContext(), R.drawable.logo)) // Imagen mostrada en el caso de no poder cargarla
+                        .into(fragmentBinding!!.imgUser) // Indicamos donde serán colocadas las imágenes en la vista
+                }
+            }
         }
 
         // Acciones ejecutadas al detectar una actualización en el LiveData errorLD

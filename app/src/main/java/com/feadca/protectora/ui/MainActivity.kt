@@ -2,9 +2,11 @@ package com.feadca.protectora.ui
 
 import android.content.Intent
 import android.os.Bundle
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.annotation.Nullable
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.content.res.AppCompatResources
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.lifecycle.ViewModelProvider
@@ -12,6 +14,7 @@ import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.NavigationUI
+import com.bumptech.glide.Glide
 import com.feadca.protectora.R
 import com.feadca.protectora.databinding.ActivityMainBinding
 import com.feadca.protectora.model.Revision
@@ -80,15 +83,39 @@ class MainActivity : AppCompatActivity() {
         navView.getHeaderView(0).findViewById<TextView>(R.id.userName).text = intent.getStringExtra("USER")
 
         // Si no es un voluntario ocultaremos las secciones que no puedan ser usadas
-        if ( intent.getStringExtra("ROLE") != "voluntario") {
-            val menu = navView.menu
-            menu.findItem(R.id.revisionsFragment).isVisible = false
-            menu.findItem(R.id.createRevisionFragment).isVisible = false
+        if ( intent.getStringExtra("ROLE") == "voluntario") {
+            // Añadimos la imagen del rol
+            Glide.with(navController.context)
+                .load(R.drawable.default_user_icon) // Imagen a mostrar
+                .placeholder(AppCompatResources.getDrawable(navController.context, R.drawable.loading)) // Imagen mostrada durante la carga
+                .error(AppCompatResources.getDrawable(navController.context, R.drawable.logo)) // Imagen mostrada en el caso de no poder cargarla
+                .into(binding.navView.getHeaderView(0).findViewById<ImageView>(R.id.userImage)) // Indicamos donde serán colocadas las imágenes en la vista
         }
 
         if( intent.getStringExtra("ROLE") == "invitado") {
             val menu = navView.menu
+            menu.findItem(R.id.revisionsFragment).isVisible = false
+            menu.findItem(R.id.createRevisionFragment).isVisible = false
             menu.findItem(R.id.profileFragment).isVisible = false
+
+            // Añadimos la imagen del rol
+            Glide.with(navController.context)
+                .load(R.drawable.default_user_icon2) // Imagen a mostrar
+                .placeholder(AppCompatResources.getDrawable(navController.context, R.drawable.loading)) // Imagen mostrada durante la carga
+                .error(AppCompatResources.getDrawable(navController.context, R.drawable.logo)) // Imagen mostrada en el caso de no poder cargarla
+                .into(binding.navView.getHeaderView(0).findViewById<ImageView>(R.id.userImage)) // Indicamos donde serán colocadas las imágenes en la vista
+        }
+
+        if( intent.getStringExtra("ROLE") == "adoptante") {
+            val menu = navView.menu
+            menu.findItem(R.id.profileFragment).isVisible = true
+
+            // Añadimos la imagen del rol
+            Glide.with(navController.context)
+                .load(R.drawable.default_user_icon3) // Imagen a mostrar
+                .placeholder(AppCompatResources.getDrawable(navController.context, R.drawable.loading)) // Imagen mostrada durante la carga
+                .error(AppCompatResources.getDrawable(navController.context, R.drawable.logo)) // Imagen mostrada en el caso de no poder cargarla
+                .into(binding.navView.getHeaderView(0).findViewById<ImageView>(R.id.userImage)) // Indicamos donde serán colocadas las imágenes en la vista
         }
 
         // Señalamos los niveles superiores que tendremos en el menú
