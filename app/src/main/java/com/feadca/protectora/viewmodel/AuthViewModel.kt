@@ -1,6 +1,7 @@
 package com.feadca.protectora.viewmodel
 
 import android.app.Application
+import android.content.SharedPreferences
 import android.util.Log
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
@@ -9,6 +10,7 @@ import com.android.volley.Request
 import com.android.volley.Response
 import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.Volley
+import com.feadca.protectora.R
 import com.feadca.protectora.model.User
 import com.feadca.protectora.utils.*
 import com.google.gson.Gson
@@ -17,6 +19,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import org.json.JSONObject
+
 
 class AuthViewModel(application: Application) : AndroidViewModel(application) {
     val context = application
@@ -419,9 +422,10 @@ class AuthViewModel(application: Application) : AndroidViewModel(application) {
             url,
             data,
             Response.Listener {
-                val gson = Gson() // Inicializamos nuestra variable para trabajar con JSON
-                val mapType =
-                    object : TypeToken<Map<String, Any>>() {}.type // Mapa que recibiremos de la API
+                // Eliminamos el token del almacenamiento del dispositivo
+                val preferences: SharedPreferences = context.getSharedPreferences(context.getString(
+                                    R.string.shared_file), 0)
+                preferences.edit().remove("token").commit()
             },
             Response.ErrorListener { error ->
                 Log.i("Error Logout", error.toString())
