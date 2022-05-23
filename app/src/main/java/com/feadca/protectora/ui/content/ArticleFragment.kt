@@ -63,12 +63,19 @@ class ArticleFragment : Fragment(R.layout.fragment_article) {
             binding.tvDate.text = it!!.date
             binding.tvAuthor.text = it!!.author
 
-            // Cargamos la imagen del artículo
+            // Cargamos las imágenes del artículo
             Glide.with(requireContext())
                 .load(it.image) // Imagen a mostrar
                 .placeholder(AppCompatResources.getDrawable(requireContext(), R.drawable.loading)) // Imagen mostrada durante la carga
                 .error(AppCompatResources.getDrawable(requireContext(), R.drawable.logo)) // Imagen mostrada en el caso de no poder cargarla
                 .into(binding.iwImage) // Indicamos donde serán colocadas las imágenes en la vista
+
+            Glide.with(requireContext())
+                .load(it.imageFoot) // Imagen a mostrar
+                .placeholder(AppCompatResources.getDrawable(requireContext(), R.drawable.loading)) // Imagen mostrada durante la carga
+                .error(AppCompatResources.getDrawable(requireContext(), R.drawable.logo)) // Imagen mostrada en el caso de no poder cargarla
+                .into(binding.iwImage2) // Indicamos donde serán colocadas las imágenes en la vista
+
         }
     }
 }

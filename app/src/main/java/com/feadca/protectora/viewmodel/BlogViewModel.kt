@@ -57,7 +57,7 @@ class BlogViewModel(application: Application) : AndroidViewModel(application) {
                     entryList.add(BlogEntry(article.getInt("id"), article.getString("titulo"),
                         article.getString("fechaPublicacion"),
                         article.getString("imagenPortada"), article.getString("autor"),
-                        article.getString("contenido")))
+                        article.getString("contenido"), null))
                 }
 
                 // Una vez obtenemos todas las entradas, actualizamos nuestro LiveData
@@ -103,7 +103,7 @@ class BlogViewModel(application: Application) : AndroidViewModel(application) {
                 val article:BlogEntry = BlogEntry(articleId,
                     articleJSON.getString("titulo"), articleJSON.getString("fechaPublicacion"),
                     articleJSON.getString("imagenPortada"), articleJSON.getString("autor"),
-                    articleJSON.getString("contenido"))
+                    articleJSON.getString("contenido"), articleJSON.getString("imagenPie"))
 
                 articleLD.postValue(article)
             },
