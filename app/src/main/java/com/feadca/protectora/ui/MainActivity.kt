@@ -130,6 +130,7 @@ class MainActivity : AppCompatActivity() {
                 R.id.graphicsFragment,
                 R.id.revisionsFragment,
                 R.id.createRevisionFragment,
+                R.id.becomeVolunteerFragment,
             ),
             drawerLayout
         )

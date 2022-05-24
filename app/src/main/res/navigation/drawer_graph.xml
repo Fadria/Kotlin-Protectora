@@ -102,4 +102,9 @@
             android:name="userData"
             app:argType="com.feadca.protectora.model.User" />
     </fragment>
+    <fragment
+        android:id="@+id/becomeVolunteerFragment"
+        android:name="com.feadca.protectora.ui.content.BecomeVolunteerFragment"
+        android:label="Convertirse en voluntario"
+        tools:layout="@layout/fragment_become_volunteer" />
 </navigation>

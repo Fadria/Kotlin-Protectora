@@ -85,19 +85,6 @@ class ContactFragment : Fragment() {
             binding.etFullName.isEnabled = true;
             binding.etReason.isEnabled = true;
         }
-
-        // Acciones ejecutadas al detectar una actualización en el LiveData contactLD
-        mailingViewModel.contactLD.observe(viewLifecycleOwner) {
-            showSnackbar(it!!)
-
-            // Cambiamos la opacidad de la pantalla para que el usuario sepa que puede continuar usando la app
-            binding.layout.alpha = 1.0f
-
-            // Permitimos que se puedan usar los inputs de nuevo
-            binding.etEmail.isEnabled = true;
-            binding.etFullName.isEnabled = true;
-            binding.etReason.isEnabled = true;
-        }
     }
 
     // Función encargada de ocultar el teclado
