@@ -94,8 +94,7 @@ class RegisterActivity : AppCompatActivity() {
         dangerousDogPermission = binding.swDangerousDog.isChecked
 
         // Si ningún campo se encuentra en blanco devolveremos true, en caso contrario, false
-        return (email != "" && user != "" && pass != "" && fullName != "" && phone != "" && direction != ""
-                && city != "" && zipCode != "" && birthDate != "")
+        return (email != "" && user != "" && pass != "" && fullName != "")
     }
 
     // Función usada para registrar un usuario mediante el viewModel

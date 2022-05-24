@@ -145,8 +145,6 @@ class UserViewModel (application: Application) : AndroidViewModel(application) {
             // Convertimos nuestro mapa en un json que enviaremos en la petición
             val jsonObject = JSONObject(data as Map<*, *>?)
 
-            Log.i("aaaaaaaaaaaaaaaaaaaa", jsonObject.toString())
-
             makeUpdateUserRequest(url, jsonObject) // Realizamos la petición
         }
     }

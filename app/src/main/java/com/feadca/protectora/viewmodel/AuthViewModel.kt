@@ -302,11 +302,49 @@ class AuthViewModel(application: Application) : AndroidViewModel(application) {
         }
     }
 
+    // Función encargada de preparar los datos con los que realizar la petición de registro
+    private fun prepareRegisterParams(
+        email: String,
+        user: String,
+        pass: String,
+        fullName: String,
+        phone: String,
+        direction: String,
+        city: String,
+        zipCode: String,
+        dangerousDogPermission: Boolean,
+        birthDate: String
+    ): Any {
+        val data =
+            HashMap<String, HashMap<String, Any>>() // Mapa que contendrá el cuerpo de la petición
+        val params = HashMap<String, Any>() // Mapa con los parámetros a enviar
+
+        // Añadimos los parámetros a enviar
+        params.put("email", email)
+        params.put("usuario", user)
+        params.put("contrasenya", pass)
+        params.put("nombreCompleto", fullName)
+
+        if (phone != "") params.put("telefono", phone)
+        if (direction != "") params.put("direccion", direction)
+        if (city != "") params.put("ciudad", city)
+        if (zipCode != "") params.put("codigoPostal", zipCode)
+        params.put("permisoPPP", dangerousDogPermission)
+        if (birthDate != "") params.put("fechaNacimiento", birthDate)
+
+        // Añadimos esos parámetros al cuerpo
+        data.put("data", params)
+
+        // Devolvemos los datos
+        return data
+    }
+
     // Función encargada de realizar la petición de registro
     private fun makeRegisterRequest(url: String, data: JSONObject) {
         // Cola con la que realizaremos la petición de Login
         val queue = Volley.newRequestQueue(context)
 
+        Log.i("aaaaa", data.toString())
         // Variable que contendrá nuestra petición
         val registerRequest: JsonObjectRequest = object : JsonObjectRequest(
             Request.Method.POST,
@@ -342,42 +380,6 @@ class AuthViewModel(application: Application) : AndroidViewModel(application) {
         }
 
         queue.add(registerRequest) // Añadimos la petición y la realizamos
-    }
-
-    // Función encargada de preparar los datos con los que realizar la petición de registro
-    private fun prepareRegisterParams(
-        email: String,
-        user: String,
-        pass: String,
-        fullName: String,
-        phone: String,
-        direction: String,
-        city: String,
-        zipCode: String,
-        dangerousDogPermission: Boolean,
-        birthDate: String
-    ): Any {
-        val data =
-            HashMap<String, HashMap<String, Any>>() // Mapa que contendrá el cuerpo de la petición
-        val params = HashMap<String, Any>() // Mapa con los parámetros a enviar
-
-        // Añadimos los parámetros a enviar
-        params.put("email", email)
-        params.put("usuario", user)
-        params.put("contrasenya", pass)
-        params.put("nombreCompleto", fullName)
-        params.put("telefono", phone)
-        params.put("direccion", direction)
-        params.put("ciudad", city)
-        params.put("codigoPostal", zipCode)
-        params.put("permisoPPP", dangerousDogPermission)
-        params.put("fechaNacimiento", birthDate)
-
-        // Añadimos esos parámetros al cuerpo
-        data.put("data", params)
-
-        // Devolvemos los datos
-        return data
     }
 
     // Función usada para realizar logout
