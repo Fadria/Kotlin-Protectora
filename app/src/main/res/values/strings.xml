@@ -95,4 +95,5 @@
     <string name="convertirse_voluntario">Convertirse en voluntario</string>
     <string name="become_volunteer_text">Si quieres convertirte en voluntario, tan sólo tienes que indicarnos tu email y nos pondremos en contacto contigo lo más pronto posible.\n\nPuedes ayudarnos a cuidar de los animales, pasearlos, jugar con ellos y organizar diferentes eventos en la protectora, hay todo tipo de tareas que puedes realizar.\n\n¡Te esperamos!</string>
     <string name="enviar_solicitud">Enviar solicitud</string>
+    <string name="requisitos_previos">Requisitos previos</string>
 </resources>

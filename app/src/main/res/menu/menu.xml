@@ -43,6 +43,10 @@
                     android:id="@+id/animalsFragment"
                     android:title="@string/menu_animals"
                     android:icon="@drawable/icon_animals"/>
+                <item
+                    android:id="@+id/requirementsFragment"
+                    android:title="@string/requisitos_previos"
+                    android:icon="@drawable/icon_requirements"/>
             </group>
         </menu>
     </item>

@@ -131,6 +131,7 @@ class MainActivity : AppCompatActivity() {
                 R.id.revisionsFragment,
                 R.id.createRevisionFragment,
                 R.id.becomeVolunteerFragment,
+                R.id.requirementsFragment,
             ),
             drawerLayout
         )
@@ -282,5 +283,12 @@ class MainActivity : AppCompatActivity() {
         bundle!!.putParcelable("userData", userData)
 
         navController.navigate(R.id.action_profileFragment_to_userEditFragment, bundle)
+    }
+
+    fun loadRequirement(id: Int) {
+        var bundle: Bundle? = Bundle()
+        bundle!!.putInt("idRequirement", id)
+
+        navController.navigate(R.id.action_requirementsFragment_to_requirementFragment, bundle)
     }
 }

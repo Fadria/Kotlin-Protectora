@@ -107,4 +107,22 @@
         android:name="com.feadca.protectora.ui.content.BecomeVolunteerFragment"
         android:label="Convertirse en voluntario"
         tools:layout="@layout/fragment_become_volunteer" />
+    <fragment
+        android:id="@+id/requirementsFragment"
+        android:name="com.feadca.protectora.ui.content.RequirementsFragment"
+        android:label="Requisitos previos"
+        tools:layout="@layout/fragment_requirements" >
+        <action
+            android:id="@+id/action_requirementsFragment_to_requirementFragment"
+            app:destination="@id/requirementFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/requirementFragment"
+        android:name="com.feadca.protectora.ui.content.RequirementFragment"
+        android:label="Detalle requisito"
+        tools:layout="@layout/fragment_requirement" >
+        <argument
+            android:name="idRequirement"
+            app:argType="integer" />
+    </fragment>
 </navigation>

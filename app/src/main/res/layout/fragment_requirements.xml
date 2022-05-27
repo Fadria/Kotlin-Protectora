@@ -6,10 +6,10 @@
     android:id="@+id/layout"
     android:background="@color/fondoGeneral"
     android:padding="20dp"
-    tools:context=".ui.content.BlogFragment">
+    tools:context=".ui.content.RequirementsFragment">
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvBlog"
+        android:id="@+id/rvRequirements"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
 
