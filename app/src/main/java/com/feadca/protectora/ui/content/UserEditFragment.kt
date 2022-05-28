@@ -149,7 +149,7 @@ class UserEditFragment : Fragment() {
         binding!!.etCity.setText(userData.city.toString())
         binding!!.etZipcode.setText(userData.zipCode.toString())
 
-        if(userData.licensePPP == "Con permiso PPP") binding!!.swDangerousDog.isPressed = true
+        if(userData.licensePPP == "Con permiso PPP") binding!!.swDangerousDog.isChecked = true
     }
 
     // Función encargada de mostrar avisos
