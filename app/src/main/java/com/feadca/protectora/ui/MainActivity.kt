@@ -259,7 +259,7 @@ class MainActivity : AppCompatActivity() {
         var bundle: Bundle? = Bundle()
         bundle!!.putInt("articleId", articleId)
 
-        navController.navigate(R.id.action_blogFragment_to_articleFragment, bundle)
+        navController.navigate(R.id.action_blogFragment_to_articleFragment2, bundle)
     }
 
     // Función usada para navegar a la lista de revisiones

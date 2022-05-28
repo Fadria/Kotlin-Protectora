@@ -44,17 +44,8 @@
         android:label="Blog"
         tools:layout="@layout/fragment_blog" >
         <action
-            android:id="@+id/action_blogFragment_to_articleFragment"
+            android:id="@+id/action_blogFragment_to_articleFragment2"
             app:destination="@id/articleFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/articleFragment"
-        android:name="com.feadca.protectora.ui.content.ArticleFragment"
-        android:label="Blog"
-        tools:layout="@layout/fragment_article" >
-        <argument
-            android:name="articleId"
-            app:argType="integer" />
     </fragment>
     <fragment
         android:id="@+id/graphicsFragment"
@@ -119,10 +110,19 @@
     <fragment
         android:id="@+id/requirementFragment"
         android:name="com.feadca.protectora.ui.content.RequirementFragment"
-        android:label="Detalle requisito"
+        android:label="Detalle del requisito"
         tools:layout="@layout/fragment_requirement" >
         <argument
             android:name="idRequirement"
+            app:argType="integer" />
+    </fragment>
+    <fragment
+        android:id="@+id/articleFragment"
+        android:name="com.feadca.protectora.ui.content.ArticleFragment"
+        android:label="Artículo del blog"
+        tools:layout="@layout/fragment_article" >
+        <argument
+            android:name="articleId"
             app:argType="integer" />
     </fragment>
 </navigation>
