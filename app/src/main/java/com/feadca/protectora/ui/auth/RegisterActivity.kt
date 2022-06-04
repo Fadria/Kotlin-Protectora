@@ -16,7 +16,7 @@ import java.text.SimpleDateFormat
 import java.util.*
 
 class RegisterActivity : AppCompatActivity() {
-    // Binding con el que acceder a los datos de la vista
+    // Enlace con las vistas
     lateinit var binding: ActivityRegisterBinding
 
     // Datos del usuario a registrar
@@ -70,7 +70,7 @@ class RegisterActivity : AppCompatActivity() {
             }
         }
 
-        // Navegamos a la actividad del Login
+        // Listener para navegar a la actividad del Login
         binding.tvGoToLogin.setOnClickListener {
             finish()
         }
@@ -81,6 +81,7 @@ class RegisterActivity : AppCompatActivity() {
         }
     }
 
+    // Función usada para valdar los campos del formulario y actualizar los valores de las variables
     private fun validateFields(): Any {
         // Actualizamos los valores según los datos del formulario
         email = binding.etEmail.text.toString()

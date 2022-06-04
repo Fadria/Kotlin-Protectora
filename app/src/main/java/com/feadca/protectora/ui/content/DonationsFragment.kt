@@ -11,7 +11,7 @@ import com.feadca.protectora.ui.MainActivity
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.snackbar.Snackbar
 
-
+// Fragmento que contendrá los elementos relacionados con las donaciones
 class DonationsFragment : Fragment() {
     // Enlace con las vistas
     private var fragmentDonationsBinding: FragmentDonationsBinding? = null

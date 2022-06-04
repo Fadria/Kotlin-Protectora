@@ -1,6 +1,6 @@
 package com.feadca.protectora.model
 
-// Data class que usaremos para los animales de la protectora
+// Data class de los animales de la protectora
 data class Animal(
     val id: Int,
     val name: String?,

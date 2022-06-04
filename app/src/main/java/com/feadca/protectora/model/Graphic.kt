@@ -1,6 +1,6 @@
 package com.feadca.protectora.model
 
-// Data class que usaremos para los gráficos de la aplicación
+// Data class de los gráficos
 data class Graphic(
     val title: String?,
     val date: String,

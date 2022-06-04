@@ -13,6 +13,7 @@ import com.feadca.protectora.databinding.FragmentBlogBinding
 import com.feadca.protectora.model.BlogEntry
 import com.feadca.protectora.viewmodel.BlogViewModel
 
+// Fragmento que contendrá el listado de artículos del blog
 class BlogFragment : Fragment(R.layout.fragment_blog) {
     // Enlace con las vistas
     private var fragmentBlogBinding: FragmentBlogBinding? = null
@@ -34,7 +35,7 @@ class BlogFragment : Fragment(R.layout.fragment_blog) {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
+        // Inflamos el layout del fragmento
         return inflater.inflate(R.layout.fragment_blog, container, false)
     }
 
@@ -54,6 +55,7 @@ class BlogFragment : Fragment(R.layout.fragment_blog) {
         // Llamamos a la función del viewmodel encargada de obtener los artículos del blog
         blogEntryViewModel.getArticles()
 
+        // Observador ejecutado al cargar los artículos y noticias del blog
         blogEntryViewModel.blogNewsLD.observe(viewLifecycleOwner) {
             blogEntryList.clear() // Vaciamos la lista
             blogEntryList.addAll(it) // Añadimos todos los elementos del live data

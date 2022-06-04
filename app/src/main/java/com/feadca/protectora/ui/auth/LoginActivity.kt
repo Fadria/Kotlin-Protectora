@@ -16,6 +16,7 @@ import com.feadca.protectora.viewmodel.AuthViewModel
 import com.google.android.material.snackbar.Snackbar
 
 class LoginActivity : AppCompatActivity() {
+    // Enlace con las vistas
     lateinit var binding: ActivityLoginBinding
 
     // Datos usados en el Login
@@ -37,6 +38,7 @@ class LoginActivity : AppCompatActivity() {
 
         // Acciones ejecutadas al detectar una actualización en el LiveData userDataLD
         authViewModel.userDataLD.observe(this) {
+            // Se almacenará el token del usuario mediante las sharedPreferences
             val prefs =
                 getSharedPreferences(getString(R.string.shared_file), Context.MODE_PRIVATE).edit()
             prefs.putString("TOKEN", it!!.token)
@@ -91,19 +93,19 @@ class LoginActivity : AppCompatActivity() {
             }
         }
 
-        // Navegamos a la actividad de recuperación de contraseña
+        // Función usada para navegar a la actividad de recuperación de contraseña
         binding.tvRecoverPassword.setOnClickListener {
             val recoverPasswordIntent = Intent(this, RecoverPasswordActivity::class.java)
             startActivity(recoverPasswordIntent)
         }
 
-        // Navegamos a la actividad de recuperación de contraseña
+        // Función usada para navegar a la actividad de recuperación de contraseña
         binding.tvRegister.setOnClickListener {
             val registerIntent = Intent(this, RegisterActivity::class.java)
             startActivity(registerIntent)
         }
 
-        // Navegamos a la actividad principal como invitado
+        // Función usada para navegar a la actividad principal como invitado
         binding.tvGuestAccess.setOnClickListener {
             // Realizamos un intent con los datos necesarios en la actividad
             val drawerIntent = Intent(this, MainActivity::class.java).apply {
@@ -116,6 +118,7 @@ class LoginActivity : AppCompatActivity() {
         }
     }
 
+    // Función usada para navegar a la actividad principal como usuario logueado
     private fun showDrawer(it: User?) {
         // Realizamos un intent con los datos necesarios en la actividad
         val drawerIntent = Intent(this, MainActivity::class.java).apply {

@@ -20,6 +20,7 @@ import com.feadca.protectora.viewmodel.BlogViewModel
 import com.feadca.protectora.viewmodel.RevisionsViewModel
 import com.google.android.material.snackbar.Snackbar
 
+// Fragmento con un formulario para buscar las revisiones de un animal
 class RevisionsFragment : Fragment(R.layout.fragment_revisions) {
     // Enlace con las vistas
     private var fragmentRevisionsBinding: FragmentRevisionsBinding? = null
@@ -38,7 +39,7 @@ class RevisionsFragment : Fragment(R.layout.fragment_revisions) {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
+        // Inflamos el layout del fragmento
         return inflater.inflate(R.layout.fragment_revisions, container, false)
     }
 
@@ -52,6 +53,7 @@ class RevisionsFragment : Fragment(R.layout.fragment_revisions) {
         val binding = FragmentRevisionsBinding.bind(view)
         fragmentRevisionsBinding = binding
 
+        // Acciones ejecutadas al pulsar el botón para buscar revisiones
         binding.btnRevisions.setOnClickListener {
             if (binding.etAnimalId.text.toString() != "") {
                 // Llamamos a la función del viewmodel encargada de obtener los artículos del blog
@@ -61,7 +63,7 @@ class RevisionsFragment : Fragment(R.layout.fragment_revisions) {
             }
         }
 
-        // Observamos el LiveData de la lista de revisiones
+        // Observador usado para recibir el listado de revisiones de un animal
         revisionsViewModel.revisionListLD.observe(viewLifecycleOwner) {
             // Vaciamos el input, cerramos el teclado y navegamos al listado de revisiones
             binding.etAnimalId.text.clear()
@@ -70,7 +72,7 @@ class RevisionsFragment : Fragment(R.layout.fragment_revisions) {
             (activity as MainActivity?)!!.navigateToRevisionList(it)
         }
 
-        // Observamos el LiveData que controla errores
+        // Observador usado para vigilar errores
         revisionsViewModel.errorLD.observe(viewLifecycleOwner) {
             // Mostramos un mensaje de error, vaciamos el input y cerramos el teclado
             showSnackbar(it.toString())

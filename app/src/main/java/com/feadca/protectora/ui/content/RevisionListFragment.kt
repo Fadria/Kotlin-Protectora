@@ -17,6 +17,7 @@ import com.feadca.protectora.databinding.FragmentRevisionListBinding
 import com.feadca.protectora.model.BlogEntry
 import com.feadca.protectora.model.Revision
 
+// Fragmento que contendrá el listado de revisiones de un animal
 class RevisionListFragment : Fragment(R.layout.fragment_revision_list) {
     // Enlace con las vistas
     private var fragmentRevisionListBinding: FragmentRevisionListBinding? = null

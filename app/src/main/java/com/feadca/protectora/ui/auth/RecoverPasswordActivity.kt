@@ -2,7 +2,6 @@ package com.feadca.protectora.ui.auth
 
 import android.app.Activity
 import android.content.Context
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -13,7 +12,7 @@ import com.feadca.protectora.viewmodel.AuthViewModel
 import com.google.android.material.snackbar.Snackbar
 
 class RecoverPasswordActivity : AppCompatActivity() {
-    // Binding con el que poder acceder al layout
+    // Enlace con las vistas
     lateinit var binding: ActivityRecoverPasswordBinding
 
     // Datos usados para recuperar la contraseña
@@ -64,7 +63,7 @@ class RecoverPasswordActivity : AppCompatActivity() {
                 // Impedimos que se puedan usar los inputs mientras realizamos la llamada a la API
                 binding.etEmail.isEnabled = false;
 
-                recoverPassword(email) // Llamamos a la función que contactará con el ViewModel
+                recoverPassword() // Llamamos a la función que contactará con el ViewModel
 
                 hideKeyboard() // Ocultamos el teclado
                 clearFocus() // Vaciamos los campos del formulario
@@ -81,7 +80,7 @@ class RecoverPasswordActivity : AppCompatActivity() {
     }
 
     // Función encargada de recuperar la contraseña
-    private fun recoverPassword(email: String) {
+    private fun recoverPassword() {
         val email = binding.etEmail.text.toString()
 
         authViewModel.recoverPassword(email)

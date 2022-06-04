@@ -16,6 +16,7 @@ import com.feadca.protectora.model.Requirement
 import com.feadca.protectora.viewmodel.BlogViewModel
 import com.feadca.protectora.viewmodel.RequirementsViewModel
 
+// Fragmento que contendrá el listado de requisitos previos a una adopción
 class RequirementsFragment : Fragment(R.layout.fragment_requirements) {
     // Enlace con las vistas
     private var binding: FragmentRequirementsBinding? = null
@@ -37,7 +38,7 @@ class RequirementsFragment : Fragment(R.layout.fragment_requirements) {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
+        // Inflamos el layout del fragmento
         return inflater.inflate(R.layout.fragment_requirements, container, false)
     }
 

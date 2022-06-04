@@ -3,7 +3,8 @@ package com.feadca.protectora.model
 import android.os.Parcelable
 import kotlinx.parcelize.Parcelize
 
-// Data class que usaremos para almacenar los datos del usuario
+// Data class de los usuarios de la protectora
+// Es una clase parcelable para poder enviar sus objetos entre fragmentos
 @Parcelize
 data class User(
     val token: String?,

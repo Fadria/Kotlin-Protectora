@@ -15,11 +15,13 @@ import com.feadca.protectora.model.User
 import com.feadca.protectora.viewmodel.UserViewModel
 import com.google.android.material.snackbar.Snackbar
 
+// Fragmento usado para editar los datos del usuario
 class UserEditFragment : Fragment() {
 
     // Variable que contiene la referencia al ViewModel
     private lateinit var viewModel: UserViewModel
 
+    // Variable que contendrá los datos del usuario
     private lateinit var userData: User
 
     // Datos del usuario a actualizar
@@ -64,8 +66,9 @@ class UserEditFragment : Fragment() {
 
         loadFields(userData) // Cargamos los datos en el formulario
 
-
+        // Acciones ejecutadas al pulsar el botón de actualización
         binding!!.btnUpdateUser.setOnClickListener {
+            // Validamos que los campos introducidos son correctos
             if (validateFields() == true) {
                 updateUser()
             } else {
@@ -93,6 +96,7 @@ class UserEditFragment : Fragment() {
         }
     }
 
+    // Función usada para actualizar y validar los datos del usuario
     private fun validateFields(): Any {
         // Actualizamos los valores según los datos del formulario
         email = binding!!.etEmail.text.toString()
@@ -109,6 +113,7 @@ class UserEditFragment : Fragment() {
         return (email != "" && user != "" && fullName != "")
     }
 
+    // Función usada para actualizar un usuario
     private fun updateUser() {
         // Cambiamos la opacidad de la pantalla para que el usuario vea mejor que debe esperar
         binding!!.layout.alpha = 0.5f
@@ -120,7 +125,7 @@ class UserEditFragment : Fragment() {
         val prefs = this.requireActivity().getSharedPreferences(getString(R.string.shared_file), Context.MODE_PRIVATE)
         val token = prefs.getString("TOKEN", null)
 
-        // Llamada a la función encargada de registrar a un usuario
+        // Llamada a la función del viewmodel encargada de registrar a un usuario
         viewModel.updateUser(
             email,
             user,

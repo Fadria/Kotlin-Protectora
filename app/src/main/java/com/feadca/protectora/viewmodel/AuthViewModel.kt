@@ -34,7 +34,7 @@ class AuthViewModel(application: Application) : AndroidViewModel(application) {
     // Función para realizar la operación de Login
     fun login(email: String, pass: String) {
         CoroutineScope(Dispatchers.IO).launch {
-            val url = LOGIN_URL // Login donde realizaremos la petición
+            val url = LOGIN_URL // URL donde realizaremos la petición
             val data = prepareLoginParams(email, pass) // Datos a enviar en la petición
 
             // Convertimos nuestro mapa en un json que enviaremos en la petición
@@ -128,6 +128,7 @@ class AuthViewModel(application: Application) : AndroidViewModel(application) {
         }
     }
 
+    // Función usada para preparar los parámetros a enviar en la petición de Login
     private fun prepareLoginTokenParams(token: String): Any {
         val data =
             HashMap<String, HashMap<String, String>>() // Mapa que contendrá el cuerpo de la petición
@@ -143,6 +144,7 @@ class AuthViewModel(application: Application) : AndroidViewModel(application) {
         return data
     }
 
+    // Función usada para realizar la petición de Login mediante token
     private fun makeLoginTokenRequest(url: String, data: JSONObject) {
         // Cola con la que realizaremos la petición de Login
         val queue = Volley.newRequestQueue(context)
@@ -208,6 +210,7 @@ class AuthViewModel(application: Application) : AndroidViewModel(application) {
         makeRecoverPasswordRequest(url, jsonObject) // Realizamos la petición
     }
 
+    // Función usada para preparar los parámetros a enviar en la petición de recuperación de contraseña
     private fun prepareRecoverPasswordParams(email: String): Any {
         val data =
             HashMap<String, HashMap<String, String>>() // Mapa que contendrá el cuerpo de la petición
@@ -344,7 +347,6 @@ class AuthViewModel(application: Application) : AndroidViewModel(application) {
         // Cola con la que realizaremos la petición de Login
         val queue = Volley.newRequestQueue(context)
 
-        Log.i("aaaaa", data.toString())
         // Variable que contendrá nuestra petición
         val registerRequest: JsonObjectRequest = object : JsonObjectRequest(
             Request.Method.POST,

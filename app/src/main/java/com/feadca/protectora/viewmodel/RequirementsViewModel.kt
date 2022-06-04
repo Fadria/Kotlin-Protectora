@@ -32,7 +32,7 @@ class RequirementsViewModel(application: Application) : AndroidViewModel(applica
         }
     }
 
-    // Petición usada para obtener los requisitos
+    // Función usada para realizar la petición usada con la finalidad de obtener los requisitos
     private fun makeRequirementsRequest(url: String) {
         // Cola con la que realizaremos la petición de requisitos
         val queue = Volley.newRequestQueue(context)
@@ -79,6 +79,7 @@ class RequirementsViewModel(application: Application) : AndroidViewModel(applica
         queue.add(requirementRequest) // Añadimos la petición y la realizamos
     }
 
+    // Función usada para obtener los datos de un requisito
     fun loadRequirement(requirementId: Int) {
         CoroutineScope(Dispatchers.IO).launch {
             val url = "$REQUIREMENTS/$requirementId" // URL de donde obtendremos los datos del requisito
@@ -87,6 +88,7 @@ class RequirementsViewModel(application: Application) : AndroidViewModel(applica
         }
     }
 
+    // Función usada para realizar la petición encargada de obtener los datos de un requisito
     private fun makeRequirementRequest(url: String, requirementId: Int) {
         // Cola con la que realizaremos la petición
         val queue = Volley.newRequestQueue(context)

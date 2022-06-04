@@ -43,7 +43,7 @@ class AnimalsViewModel(application: Application) : AndroidViewModel(application)
 
     // Petición para obtener los animales
     private fun makeAnimalsRequest(url: String) {
-        // Cola con la que realizaremos la petición de animales
+        // Cola con la que realizaremos la petición
         val queue = Volley.newRequestQueue(context)
 
         // Variable que contendrá nuestra petición
@@ -56,7 +56,7 @@ class AnimalsViewModel(application: Application) : AndroidViewModel(application)
                 // Obtenemos el listado de animales
                 val articles = it.getJSONArray("data")
 
-                // Listado de entradas del blog
+                // Variable que contendrá el listado de animales adecuado a la clase Animal
                 var animalList: MutableList<Animal> = mutableListOf<Animal>()
 
                 // Bucle donde crearemos el array de animales
@@ -107,6 +107,7 @@ class AnimalsViewModel(application: Application) : AndroidViewModel(application)
         queue.add(animalsRequest) // Añadimos la petición y la realizamos
     }
 
+    // Función usada para filtrar animales
     fun filterAnimals(species: String, size: String, gender: String) {
         CoroutineScope(Dispatchers.IO).launch {
             val url = FILTER_ANIMALS // Url donde realizaremos la petición
@@ -119,7 +120,7 @@ class AnimalsViewModel(application: Application) : AndroidViewModel(application)
         }
     }
 
-    // Función con la que prepararemos los parámetros que enviaremos al Login
+    // Función con la que prepararemos los parámetros que enviaremos
     private fun prepareFilterParams(species: String, size: String, gender: String): Any {
         val data =
             HashMap<String, HashMap<String, String>>() // Mapa que contendrá el cuerpo de la petición
@@ -205,12 +206,14 @@ class AnimalsViewModel(application: Application) : AndroidViewModel(application)
         queue.add(filterRequest) // Añadimos la petición y la realizamos
     }
 
+    // Función encargada de cargar los datos de un animal
     fun loadAnimal(idAnimal: Int) {
         val url = ANIMAL_PAGE + idAnimal // URL donde realizaremos la petición
 
         makeAnimalRequest(url) // Realizamos la petición
     }
 
+    // Función usada para realizar la petición
     private fun makeAnimalRequest(url: String) {
         // Cola con la que realizaremos la petición para obtener los datos del animal
         val queue = Volley.newRequestQueue(context)
@@ -331,7 +334,7 @@ class AnimalsViewModel(application: Application) : AndroidViewModel(application)
                 }
             },
             Response.ErrorListener { error ->
-                Log.i("Error Login", error.toString())
+                Log.i("error:", error.toString())
             }
         ) {
             @Throws(AuthFailureError::class)

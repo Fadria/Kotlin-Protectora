@@ -17,7 +17,7 @@ import com.feadca.protectora.model.Animal
 import com.feadca.protectora.viewmodel.AnimalsViewModel
 import com.google.android.material.snackbar.Snackbar
 
-
+// Fragmento que contendrá el listado de animales de la protectora
 class AnimalsFragment : Fragment(R.layout.fragment_animals) {
     // Enlace con las vistas
     private var fragmentBinding: FragmentAnimalsBinding? = null
@@ -31,11 +31,6 @@ class AnimalsFragment : Fragment(R.layout.fragment_animals) {
     // Variable que contendrá nuestra lista de animales
     private val animalList = mutableListOf<Animal>()
 
-    // Variables con las que filtraremos el listado de animales
-    private lateinit var size: String
-    private lateinit var gender: String
-    private lateinit var species: String
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }
@@ -44,7 +39,7 @@ class AnimalsFragment : Fragment(R.layout.fragment_animals) {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
+        // Inflamos el layout del fragmento
         return inflater.inflate(R.layout.fragment_animals, container, false)
     }
 
@@ -71,17 +66,19 @@ class AnimalsFragment : Fragment(R.layout.fragment_animals) {
             adapter?.notifyDataSetChanged() // Notificamos de cambios para cargar de nuevo el RecyclerView
         }
 
-        // Acciones ejecutadas al filtrar animales
+        // Observador ejecutado al filtrar animales
         animalViewModel.animalFilteredListLD.observe(viewLifecycleOwner) {
             animalList.clear() // Vaciamos la lista
             animalList.addAll(it) // Añadimos todos los elementos del live data
             adapter?.notifyDataSetChanged() // Notificamos de cambios para cargar de nuevo el RecyclerView
         }
 
+        // Observador usado para mostrar un mensaje de error
         animalViewModel.errorLD.observe(viewLifecycleOwner) {
             showSnackbar(it.toString())
         }
 
+        // Acciones ejecutadas al pulsar el floating button de filtro
         binding.fabFilter.setOnClickListener {
             // Builder con el que crearemos el diálogo
             val builder: AlertDialog.Builder = AlertDialog.Builder(context)

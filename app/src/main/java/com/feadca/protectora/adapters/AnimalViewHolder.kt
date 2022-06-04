@@ -19,7 +19,7 @@ class AnimalViewHolder(view: View):RecyclerView.ViewHolder(view) {
             .error(getDrawable(itemView.context, R.drawable.logo)) // Imagen mostrada en el caso de no poder cargarla
             .into(binding.ivAnimal) // Indicamos donde serán colocadas las imágenes en la vista
 
-        // Añadimos los campos al item_blog
+        // Añadimos los campos al item_animal
         binding.tvName.text = animal.name
         binding.tvAge.text = animal.age.toString() + " años"
         binding.tvSize.text = animal.size

@@ -42,11 +42,10 @@ class GraphicsViewModel(application: Application) : AndroidViewModel(application
             url,
             null,
             Response.Listener {
-
-                // Obtenemos el listado de artículos
+                // Obtenemos el listado de gráficos
                 val graphics = it.getJSONArray("data")
 
-                // Listado de gráficos
+                // Variable usada para el listado de gráficos instanciados en objetos Graphic
                 var graphicList: MutableList<Graphic> = mutableListOf<Graphic>()
 
                 // Bucle donde crearemos el array de gráficos

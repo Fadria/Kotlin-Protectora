@@ -85,6 +85,7 @@ class RevisionsViewModel(application: Application) : AndroidViewModel(applicatio
         queue.add(revisionsRequest) // Añadimos la petición y la realizamos
     }
 
+    // Función usada para crear la revisión de un animal
     fun createRevision(id: String, observations: String, token: String?, date: String) {
         val url = REVISION_CREATE // Ruta donde realizaremos la petición
 
@@ -115,6 +116,7 @@ class RevisionsViewModel(application: Application) : AndroidViewModel(applicatio
         return data
     }
 
+    // Función encargada de realizar la petición para crear la revisión de un animal
     private fun makeCreateRevisionRequest(url: String, data: JSONObject) {
         // Cola con la que realizaremos la petición de creación de revisión
         val queue = Volley.newRequestQueue(context)

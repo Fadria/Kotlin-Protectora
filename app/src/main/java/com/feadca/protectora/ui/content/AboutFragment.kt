@@ -7,12 +7,11 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.feadca.protectora.R
 import com.feadca.protectora.databinding.FragmentAboutBinding
-import com.feadca.protectora.ui.MainActivity
 
-
+// Fragmento que contendrá información sobre la protectora
 class AboutFragment : Fragment(R.layout.fragment_about) {
     // Enlace con las vistas
-    private var fragmentAboutBinding: FragmentAboutBinding? = null
+    private var binding: FragmentAboutBinding? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,7 +22,7 @@ class AboutFragment : Fragment(R.layout.fragment_about) {
         savedInstanceState: Bundle?
     ): View? {
 
-        // Inflamos el layout del fragmento about
+        // Inflamos el layout del fragmento
         return inflater.inflate(R.layout.fragment_about, container, false)
     }
 
@@ -31,13 +30,12 @@ class AboutFragment : Fragment(R.layout.fragment_about) {
         super.onViewCreated(view, savedInstanceState)
 
         // Actualizamos la vinculación a la vista
-        val binding = FragmentAboutBinding.bind(view)
-        fragmentAboutBinding = binding
+        binding = FragmentAboutBinding.bind(view)
     }
 
     // Operaciones realizadas al finalizar la vista
     override fun onDestroyView() {
-        fragmentAboutBinding = null
+        binding = null
         super.onDestroyView()
     }
 }

@@ -27,6 +27,7 @@ class UserViewModel (application: Application) : AndroidViewModel(application) {
     val updateLD: MutableLiveData<String?> = MutableLiveData()
     val errorLD: MutableLiveData<String?> = MutableLiveData()
 
+    // Función encargada de obtener los datos del usuario mostrados en "Mi Perfil"
     fun loadUserProfile(token: String?) {
         CoroutineScope(Dispatchers.IO).launch {
             val url = USER_DATA // URL de donde obtendremos los datos del usuario
@@ -56,6 +57,7 @@ class UserViewModel (application: Application) : AndroidViewModel(application) {
         return data
     }
 
+    // Función usada para realizar la petición
     private fun makeUserProfileRequest(url: String, data: JSONObject) {
         // Cola con la que realizaremos la petición
         val queue = Volley.newRequestQueue(context)
@@ -111,6 +113,7 @@ class UserViewModel (application: Application) : AndroidViewModel(application) {
         queue.add(request) // Añadimos la petición y la realizamos
     }
 
+    // Función encargada de actualizar los datos del usuario
     fun updateUser(
         email: String,
         user: String,
@@ -149,6 +152,7 @@ class UserViewModel (application: Application) : AndroidViewModel(application) {
         }
     }
 
+    // Función encargada de preparar los parámetros a enviar para la actualización de datos del usuario
     private fun prepareUpdateUserParams(
         email: String,
         user: String,
@@ -187,6 +191,7 @@ class UserViewModel (application: Application) : AndroidViewModel(application) {
         return data
     }
 
+    // Función encargada de realizar la petición para actualizar los datos del usuario
     private fun makeUpdateUserRequest(url: String, data: JSONObject) {
         // Cola con la que realizaremos la petición de Login
         val queue = Volley.newRequestQueue(context)

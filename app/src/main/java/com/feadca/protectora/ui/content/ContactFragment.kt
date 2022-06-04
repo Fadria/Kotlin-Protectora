@@ -21,6 +21,7 @@ import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
 import com.google.android.material.snackbar.Snackbar
 
+// Fragmento que contendrá el formulario de contacto y el mapa con la localización de la protectora
 class ContactFragment : Fragment() {
     // Enlace con las vistas
     private var fragmentContactBinding: FragmentContactBinding? = null
@@ -28,6 +29,7 @@ class ContactFragment : Fragment() {
     // Variable que contiene la referencia al ViewModel
     private lateinit var mailingViewModel: MailingViewModel
 
+    // Variable que contendrá el mapa con la localización de la protectora
     private val callback = OnMapReadyCallback { googleMap ->
         // Mostramos la localización de la protectora
         val startLocation = LatLng(39.432236, -0.472373)
@@ -41,11 +43,13 @@ class ContactFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        // Inflamos el layout del fragmento
         return inflater.inflate(R.layout.fragment_contact, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
         val mapFragment = childFragmentManager.findFragmentById(R.id.map) as SupportMapFragment?
         mapFragment?.getMapAsync(callback)
 
@@ -73,7 +77,7 @@ class ContactFragment : Fragment() {
             requireContext()!!.hideKeyboard() // Ocultamos el teclado
         }
 
-        // Acciones ejecutadas al detectar una actualización en el LiveData contactLD
+        // Observador ejecutado al detectar una actualización en el LiveData contactLD
         mailingViewModel.contactLD.observe(viewLifecycleOwner) {
             showSnackbar(it!!)
 

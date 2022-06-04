@@ -20,13 +20,13 @@ import com.google.android.material.snackbar.Snackbar
 import java.text.SimpleDateFormat
 import java.util.*
 
+// Fragmento usado para crear una revisión
 class CreateRevisionFragment : Fragment(R.layout.fragment_create_revision) {
     // Enlace con las vistas
     private var fragmentBinding: FragmentCreateRevisionBinding? = null
 
     // Variable que contiene la referencia al ViewModel
     private lateinit var revisionsViewModel: RevisionsViewModel
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,7 +36,7 @@ class CreateRevisionFragment : Fragment(R.layout.fragment_create_revision) {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
+        // Inflamos el layout del fragmento
         return inflater.inflate(R.layout.fragment_create_revision, container, false)
     }
 
@@ -80,6 +80,7 @@ class CreateRevisionFragment : Fragment(R.layout.fragment_create_revision) {
             requireContext()!!.hideKeyboard() // Ocultamos el teclado
         }
 
+        // Observador ejecutado al obtener la respuesta al request de crear una revisión
         revisionsViewModel.createRevisionLD.observe(viewLifecycleOwner) {
             showSnackbar(it!!)
 
@@ -93,10 +94,11 @@ class CreateRevisionFragment : Fragment(R.layout.fragment_create_revision) {
         }
     }
 
+    // Función usada para elegir la fecha de la revisión
     private fun chooseDate() {
         // Inicializamos el datePicker y lo buildeamos
         val datePicker = MaterialDatePicker.Builder.datePicker()
-            .setTitleText("Seleccione su fecha de nacimiento")
+            .setTitleText("Seleccione la fecha de la revisión")
             .build()
 
         // Mostramos el datePicker

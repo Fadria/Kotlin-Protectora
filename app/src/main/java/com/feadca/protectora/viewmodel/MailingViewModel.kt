@@ -105,6 +105,7 @@ class MailingViewModel(application: Application) : AndroidViewModel(application)
         queue.add(contactRequest) // Añadimos la petición y la realizamos
     }
 
+    // Función usada para solicitar voluntariado
     fun sendVolunteerMail(email: String) {
         CoroutineScope(Dispatchers.IO).launch {
             val url = BECOME_VOLUNTEER // Ruta donde realizaremos la petición
@@ -118,6 +119,7 @@ class MailingViewModel(application: Application) : AndroidViewModel(application)
 
     }
 
+    // Función usada para indicar los parámetros a enviar en la petición de voluntariado
     private fun prepareVolunteerParams(email: String): Any {
         val data =
             HashMap<String, HashMap<String, String>>() // Mapa que contendrá el cuerpo de la petición
@@ -133,6 +135,7 @@ class MailingViewModel(application: Application) : AndroidViewModel(application)
         return data
     }
 
+    // Función usada para enviar la petición de voluntariado
     private fun makeVolunteerRequest(url: String, data: JSONObject) {
         // Cola con la que realizaremos la petición de contacto
         val queue = Volley.newRequestQueue(context)

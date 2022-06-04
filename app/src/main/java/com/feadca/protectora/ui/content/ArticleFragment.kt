@@ -14,6 +14,7 @@ import com.feadca.protectora.databinding.FragmentBlogBinding
 import com.feadca.protectora.model.BlogEntry
 import com.feadca.protectora.viewmodel.BlogViewModel
 
+// Fragmento que contendrá un artículo del blog
 class ArticleFragment : Fragment(R.layout.fragment_article) {
     // Variable que contendrá la id del artículo, se aplica el valor 0 para definir la variable
     var articleId: Int = 0
@@ -24,9 +25,6 @@ class ArticleFragment : Fragment(R.layout.fragment_article) {
     // Variable que contiene la referencia al ViewModel
     private lateinit var blogViewModel: BlogViewModel
 
-    // Variable con los datos del artículo
-    private lateinit var article:BlogEntry
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }
@@ -35,7 +33,7 @@ class ArticleFragment : Fragment(R.layout.fragment_article) {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
+        // Inflamos el layout del fragmento
         return inflater.inflate(R.layout.fragment_article, container, false)
     }
 
@@ -75,7 +73,6 @@ class ArticleFragment : Fragment(R.layout.fragment_article) {
                 .placeholder(AppCompatResources.getDrawable(requireContext(), R.drawable.loading)) // Imagen mostrada durante la carga
                 .error(AppCompatResources.getDrawable(requireContext(), R.drawable.logo)) // Imagen mostrada en el caso de no poder cargarla
                 .into(binding.iwImage2) // Indicamos donde serán colocadas las imágenes en la vista
-
         }
     }
 }

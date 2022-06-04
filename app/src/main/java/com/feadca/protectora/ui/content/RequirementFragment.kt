@@ -13,6 +13,7 @@ import com.feadca.protectora.databinding.FragmentRequirementBinding
 import com.feadca.protectora.model.Requirement
 import com.feadca.protectora.viewmodel.RequirementsViewModel
 
+// Fragmento que contendrá los datos de un requisito previo a una adopción
 class RequirementFragment : Fragment(R.layout.fragment_requirement) {
     // Variable que contendrá la id del requisito, se aplica el valor 0 para definir la variable
     var requirementId: Int = 0
@@ -34,7 +35,7 @@ class RequirementFragment : Fragment(R.layout.fragment_requirement) {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
+        // Inflamos el layout del fragmento
         return inflater.inflate(R.layout.fragment_requirement, container, false)
     }
 

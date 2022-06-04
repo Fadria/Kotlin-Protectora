@@ -16,7 +16,7 @@ import com.feadca.protectora.databinding.FragmentAnimalBinding
 import com.feadca.protectora.viewmodel.AnimalsViewModel
 import com.google.android.material.snackbar.Snackbar
 
-
+// Fragmento que contendrá información sobre un animal en concreto
 class AnimalFragment : Fragment(com.feadca.protectora.R.layout.fragment_animal) {
     // Variable que contendrá la id del animal
     var idAnimal: Int = 0
@@ -35,7 +35,7 @@ class AnimalFragment : Fragment(com.feadca.protectora.R.layout.fragment_animal) 
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
+        // Inflamos el layout del fragmento
         return inflater.inflate(com.feadca.protectora.R.layout.fragment_animal, container, false)
     }
 
@@ -69,6 +69,7 @@ class AnimalFragment : Fragment(com.feadca.protectora.R.layout.fragment_animal) 
                     false
                 )
 
+            // Variable con el enlace al input del email
             val input =
                 viewInflated.findViewById<View>(com.feadca.protectora.R.id.etInfoEmail) as EditText
 
@@ -77,6 +78,8 @@ class AnimalFragment : Fragment(com.feadca.protectora.R.layout.fragment_animal) 
                 getString(com.feadca.protectora.R.string.solicitar)
             ) { dialog, which ->
 
+                // Si los datos han sido rellenados correctamente llamaremos a la función del viewmode
+                // encargada de enviar el email de contacto
                 if (input.text.toString() != "") {
                     // Llamamos a la función encargada de solicitar información sobre el animal
                     animalViewModel.requestInfo(

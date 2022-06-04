@@ -15,14 +15,13 @@ import com.feadca.protectora.databinding.FragmentContactBinding
 import com.feadca.protectora.viewmodel.MailingViewModel
 import com.google.android.material.snackbar.Snackbar
 
+// Fragmento que contendrá el formulario para convertirse en voluntario
 class BecomeVolunteerFragment : Fragment() {
-
     // Enlace con las vistas
     private var binding: FragmentBecomeVolunteerBinding? = null
 
     // Variable que contiene la referencia al ViewModel
     private lateinit var mailingViewModel: MailingViewModel
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,7 +31,7 @@ class BecomeVolunteerFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
+        // Inflamos el layout del fragmento
         return inflater.inflate(R.layout.fragment_become_volunteer, container, false)
     }
 
@@ -45,6 +44,7 @@ class BecomeVolunteerFragment : Fragment() {
         // Indicamos el fichero que contiene el ViewModel
         mailingViewModel = ViewModelProvider(this)[MailingViewModel::class.java]
 
+        // Listener usado al pulsar el botón para enviar el email
         binding!!.btnSendMail.setOnClickListener {
             // Llamamos a la función encargada de enviar el mail del voluntario
             mailingViewModel.sendVolunteerMail(binding!!.etEmail.text.toString())

@@ -31,7 +31,7 @@ class BlogViewModel(application: Application) : AndroidViewModel(application) {
         }
     }
 
-    // Petición para obtener los artículos del Blog
+    // Funciónn usada para realizar la petición encargada de obtener los artículos del Blog
     private fun makeArticlesRequest(url: String) {
         // Cola con la que realizaremos la petición de gráficos
         val queue = Volley.newRequestQueue(context)
@@ -78,6 +78,7 @@ class BlogViewModel(application: Application) : AndroidViewModel(application) {
         queue.add(articlesRequest) // Añadimos la petición y la realizamos
     }
 
+    // Función encargada de recibir los datos de un artículo
     fun loadArticle(articleId: Int) {
         CoroutineScope(Dispatchers.IO).launch {
             val url = "$BLOG_ENTRIES/$articleId" // URL de donde obtendremos las noticias y artículos del blog
@@ -86,8 +87,9 @@ class BlogViewModel(application: Application) : AndroidViewModel(application) {
         }
     }
 
+    // Función encargada de realizar la petición para obtener los datos de un artículo
     private fun makeArticleRequest(url: String, articleId: Int) {
-        // Cola con la que realizaremos la petición de Login
+        // Cola con la que realizaremos la petición
         val queue = Volley.newRequestQueue(context)
 
         // Variable que contendrá nuestra petición

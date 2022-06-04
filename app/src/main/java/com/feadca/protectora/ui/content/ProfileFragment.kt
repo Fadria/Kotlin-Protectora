@@ -17,11 +17,13 @@ import com.feadca.protectora.ui.MainActivity
 import com.feadca.protectora.viewmodel.UserViewModel
 import com.google.android.material.snackbar.Snackbar
 
+// Fragmento usado para el perfil del usuario
 class ProfileFragment : Fragment() {
 
     // Variable que contiene la referencia al ViewModel
     private lateinit var viewModel: UserViewModel
 
+    // Variable que contendrá los datos del usuario
     private lateinit var userData: User
 
     // Enlace con las vistas
@@ -89,6 +91,7 @@ class ProfileFragment : Fragment() {
             showSnackbar(it!!)
         }
 
+        // Acciones ejecutadas al pulsar el botón de edición
         fragmentBinding!!.btnEdit.setOnClickListener {
             (activity as MainActivity?)!!.navigateToEditUser(userData)
         }

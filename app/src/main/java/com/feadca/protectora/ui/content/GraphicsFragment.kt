@@ -13,6 +13,7 @@ import com.feadca.protectora.databinding.FragmentGraphicsBinding
 import com.feadca.protectora.model.Graphic
 import com.feadca.protectora.viewmodel.GraphicsViewModel
 
+// Fragmento que contendrá el listado de gráficos
 class GraphicsFragment : Fragment(R.layout.fragment_graphics) {
     // Enlace con las vistas
     private var fragmentGraphicsBinding: FragmentGraphicsBinding? = null
@@ -34,7 +35,7 @@ class GraphicsFragment : Fragment(R.layout.fragment_graphics) {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
+        // Inflamos el layout del fragmento
         return inflater.inflate(R.layout.fragment_graphics, container, false)
     }
 
@@ -65,7 +66,8 @@ class GraphicsFragment : Fragment(R.layout.fragment_graphics) {
     // Función encargada de inicializar nuestro RecyclerView
     private fun initRecyclerView() {
         adapter = GraphicAdapter(graphicList)
-        fragmentGraphicsBinding!!.rvGraphics.layoutManager = LinearLayoutManager(requireActivity().applicationContext)
+        fragmentGraphicsBinding!!.rvGraphics.layoutManager =
+            LinearLayoutManager(requireActivity().applicationContext)
         fragmentGraphicsBinding!!.rvGraphics.adapter = adapter
     }
 }
