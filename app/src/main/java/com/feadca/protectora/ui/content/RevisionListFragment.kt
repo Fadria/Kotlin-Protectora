@@ -17,6 +17,13 @@ import com.feadca.protectora.databinding.FragmentRevisionListBinding
 import com.feadca.protectora.model.BlogEntry
 import com.feadca.protectora.model.Revision
 
+/**
+ * @Author: Federico Adrià Carrasco
+ * @Date: 04/06/2022
+ * @Email: fadriacarrasco@gmail.com
+ *
+ */
+
 // Fragmento que contendrá el listado de revisiones de un animal
 class RevisionListFragment : Fragment(R.layout.fragment_revision_list) {
     // Enlace con las vistas

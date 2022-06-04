@@ -11,6 +11,13 @@ import com.feadca.protectora.ui.MainActivity
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.snackbar.Snackbar
 
+/**
+ * @Author: Federico Adrià Carrasco
+ * @Date: 04/06/2022
+ * @Email: fadriacarrasco@gmail.com
+ *
+ */
+
 // Fragmento que contendrá los elementos relacionados con las donaciones
 class DonationsFragment : Fragment() {
     // Enlace con las vistas

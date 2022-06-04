@@ -7,6 +7,13 @@ import com.feadca.protectora.R
 import com.feadca.protectora.model.Requirement
 import com.feadca.protectora.ui.MainActivity
 
+/**
+ * @Author: Federico Adrià Carrasco
+ * @Date: 04/06/2022
+ * @Email: fadriacarrasco@gmail.com
+ *
+ */
+
 class RequirementAdapter(private val requirements: List<Requirement>): RecyclerView.Adapter<RequirementViewHolder>() {
 
     // Función para inflar nuestro ViewHolder

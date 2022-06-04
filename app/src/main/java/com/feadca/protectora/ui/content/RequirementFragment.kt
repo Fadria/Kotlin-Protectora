@@ -13,6 +13,13 @@ import com.feadca.protectora.databinding.FragmentRequirementBinding
 import com.feadca.protectora.model.Requirement
 import com.feadca.protectora.viewmodel.RequirementsViewModel
 
+/**
+ * @Author: Federico Adrià Carrasco
+ * @Date: 04/06/2022
+ * @Email: fadriacarrasco@gmail.com
+ *
+ */
+
 // Fragmento que contendrá los datos de un requisito previo a una adopción
 class RequirementFragment : Fragment(R.layout.fragment_requirement) {
     // Variable que contendrá la id del requisito, se aplica el valor 0 para definir la variable

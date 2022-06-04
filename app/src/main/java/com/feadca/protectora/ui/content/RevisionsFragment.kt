@@ -20,6 +20,13 @@ import com.feadca.protectora.viewmodel.BlogViewModel
 import com.feadca.protectora.viewmodel.RevisionsViewModel
 import com.google.android.material.snackbar.Snackbar
 
+/**
+ * @Author: Federico Adrià Carrasco
+ * @Date: 04/06/2022
+ * @Email: fadriacarrasco@gmail.com
+ *
+ */
+
 // Fragmento con un formulario para buscar las revisiones de un animal
 class RevisionsFragment : Fragment(R.layout.fragment_revisions) {
     // Enlace con las vistas

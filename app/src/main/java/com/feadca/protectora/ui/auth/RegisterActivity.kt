@@ -15,6 +15,13 @@ import com.google.android.material.snackbar.Snackbar
 import java.text.SimpleDateFormat
 import java.util.*
 
+/**
+ * @Author: Federico Adrià Carrasco
+ * @Date: 04/06/2022
+ * @Email: fadriacarrasco@gmail.com
+ *
+ */
+
 class RegisterActivity : AppCompatActivity() {
     // Enlace con las vistas
     lateinit var binding: ActivityRegisterBinding

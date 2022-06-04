@@ -10,6 +10,13 @@ import com.feadca.protectora.databinding.ItemRequirementBinding
 import com.feadca.protectora.model.BlogEntry
 import com.feadca.protectora.model.Requirement
 
+/**
+ * @Author: Federico Adrià Carrasco
+ * @Date: 04/06/2022
+ * @Email: fadriacarrasco@gmail.com
+ *
+ */
+
 class RequirementViewHolder(view: View):RecyclerView.ViewHolder(view) {
     private val binding = ItemRequirementBinding.bind(view) // Referencia a la vista
 

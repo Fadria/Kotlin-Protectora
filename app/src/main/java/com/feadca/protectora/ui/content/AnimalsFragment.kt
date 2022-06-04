@@ -17,6 +17,13 @@ import com.feadca.protectora.model.Animal
 import com.feadca.protectora.viewmodel.AnimalsViewModel
 import com.google.android.material.snackbar.Snackbar
 
+/**
+ * @Author: Federico Adrià Carrasco
+ * @Date: 04/06/2022
+ * @Email: fadriacarrasco@gmail.com
+ *
+ */
+
 // Fragmento que contendrá el listado de animales de la protectora
 class AnimalsFragment : Fragment(R.layout.fragment_animals) {
     // Enlace con las vistas

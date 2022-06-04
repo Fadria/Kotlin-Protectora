@@ -8,6 +8,13 @@ import androidx.fragment.app.Fragment
 import com.feadca.protectora.R
 import com.feadca.protectora.databinding.FragmentAboutBinding
 
+/**
+ * @Author: Federico Adrià Carrasco
+ * @Date: 04/06/2022
+ * @Email: fadriacarrasco@gmail.com
+ *
+ */
+
 // Fragmento que contendrá información sobre la protectora
 class AboutFragment : Fragment(R.layout.fragment_about) {
     // Enlace con las vistas

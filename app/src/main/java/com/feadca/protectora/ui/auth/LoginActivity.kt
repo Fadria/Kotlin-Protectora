@@ -15,6 +15,13 @@ import com.feadca.protectora.ui.MainActivity
 import com.feadca.protectora.viewmodel.AuthViewModel
 import com.google.android.material.snackbar.Snackbar
 
+/**
+ * @Author: Federico Adrià Carrasco
+ * @Date: 04/06/2022
+ * @Email: fadriacarrasco@gmail.com
+ *
+ */
+
 class LoginActivity : AppCompatActivity() {
     // Enlace con las vistas
     lateinit var binding: ActivityLoginBinding

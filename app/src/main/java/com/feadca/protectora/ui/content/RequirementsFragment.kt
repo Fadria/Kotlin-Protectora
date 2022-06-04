@@ -16,6 +16,13 @@ import com.feadca.protectora.model.Requirement
 import com.feadca.protectora.viewmodel.BlogViewModel
 import com.feadca.protectora.viewmodel.RequirementsViewModel
 
+/**
+ * @Author: Federico Adrià Carrasco
+ * @Date: 04/06/2022
+ * @Email: fadriacarrasco@gmail.com
+ *
+ */
+
 // Fragmento que contendrá el listado de requisitos previos a una adopción
 class RequirementsFragment : Fragment(R.layout.fragment_requirements) {
     // Enlace con las vistas

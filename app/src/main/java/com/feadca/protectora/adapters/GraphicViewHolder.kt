@@ -8,6 +8,13 @@ import com.feadca.protectora.R
 import com.feadca.protectora.databinding.ItemGraphicBinding
 import com.feadca.protectora.model.Graphic
 
+/**
+ * @Author: Federico Adrià Carrasco
+ * @Date: 04/06/2022
+ * @Email: fadriacarrasco@gmail.com
+ *
+ */
+
 class GraphicViewHolder(view: View): RecyclerView.ViewHolder(view) {
     private val binding = ItemGraphicBinding.bind(view) // Referencia a la vista
 

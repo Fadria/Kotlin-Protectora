@@ -8,6 +8,13 @@ import com.feadca.protectora.R
 import com.feadca.protectora.databinding.ItemBlogBinding
 import com.feadca.protectora.model.BlogEntry
 
+/**
+ * @Author: Federico Adrià Carrasco
+ * @Date: 04/06/2022
+ * @Email: fadriacarrasco@gmail.com
+ *
+ */
+
 class BlogEntryViewHolder(view: View):RecyclerView.ViewHolder(view) {
     private val binding = ItemBlogBinding.bind(view) // Referencia a la vista
 

@@ -16,6 +16,13 @@ import com.feadca.protectora.databinding.FragmentAnimalBinding
 import com.feadca.protectora.viewmodel.AnimalsViewModel
 import com.google.android.material.snackbar.Snackbar
 
+/**
+ * @Author: Federico Adrià Carrasco
+ * @Date: 04/06/2022
+ * @Email: fadriacarrasco@gmail.com
+ *
+ */
+
 // Fragmento que contendrá información sobre un animal en concreto
 class AnimalFragment : Fragment(com.feadca.protectora.R.layout.fragment_animal) {
     // Variable que contendrá la id del animal

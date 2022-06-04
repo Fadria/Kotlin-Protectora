@@ -5,6 +5,13 @@ import androidx.recyclerview.widget.RecyclerView
 import com.feadca.protectora.databinding.ItemRevisionBinding
 import com.feadca.protectora.model.Revision
 
+/**
+ * @Author: Federico Adrià Carrasco
+ * @Date: 04/06/2022
+ * @Email: fadriacarrasco@gmail.com
+ *
+ */
+
 class RevisionViewHolder(view: View) : RecyclerView.ViewHolder(view) {
     private val binding = ItemRevisionBinding.bind(view) // Referencia a la vista
 

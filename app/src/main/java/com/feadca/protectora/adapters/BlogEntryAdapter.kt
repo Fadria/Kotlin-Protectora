@@ -9,6 +9,12 @@ import com.feadca.protectora.model.BlogEntry
 import com.feadca.protectora.ui.MainActivity
 import com.feadca.protectora.ui.content.ProfileFragment
 
+/**
+ * @Author: Federico Adrià Carrasco
+ * @Date: 04/06/2022
+ * @Email: fadriacarrasco@gmail.com
+ *
+ */
 
 class BlogEntryAdapter(private val blogEntries: List<BlogEntry>): RecyclerView.Adapter<BlogEntryViewHolder>() {
 

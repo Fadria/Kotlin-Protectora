@@ -15,6 +15,13 @@ import com.feadca.protectora.databinding.FragmentContactBinding
 import com.feadca.protectora.viewmodel.MailingViewModel
 import com.google.android.material.snackbar.Snackbar
 
+/**
+ * @Author: Federico Adrià Carrasco
+ * @Date: 04/06/2022
+ * @Email: fadriacarrasco@gmail.com
+ *
+ */
+
 // Fragmento que contendrá el formulario para convertirse en voluntario
 class BecomeVolunteerFragment : Fragment() {
     // Enlace con las vistas

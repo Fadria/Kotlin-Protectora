@@ -13,6 +13,13 @@ import com.feadca.protectora.databinding.FragmentBlogBinding
 import com.feadca.protectora.model.BlogEntry
 import com.feadca.protectora.viewmodel.BlogViewModel
 
+/**
+ * @Author: Federico Adrià Carrasco
+ * @Date: 04/06/2022
+ * @Email: fadriacarrasco@gmail.com
+ *
+ */
+
 // Fragmento que contendrá el listado de artículos del blog
 class BlogFragment : Fragment(R.layout.fragment_blog) {
     // Enlace con las vistas

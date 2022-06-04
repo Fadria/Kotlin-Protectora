@@ -12,6 +12,13 @@ import android.widget.TextView
 import com.feadca.protectora.R
 import com.feadca.protectora.ui.auth.LoginActivity
 
+/**
+ * @Author: Federico Adrià Carrasco
+ * @Date: 04/06/2022
+ * @Email: fadriacarrasco@gmail.com
+ *
+ */
+
 class SplashScreenActivity : AppCompatActivity() {
 
     // Variable usada para indicar el tiempo que nos mantendremos en la splash screen

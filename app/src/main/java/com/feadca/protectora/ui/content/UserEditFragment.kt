@@ -15,6 +15,13 @@ import com.feadca.protectora.model.User
 import com.feadca.protectora.viewmodel.UserViewModel
 import com.google.android.material.snackbar.Snackbar
 
+/**
+ * @Author: Federico Adrià Carrasco
+ * @Date: 04/06/2022
+ * @Email: fadriacarrasco@gmail.com
+ *
+ */
+
 // Fragmento usado para editar los datos del usuario
 class UserEditFragment : Fragment() {
 

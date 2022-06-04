@@ -20,6 +20,13 @@ import com.google.android.material.snackbar.Snackbar
 import java.text.SimpleDateFormat
 import java.util.*
 
+/**
+ * @Author: Federico Adrià Carrasco
+ * @Date: 04/06/2022
+ * @Email: fadriacarrasco@gmail.com
+ *
+ */
+
 // Fragmento usado para crear una revisión
 class CreateRevisionFragment : Fragment(R.layout.fragment_create_revision) {
     // Enlace con las vistas

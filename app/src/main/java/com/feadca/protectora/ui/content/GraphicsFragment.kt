@@ -13,6 +13,13 @@ import com.feadca.protectora.databinding.FragmentGraphicsBinding
 import com.feadca.protectora.model.Graphic
 import com.feadca.protectora.viewmodel.GraphicsViewModel
 
+/**
+ * @Author: Federico Adrià Carrasco
+ * @Date: 04/06/2022
+ * @Email: fadriacarrasco@gmail.com
+ *
+ */
+
 // Fragmento que contendrá el listado de gráficos
 class GraphicsFragment : Fragment(R.layout.fragment_graphics) {
     // Enlace con las vistas

@@ -14,6 +14,13 @@ import com.feadca.protectora.databinding.FragmentBlogBinding
 import com.feadca.protectora.model.BlogEntry
 import com.feadca.protectora.viewmodel.BlogViewModel
 
+/**
+ * @Author: Federico Adrià Carrasco
+ * @Date: 04/06/2022
+ * @Email: fadriacarrasco@gmail.com
+ *
+ */
+
 // Fragmento que contendrá un artículo del blog
 class ArticleFragment : Fragment(R.layout.fragment_article) {
     // Variable que contendrá la id del artículo, se aplica el valor 0 para definir la variable

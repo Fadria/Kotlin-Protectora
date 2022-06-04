@@ -29,6 +29,12 @@ import org.json.JSONObject
 import org.w3c.dom.Text
 import java.math.BigDecimal
 
+/**
+ * @Author: Federico Adrià Carrasco
+ * @Date: 04/06/2022
+ * @Email: fadriacarrasco@gmail.com
+ *
+ */
 
 class MainActivity : AppCompatActivity() {
     // Enlace con las vistas
