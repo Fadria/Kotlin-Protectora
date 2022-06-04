@@ -36,7 +36,7 @@ class RevisionListFragment : Fragment(R.layout.fragment_revision_list) {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
+        // Inflamos el layout del fragmento
         return inflater.inflate(R.layout.fragment_revision_list, container, false)
     }
 

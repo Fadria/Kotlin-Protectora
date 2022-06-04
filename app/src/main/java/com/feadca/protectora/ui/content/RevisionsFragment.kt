@@ -28,8 +28,8 @@ class RevisionsFragment : Fragment(R.layout.fragment_revisions) {
     // Variable que contiene la referencia al ViewModel
     private lateinit var revisionsViewModel: RevisionsViewModel
 
-    // Variable que contendrá nuestra lista de revisiones
-    private val revisionsList = mutableListOf<Revision>()
+    // Variable usada para comprobar si el usuario desea navegar cuando el LiveData cambia de valor
+    private var navigate = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -39,6 +39,7 @@ class RevisionsFragment : Fragment(R.layout.fragment_revisions) {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        Log.i("aaaaa", "Pantalla 1")
         // Inflamos el layout del fragmento
         return inflater.inflate(R.layout.fragment_revisions, container, false)
     }
@@ -58,6 +59,8 @@ class RevisionsFragment : Fragment(R.layout.fragment_revisions) {
             if (binding.etAnimalId.text.toString() != "") {
                 // Llamamos a la función del viewmodel encargada de obtener los artículos del blog
                 revisionsViewModel.getRevisions(binding.etAnimalId.text.toString().toInt())
+
+                navigate = true // Se ha pulsado el botón, por lo que se navegará una vez actualizado el LiveData
             } else {
                 showSnackbar("Por favor, indique la ID del animal")
             }
@@ -68,8 +71,13 @@ class RevisionsFragment : Fragment(R.layout.fragment_revisions) {
             // Vaciamos el input, cerramos el teclado y navegamos al listado de revisiones
             binding.etAnimalId.text.clear()
 
-            // Llamamos a la función encargada de cargar el fragmento de la lista de revisiones
-            (activity as MainActivity?)!!.navigateToRevisionList(it)
+            // Si la variable navegar es true, cargaremos los datos del fragmento
+            // Esto se hace debido a que al retroceder el viewmodel detecta cambios automáticamente y navegaría de nuevo
+            if (navigate) {
+                // Llamamos a la función encargada de cargar el fragmento de la lista de revisiones
+                (activity as MainActivity?)!!.navigateToRevisionList(it)
+                navigate = false
+            }
         }
 
         // Observador usado para vigilar errores
