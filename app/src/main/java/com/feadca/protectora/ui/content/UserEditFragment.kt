@@ -13,7 +13,10 @@ import com.feadca.protectora.R
 import com.feadca.protectora.databinding.FragmentUserEditBinding
 import com.feadca.protectora.model.User
 import com.feadca.protectora.viewmodel.UserViewModel
+import com.google.android.material.datepicker.MaterialDatePicker
 import com.google.android.material.snackbar.Snackbar
+import java.text.SimpleDateFormat
+import java.util.*
 
 /**
  * @Author: Federico Adrià Carrasco
@@ -82,6 +85,12 @@ class UserEditFragment : Fragment() {
                 showSnackbar("Por favor, rellene los campos obligatorios")
             }
         }
+
+        // Listener para elegir la fecha de nacimiento
+        binding!!.etBirthDate.setOnClickListener {
+            chooseBirthDate()
+        }
+
 
         // Observamos el LD de la actualización para informar del resultado de la operación
         viewModel.updateLD.observe(viewLifecycleOwner) {
@@ -177,4 +186,24 @@ class UserEditFragment : Fragment() {
         inputMethodManager.hideSoftInputFromWindow((requireActivity().getWindow().getCurrentFocus())?.windowToken, 0)
     }
 
+    // Función que nos permitirá elegir la fecha de nacimiento
+    private fun chooseBirthDate() {
+        // Inicializamos el datePicker y lo buildeamos
+        val datePicker = MaterialDatePicker.Builder.datePicker()
+            .setTitleText("Seleccione su fecha de nacimiento")
+            .build()
+
+        // Mostramos el datePicker
+        datePicker.show(parentFragmentManager, "DatePicker")
+
+        // Evento que será ejecutado cuando el usuario confirme la fecha
+        datePicker.addOnPositiveButtonClickListener {
+            // Formateamos la fecha al formato usado en la base de datos
+            val dateFormatter = SimpleDateFormat("yyyy-MM-dd")
+
+            // Actualizamos el valor de nuestra variable
+            birthDate = dateFormatter.format(Date(it))
+            binding!!.etBirthDate.setText(birthDate)
+        }
+    }
 }

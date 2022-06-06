@@ -114,6 +114,8 @@ class MainActivity : AppCompatActivity() {
 
         if( intent.getStringExtra("ROLE") == "adoptante") {
             val menu = navView.menu
+            menu.findItem(R.id.revisionsFragment).isVisible = false
+            menu.findItem(R.id.createRevisionFragment).isVisible = false
             menu.findItem(R.id.profileFragment).isVisible = true
 
             // Añadimos la imagen del rol
